@@ -13,6 +13,8 @@ public class Biglietto {
     private String puntoEmissione;
     private boolean vidimato;
     private LocalDate dataVidimazione;
+
+    // MANY TO ONE RIVENDITORE
     @ManyToOne
     @JoinColumn (name = "Rivenditore_id")
     private Rivenditore rivenditore;
