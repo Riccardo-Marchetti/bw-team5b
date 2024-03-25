@@ -8,9 +8,9 @@ public class Tessera {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @JoinColumn(name = "data_emissione")
+    @Column(name = "data_emissione")
     private LocalDate dataEmissione;
-    @JoinColumn(name = "data_scadenza")
+    @Column(name = "data_scadenza")
     private LocalDate dataScadenza;
     @OneToOne
     @JoinColumn(name = "utente_id")

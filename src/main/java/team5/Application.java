@@ -12,5 +12,8 @@ public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestionetrasporti");
     public static void main(String[] args) {
 
+
+
+
     }
 }
