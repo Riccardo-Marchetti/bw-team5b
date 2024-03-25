@@ -1,6 +1,7 @@
 package team5.entities;
 
 import jakarta.persistence.*;
+import team5.enums.StatoDeiMezzi;
 import team5.enums.TipoMezzo;
 
 @Entity
@@ -11,12 +12,15 @@ public class Mezzo {
     private Long id;
     @Enumerated(EnumType.STRING)
     private TipoMezzo tipo;
+    @Enumerated(EnumType.STRING)
+    private StatoDeiMezzi stato;
     private int capienza;
 
     public Mezzo() {}
 
-    public Mezzo(TipoMezzo tipo, int capienza) {
+    public Mezzo(TipoMezzo tipo, StatoDeiMezzi stato, int capienza) {
         this.tipo = tipo;
+        this.stato = stato;
         this.capienza = capienza;
     }
 
@@ -33,6 +37,14 @@ public class Mezzo {
         this.tipo = tipo;
     }
 
+    public StatoDeiMezzi getStato() {
+        return stato;
+    }
+
+    public void setStato(StatoDeiMezzi stato) {
+        this.stato = stato;
+    }
+
     public int getCapienza() {
         return capienza;
     }
@@ -46,6 +58,7 @@ public class Mezzo {
         return "Mezzo{" +
                 "id=" + id +
                 ", tipo=" + tipo +
+                ", stato=" + stato +
                 ", capienza=" + capienza +
                 '}';
     }

@@ -13,6 +13,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/team5/entities/StatoMezzo.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/team5/enums/StatoDeiMezzi.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/team5/enums/TipoMezzo.java" afterDir="false" />
+    <list default="true" id="aeec3f17-4f67-4ce8-862b-a6725678abee" name="Changes" comment="classi Mezzo e StatoMezzo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Mezzo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Mezzo.java" afterDir="false" />
     </list>
@@ -81,6 +82,19 @@
       <option name="presentableId" value="Default" />
       <updated>1711365817900</updated>
     </task>
+    <task id="LOCAL-00001" summary="classi Mezzo e StatoMezzo">
+      <option name="closed" value="true" />
+      <created>1711380429407</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711380429407</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="classi Mezzo e StatoMezzo" />
+    <option name="LAST_COMMIT_MESSAGE" value="classi Mezzo e StatoMezzo" />
   </component>
 </project>
