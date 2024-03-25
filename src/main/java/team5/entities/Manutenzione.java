@@ -28,6 +28,11 @@ public class Manutenzione {
         this.tipo_manutenzione = tipo_manutenzione;
     }
 
+
+    public Manutenzione() {
+
+    }
+
     public int getId() {
         return id;
     }

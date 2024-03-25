@@ -30,6 +30,10 @@ public class InServizio {
         this.tratta = tratta;
     }
 
+    public InServizio() {
+
+    }
+
     public int getId() {
         return id;
     }
