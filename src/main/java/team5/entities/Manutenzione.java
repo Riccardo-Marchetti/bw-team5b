@@ -18,8 +18,10 @@ public class Manutenzione {
     private Date data_fine;
     @Column(name = "tipo_manutenzione")
     private String tipo_manutenzione;
+    @OneToOne
+    @JoinColumn(name="statomezzo_id")
+    private StatoMezzo statomezzo;
 
-    //Relazione con lo stato
 
 
     public Manutenzione(Date data_inizio, Date data_fine, String tipo_manutenzione) {
