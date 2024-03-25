@@ -23,6 +23,8 @@ public class Abbonamento {
     @ManyToOne
     private Emittente emittente;
 
+
+    // Costruttori
     public Abbonamento(Utente utente, LocalDate dataEmissione, LocalDate dataScadenza, TipoAbbonamento tipo, Emittente emittente) {
 
         this.utente = utente;
