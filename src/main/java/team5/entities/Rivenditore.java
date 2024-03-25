@@ -17,3 +17,4 @@ public class Rivenditore {
     @OneToMany (mappedBy = "rivenditore")
     private List<Biglietto> biglietto = new ArrayList<>();
 }
+
