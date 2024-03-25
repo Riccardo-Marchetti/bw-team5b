@@ -10,8 +10,6 @@ public class Utente {
     private String nome;
     private String cognome;
 
-    @Embedded
-    private Tessera tessera;
 
 // CONSTRUCTORS
 
@@ -22,11 +20,7 @@ public class Utente {
         this.nome = nome;
         this.cognome = cognome;
     }
-    public Utente(String nome, String cognome, Tessera tessera) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.tessera = tessera;
-    }
+
 
 // GETTERS & SETTERS
 
