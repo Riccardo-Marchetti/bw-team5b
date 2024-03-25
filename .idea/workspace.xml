@@ -5,6 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aeec3f17-4f67-4ce8-862b-a6725678abee" name="Changes" comment="classi Mezzo e StatoMezzo">
+    <list default="true" id="aeec3f17-4f67-4ce8-862b-a6725678abee" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/team5/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/InServizio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/InServizio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Manutenzione.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Manutenzione.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Tratta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Tratta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/team5/entities/StatoMezzo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/team5/enums/StatoDeiMezzi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/team5/enums/TipoMezzo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Mezzo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Mezzo.java" afterDir="false" />
     </list>
@@ -13,6 +22,8 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodyActiveAccount">
+    <option name="activeAccountId" value="VXNlcjozNDQ1MDQ=" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -37,8 +48,15 @@
   "keyToString": {
     "Application.Application.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RunOnceActivity.CodyConvertUrlToCodebaseName": "true",
+    "RunOnceActivity.CodyHistoryLlmMigration": "true",
+    "RunOnceActivity.CodyProjectSettingsMigration": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "liborio",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/dano/Desktop/EPICODE/Backend/bw-team5b",
+    "settings.editor.selected.configurable": "com.sourcegraph.cody.config.ui.AccountConfigurable"
     "git-widget-placeholder": "matteobranch",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
