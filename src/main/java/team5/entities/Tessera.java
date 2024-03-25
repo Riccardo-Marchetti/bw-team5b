@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 @Embeddable
 public class Tessera {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private Utente utente;
     @JoinColumn(name = "data_emissione")
     private LocalDate dataEmissione;
