@@ -16,6 +16,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Biglietto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Biglietto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Rivenditore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Rivenditore.java" afterDir="false" />
     </list>
+    <list default="true" id="851fba1a-9753-4b1c-94d7-dc7779919383" name="Changes" comment="classi Mezzo e StatoMezzo modifica" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,6 +86,10 @@
     "git-widget-placeholder": "Riccardo-branch",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Riccardo/Desktop/EPICODE/U4-W3-D5"
+  }
+}]]></component>
+    "git-widget-placeholder": "matteobranch",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
