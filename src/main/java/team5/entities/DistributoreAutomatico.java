@@ -1,4 +1,4 @@
 package team5.entities;
 
-public class DistributoreAutomatico {
+public class DistributoreAutomatico extends Emittente{
 }
