@@ -12,8 +12,8 @@ public class Rivenditore {
     private long id;
     private String nome;
     private long numeroTelefono;
-//    @OneToOne
-//    @JoinColumn (name = "emittente_id")
+    @OneToOne
+    @JoinColumn (name = "emittente_id")
     @OneToMany (mappedBy = "rivenditore")
     private List<Biglietto> biglietto = new ArrayList<>();
 }
