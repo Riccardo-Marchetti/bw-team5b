@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="851fba1a-9753-4b1c-94d7-dc7779919383" name="Changes" comment="classi Mezzo e StatoMezzo modifica" />
+    <list default="true" id="851fba1a-9753-4b1c-94d7-dc7779919383" name="Changes" comment="classi Mezzo e StatoMezzo modifica">
+      <change afterPath="$PROJECT_DIR$/src/main/java/team5/dao/MezzoDAO.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -30,13 +32,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Application.executor": "Run",
-    "git-widget-placeholder": "matteobranch",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;matteobranch&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -59,6 +61,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="classi Mezzo e StatoMezzo" />
-    <option name="LAST_COMMIT_MESSAGE" value="classi Mezzo e StatoMezzo" />
+    <MESSAGE value="classi Mezzo e StatoMezzo modifica" />
+    <option name="LAST_COMMIT_MESSAGE" value="classi Mezzo e StatoMezzo modifica" />
   </component>
 </project>
