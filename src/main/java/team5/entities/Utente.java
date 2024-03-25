@@ -8,8 +8,10 @@ public class Utente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
-    public String cognome;
-    @Embedded Tessera tessera;
+    private String cognome;
+
+    @Embedded
+    private Tessera tessera;
 
 // CONSTRUCTORS
 
@@ -19,6 +21,11 @@ public class Utente {
     public Utente(String nome, String cognome) {
         this.nome = nome;
         this.cognome = cognome;
+    }
+    public Utente(String nome, String cognome, Tessera tessera) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.tessera = tessera;
     }
 
 // GETTERS & SETTERS

@@ -4,12 +4,8 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 @Embeddable
-
 public class Tessera {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
     private Utente utente;
     @JoinColumn(name = "data_emissione")
     private LocalDate dataEmissione;
@@ -31,9 +27,6 @@ public class Tessera {
 // GETTERS & SETTERS
 
 
-    public long getId() {
-        return id;
-    }
 
     public Utente getUtente() {
         return utente;
@@ -65,7 +58,6 @@ public class Tessera {
     @Override
     public String toString() {
         return "Tessera{" +
-                "id=" + id +
                 ", utente=" + utente +
                 ", dataEmissione=" + dataEmissione +
                 ", dataScadenza=" + dataScadenza +
