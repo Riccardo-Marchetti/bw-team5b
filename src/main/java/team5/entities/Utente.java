@@ -9,7 +9,7 @@ public class Utente {
     private long id;
     private String nome;
     public String cognome;
-    @Embedded Tessera tessera;
+//    @Embedded Tessera tessera;
 
 // CONSTRUCTORS
 

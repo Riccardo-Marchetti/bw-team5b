@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aeec3f17-4f67-4ce8-862b-a6725678abee" name="Changes" comment="">
-<<<<<<< HEAD
+    <list default="true" id="36a965ec-9865-4384-a38e-9bc4827987d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Tessera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Tessera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Utente.java" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/src/main/java/team5/dao/DaCancellare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Emittente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/team5/enums/TipoAbbonamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Abbonamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Abbonamento.java" afterDir="false" />
->>>>>>> master
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,32 +36,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Application.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-<<<<<<< HEAD
-    "git-widget-placeholder": "Alessia",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ale_y/Desktop/bw-team5b"
-=======
-    "git-widget-placeholder": "marco.branch",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Corso Epicode/Java/bw-team5b",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
->>>>>>> master
+    "git-widget-placeholder": "marco.branch"
   }
 }]]></component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.10-temurin-17.0.10-3183f394aec4-87f3d08d" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -81,5 +49,8 @@
       <updated>1711365817900</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
