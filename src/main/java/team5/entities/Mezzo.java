@@ -15,7 +15,6 @@ public class Mezzo {
     @Enumerated(EnumType.STRING)
     private StatoDeiMezzi stato;
     private int capienza;
-
     @ManyToOne
     @JoinColumn(name = "tratta_id")
     private Tratta tratta;
