@@ -3,14 +3,16 @@ package team5.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-@Embeddable
+@Entity
 public class Tessera {
     private long id;
-    private Utente utente;
-    @JoinColumn(name = "data_emissione")
+    @Column(name = "data_emissione")
     private LocalDate dataEmissione;
-    @JoinColumn(name = "data_scadenza")
+    @Column(name = "data_scadenza")
     private LocalDate dataScadenza;
+    @OneToOne
+    @JoinColumn(name = "utente_id")
+    private Utente utente;
 
 
 // CONSTRUCTORS
