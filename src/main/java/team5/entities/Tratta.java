@@ -25,8 +25,8 @@ public class Tratta {
         this.capolinea = capolinea;
         this.tempo_medio = tempo_medio;
     }
-    public Tratta() {
-    }
+
+
     public int getId() {
         return id;
     }
