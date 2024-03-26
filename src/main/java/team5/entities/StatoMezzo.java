@@ -1,4 +1,4 @@
-package team5.entities;
+/*package team5.entities;
 
 import jakarta.persistence.*;
 import team5.enums.StatoDeiMezzi;
@@ -50,4 +50,4 @@ public class StatoMezzo {
                 ", mezzo=" + mezzo +
                 '}';
     }
-}
+} */

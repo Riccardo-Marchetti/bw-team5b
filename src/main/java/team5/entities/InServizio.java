@@ -20,9 +20,7 @@ public class InServizio {
     private int tempo_effettivo_tratta;
     @OneToMany(mappedBy = "inServizio")
     private List<Tratta> tratta;
-    @OneToOne
-    @JoinColumn(name="statomezzo_id")
-    private StatoMezzo statomezzo;
+
 
     public InServizio(Date data_inizio, Date data_fine, int tempo_effettivo_tratta, List<Tratta> tratta) {
         this.data_inizio = data_inizio;
