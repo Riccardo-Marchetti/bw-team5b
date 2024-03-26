@@ -21,6 +21,4 @@ public class AbbonamentoDAO {
         System.out.println("abbonamento " + abbonamento.getId() + "di" + abbonamento.getUtente().getCognome() + "inserito");
 
     }
-
-    
 }
