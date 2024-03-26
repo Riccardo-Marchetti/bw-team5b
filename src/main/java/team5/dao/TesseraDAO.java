@@ -2,7 +2,6 @@ package team5.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import team5.entities.Rivenditore;
 import team5.entities.Tessera;
 
 public class TesseraDAO {
@@ -20,6 +19,6 @@ public class TesseraDAO {
         em.persist(tessera);
 
         transaction.commit();
-        System.out.println("Tessera: " + tessera + " salvato correttamente");
+        System.out.println("Tessera: " + tessera + " salvata correttamente");
     }
 }

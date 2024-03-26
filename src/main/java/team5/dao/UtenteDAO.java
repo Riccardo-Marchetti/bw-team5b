@@ -2,7 +2,6 @@ package team5.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import team5.entities.Rivenditore;
 import team5.entities.Utente;
 
 public class UtenteDAO {
