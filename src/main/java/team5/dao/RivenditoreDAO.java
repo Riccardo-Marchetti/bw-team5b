@@ -15,7 +15,6 @@ public class RivenditoreDAO {
     public void salvaRivenditore(Rivenditore rivenditore){
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-
         em.persist(rivenditore);
 
         transaction.commit();
