@@ -22,7 +22,7 @@ public class Tessera {
     public Tessera() {
     }
 
-    public Tessera(Utente utente, LocalDate dataEmissione, LocalDate dataScadenza) {
+    public Tessera(Utente utente, LocalDate dataEmissione) {
         this.utente = utente;
         this.dataEmissione = dataEmissione;
         this.dataScadenza = dataEmissione.plusYears(1);
