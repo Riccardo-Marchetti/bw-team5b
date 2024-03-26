@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 @Entity
 public class Tessera {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "data_emissione")
     private LocalDate dataEmissione;
@@ -27,6 +29,8 @@ public class Tessera {
     }
 
 // GETTERS & SETTERS
+
+
 
     public Utente getUtente() {
         return utente;
@@ -53,6 +57,8 @@ public class Tessera {
     }
 
 // TO STRING
+
+
     @Override
     public String toString() {
         return "Tessera{" +
