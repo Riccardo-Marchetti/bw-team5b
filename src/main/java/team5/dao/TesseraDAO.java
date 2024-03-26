@@ -6,6 +6,8 @@ import jakarta.persistence.TypedQuery;
 import team5.entities.Tessera;
 import team5.entities.Utente;
 
+import java.time.LocalDate;
+
 public class TesseraDAO {
     private final EntityManager em;
 
@@ -28,5 +30,17 @@ public class TesseraDAO {
         TypedQuery<Tessera> query = em.createNamedQuery("findTesseraById", Tessera.class);
         query.setParameter("tesseraId", id);
         return query.getSingleResult();
+    }
+
+    public void aggiornaTesseraScaduta(long id){
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+
+       Tessera tessera = findTesseraById(id);
+       tessera.setDataScadenza(LocalDate.now().plusYears(1));
+
+        em.merge(tessera);
+        transaction.commit();
+        System.out.println("Tessera: " + tessera + " aggiornata correttamente");
     }
 }
