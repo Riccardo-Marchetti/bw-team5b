@@ -7,21 +7,26 @@ import jakarta.persistence.*;
 public class Tram extends Mezzo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
    private int capienza;
-    @ManyToOne
-    @JoinColumn(name = "inServizio_id")
-    private InServizio inServizio;
+   private boolean inServizio;
     @ManyToOne
     @JoinColumn(name = "manutenzione_id")
     private Manutenzione manutenzione;
+
+    @ManyToOne
+    @JoinColumn(name = "tratta_id")
+    private Tratta tratta;
    public Tram() {}
-    public Tram(int capienza, int numeroMatricola){
+    public Tram(int capienza, int numeroMatricola, boolean inServizio, Manutenzione manutenzione, Tratta tratta) {
        super(numeroMatricola);
        this.capienza=capienza;
+       this.inServizio=inServizio;
+       this.manutenzione=manutenzione;
+       this.tratta=tratta;
    }
     @Override
-    public Long getId() {
+    public int getId() {
         return id;
     }
     public int getCapienza() {
@@ -30,11 +35,21 @@ public class Tram extends Mezzo {
     public void setCapienza(int capienza) {
         this.capienza = capienza;
     }
+
+    public boolean isInServizio() {
+        return inServizio;
+    }
+
+    public void setInServizio(boolean inServizio) {
+        this.inServizio = inServizio;
+    }
+
     @Override
     public String toString() {
         return "Tram{" +
                 "id=" + id +
                 ", capienza=" + capienza +
+                ", inServizio=" + inServizio +
                 '}';
     }
 }

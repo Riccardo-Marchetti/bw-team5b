@@ -1,4 +1,4 @@
-package team5.entities;
+/*package team5.entities;
 
 import jakarta.persistence.*;
 
@@ -22,13 +22,14 @@ public class InServizio {
     private List<Autobus> autobus;
     @OneToMany(mappedBy = "inServizio")
     private List<Tram> tram;
-    @OneToMany(mappedBy = "inServizio")
-    private List<Tratta> tratta;
-    public InServizio(Date data_inizio, Date data_fine, int tempo_effettivo, List<Tratta> tratta) {
+   *//* @OneToMany(mappedBy = "inServizio")
+    private List<Tratta> tratta;*//*
+    public InServizio(Date data_inizio, Date data_fine, int tempo_effettivo, List<Autobus> autobus, List<Tram> tram) {
         this.data_inizio = data_inizio;
         this.data_fine = data_fine;
         this.tempo_effettivo = tempo_effettivo;
-        this.tratta = tratta;
+        this.autobus = autobus;
+        this.tram = tram;
     }
     public InServizio() {
     }
@@ -53,10 +54,5 @@ public class InServizio {
     public void setTempo_effettivo(int tempo_effettivo) {
         this.tempo_effettivo = tempo_effettivo;
     }
-    public List<Tratta> getTratta() {
-        return tratta;
-    }
-    public void setTratta(List<Tratta> tratta) {
-        this.tratta = tratta;
-    }
-}
+
+}*/

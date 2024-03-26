@@ -7,26 +7,40 @@ import jakarta.persistence.*;
 public class Autobus extends Mezzo{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private int capienza;
-    @ManyToOne
-    @JoinColumn(name = "inServizio_id")
-    private InServizio inServizio;
+    private boolean inServizio;
     @ManyToOne
     @JoinColumn(name = "manutenzione_id")
     private Manutenzione manutenzione;
+    @ManyToOne
+    @JoinColumn(name = "tratta_id")
+    private Tratta tratta;
     public Autobus(){}
-    public Autobus(int numeroMatricola, int capienza){
+    public Autobus(int numeroMatricola, int capienza, boolean inServizio , Manutenzione manutenzione, Tratta tratta) {
         super(numeroMatricola);
         this.capienza=capienza;
+        this.inServizio = inServizio;
+        this.manutenzione = manutenzione;
+        this.tratta = tratta;
+
     }
     @Override
-    public Long getId() {
+    public int getId() {
         return id;
     }
     public int getCapienza() {
         return capienza;
     }
+
+    public boolean isInServizio() {
+        return inServizio;
+    }
+
+    public void setInServizio(boolean inServizio) {
+        this.inServizio = inServizio;
+    }
+
     public void setCapienza(int capienza) {
         this.capienza = capienza;
     }
