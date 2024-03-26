@@ -81,4 +81,17 @@ public class Abbonamento {
     public void setEmittente(Emittente emittente) {
         this.emittente = emittente;
     }
+
+    // TO STRING
+    @Override
+    public String toString() {
+        return "Abbonamento{" +
+                "id=" + id +
+                ", utente=" + utente +
+                ", dataEmissione=" + dataEmissione +
+                ", dataScadenza=" + dataScadenza +
+                ", tipo=" + tipo +
+                ", emittente=" + emittente +
+                '}';
+    }
 }

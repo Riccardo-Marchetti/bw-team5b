@@ -25,7 +25,7 @@ public class Tratta {
     @JoinColumn(name = "inServizio_id")
     private InServizio inServizio;
 
-    public Tratta(){}
+//    public Tratta(){}
 
     public Tratta(String partenza, String capolinea, int tempo_medio, InServizio inServizio) {
         this.partenza = partenza;

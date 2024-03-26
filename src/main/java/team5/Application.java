@@ -30,7 +30,15 @@ public class Application {
         TesseraDAO tesseraDAO = new TesseraDAO(em);
         TrattaDAO trattaDAO = new TrattaDAO(em);
         MezzoDAO mezzoDAO = new MezzoDAO(em);
+        BigliettoDAO bd = new BigliettoDAO(em);
+        RivenditoreDAO rd = new RivenditoreDAO(em);
+        Rivenditore rivenditore1 = new Rivenditore("via Milano", "Matteo", 434242425);
+        rd.salvaRivenditore(rivenditore1);
+        Biglietto biglietto = new Biglietto(LocalDate.of(2024, 03, 27), "Milano", false, null, rivenditore1);
+        Biglietto biglietto1 = new Biglietto(LocalDate.of(2024, 03, 27), "Milano", false, null, rivenditore1);
+        bd.salvaBiglietto(biglietto);
 
+        System.out.println(bd.numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 3, 26), LocalDate.of(2024,3, 27), 19));
         /*
          * Supplier<Utente> utenteSupplier = ()->{
          * Faker faker = new Faker(Locale.ITALY);

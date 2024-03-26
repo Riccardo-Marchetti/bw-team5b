@@ -14,11 +14,13 @@ public class Biglietto {
     private boolean vidimato;
     private LocalDate dataVidimazione;
 
-    // MANY TO ONE RIVENDITORE
+    // MANY TO ONE EMITTENTE
     @ManyToOne
     @JoinColumn (name = "Rivenditore_id")
     private Rivenditore rivenditore;
-
+//    @ManyToOne
+//    @JoinColumn (name = "Emittente_id")
+//    private Emittente emittente;
     // COSTRUTTORE
     public Biglietto(LocalDate dataEmissione, String puntoEmissione, boolean vidimato, LocalDate dataVidimazione, Rivenditore rivenditore) {
         this.dataEmissione = dataEmissione;
@@ -27,6 +29,7 @@ public class Biglietto {
         this.dataVidimazione = dataVidimazione;
         this.rivenditore = rivenditore;
     }
+
     public Biglietto(){
 
     }

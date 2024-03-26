@@ -14,16 +14,28 @@ public class Rivenditore extends Emittente{
     private long numeroTelefono;
 
     // ONE TO MANY BIGLIETTO
-    @OneToMany (mappedBy = "rivenditore")
-    private List<Biglietto> biglietto = new ArrayList<>();
+//    @OneToMany (mappedBy = "rivenditore")
+//    private List<Biglietto> biglietto = new ArrayList<>();
 
     // COSTRUTTORE
-    public Rivenditore(String indirizzo, String nome, long numeroTelefono, List<Biglietto> biglietto) {
+//    public Rivenditore(String indirizzo, String nome, long numeroTelefono, List<Biglietto> biglietto) {
+//        super(indirizzo);
+//        this.nome = nome;
+//        this.numeroTelefono = numeroTelefono;
+//        this.biglietto = biglietto;
+//    }
+
+    public Rivenditore(String indirizzo, String nome, long numeroTelefono) {
         super(indirizzo);
         this.nome = nome;
         this.numeroTelefono = numeroTelefono;
-        this.biglietto = biglietto;
     }
+
+    public Rivenditore(String nome, long numeroTelefono) {
+        this.nome = nome;
+        this.numeroTelefono = numeroTelefono;
+    }
+
     public Rivenditore(){
 
     }
@@ -50,13 +62,13 @@ public class Rivenditore extends Emittente{
         this.numeroTelefono = numeroTelefono;
     }
 
-    public List<Biglietto> getBiglietto() {
-        return biglietto;
-    }
+//    public List<Biglietto> getBiglietto() {
+//        return biglietto;
+//    }
 
-    public void setBiglietto(List<Biglietto> biglietto) {
-        this.biglietto = biglietto;
-    }
+//    public void setBiglietto(List<Biglietto> biglietto) {
+//        this.biglietto = biglietto;
+//    }
 
     // TO STRING
     @Override
@@ -65,7 +77,7 @@ public class Rivenditore extends Emittente{
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", numeroTelefono=" + numeroTelefono +
-                ", biglietto=" + biglietto +
+//                ", biglietto=" + biglietto +
                 '}';
     }
 }
