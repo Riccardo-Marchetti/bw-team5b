@@ -28,6 +28,7 @@ public class Rivenditore extends Emittente{
 
     }
 
+
     // GETTER E SETTER
     public long getId() {
         return id;
