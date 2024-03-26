@@ -18,11 +18,11 @@ public class Rivenditore extends Emittente{
     private List<Biglietto> biglietto = new ArrayList<>();
 
     // COSTRUTTORE
-    public Rivenditore(String indirizzo, String nome, long numeroTelefono, List<Biglietto> biglietto) {
+    public Rivenditore(String indirizzo, String nome, long numeroTelefono) {
         super(indirizzo);
         this.nome = nome;
         this.numeroTelefono = numeroTelefono;
-        this.biglietto = biglietto;
+//        this.biglietto = biglietto;
     }
     public Rivenditore(){
 

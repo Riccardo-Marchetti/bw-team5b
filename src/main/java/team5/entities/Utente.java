@@ -9,7 +9,6 @@ public class Utente {
     private long id;
     private String nome;
     private String cognome;
-
     @Embedded
     private Tessera tessera;
 
