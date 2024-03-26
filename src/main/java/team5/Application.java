@@ -6,6 +6,18 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import team5.dao.*;
 
+import team5.dao.BigliettoDAO;
+import team5.dao.RivenditoreDAO;
+import team5.entities.Biglietto;
+import team5.entities.Rivenditore;
+import team5.dao.MezzoDAO;
+import team5.dao.TesseraDAO;
+import team5.dao.TrattaDAO;
+import team5.dao.UtenteDAO;
+import team5.entities.Tessera;
+import team5.entities.Tratta;
+import team5.entities.Utente;
+import java.time.LocalDate;
 import java.util.Locale;
 
 public class Application {

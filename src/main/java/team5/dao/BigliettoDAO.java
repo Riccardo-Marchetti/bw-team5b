@@ -11,7 +11,7 @@ public class BigliettoDAO {
         this.em = em;
     }
 
-    public void salvaLibro(Biglietto biglietto){
+    public void salvaBiglietto(Biglietto biglietto){
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
 
