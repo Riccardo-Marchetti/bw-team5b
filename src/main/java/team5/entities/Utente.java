@@ -10,7 +10,8 @@ public class Utente {
     private long id;
     private String nome;
     private String cognome;
-
+    @OneToOne (mappedBy = "utente")
+    private Tessera tessera;
 // CONSTRUCTORS
 
     public Utente() {
@@ -23,8 +24,6 @@ public class Utente {
 
 
 // GETTERS & SETTERS
-
-
     public long getId() {
         return id;
     }
@@ -45,8 +44,14 @@ public class Utente {
         this.cognome = cognome;
     }
 
-// TO STRING
+    public Tessera getTessera() {
+        return tessera;
+    }
 
+    public void setTessera(Tessera tessera) {
+        this.tessera = tessera;
+    }
+    // TO STRING
 
     @Override
     public String toString() {
@@ -54,6 +59,7 @@ public class Utente {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
+                ", tessera=" + tessera +
                 '}';
     }
 }
