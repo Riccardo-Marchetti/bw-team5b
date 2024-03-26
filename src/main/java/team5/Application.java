@@ -15,5 +15,8 @@ public class Application {
         EntityManager em = emf.createEntityManager();
         System.out.println("CIAO");
 
+
+
+
     }
 }
