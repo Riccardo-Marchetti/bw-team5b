@@ -10,31 +10,17 @@ public abstract class Mezzo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int numeroMatricola;
-
-
-
-    public Mezzo() {}
-
     public Mezzo( int numeroMatricola){
         this.numeroMatricola=numeroMatricola;
     }
-
-
-
+    public Mezzo() {}
     public Long getId() {
         return id;
     }
-
     public int getNumeroMatricola() {
         return numeroMatricola;
     }
-
     public void setNumeroMatricola(int numeroMatricola) {
         this.numeroMatricola = numeroMatricola;
     }
-
-
-
-
-
 }
