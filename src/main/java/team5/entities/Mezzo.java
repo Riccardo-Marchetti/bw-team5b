@@ -33,8 +33,4 @@ public abstract class Mezzo {
         this.numeroMatricola = numeroMatricola;
     }
 
-
-
-
-
 }
