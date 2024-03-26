@@ -34,8 +34,6 @@ public class Tratta {
         this.inServizio = inServizio;
     }
 
-    public Tratta() {
-    }
 
     public int getId() {
         return id;

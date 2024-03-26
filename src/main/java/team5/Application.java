@@ -4,10 +4,7 @@ import com.github.javafaker.Faker;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
-import team5.dao.MezzoDAO;
-import team5.dao.TesseraDAO;
-import team5.dao.TrattaDAO;
-import team5.dao.UtenteDAO;
+import team5.dao.*;
 import team5.entities.Tessera;
 import team5.entities.Tratta;
 import team5.entities.Utente;
@@ -26,6 +23,8 @@ public class Application {
         TesseraDAO tesseraDAO = new TesseraDAO(em);
         TrattaDAO trattaDAO = new TrattaDAO(em);
         MezzoDAO mezzoDAO = new MezzoDAO(em);
+        AbbonamentoDAO abbDao = new AbbonamentoDAO(em);
+
 
         /*
          * Supplier<Utente> utenteSupplier = ()->{
