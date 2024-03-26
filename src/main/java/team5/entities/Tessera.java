@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 @Embeddable
 public class Tessera {
-//    private long id;
-//    private Utente utente;
+    private long id;
+    private Utente utente;
     @JoinColumn(name = "data_emissione")
     private LocalDate dataEmissione;
     @JoinColumn(name = "data_scadenza")
@@ -18,20 +18,20 @@ public class Tessera {
     public Tessera() {
     }
 
-    public Tessera( LocalDate dataEmissione, LocalDate dataScadenza) {
-//        this.utente = utente;
+    public Tessera(Utente utente, LocalDate dataEmissione, LocalDate dataScadenza) {
+        this.utente = utente;
         this.dataEmissione = dataEmissione;
         this.dataScadenza = dataScadenza;
     }
 
 // GETTERS & SETTERS
 
-//    public Utente getUtente() {
-//        return utente;
-//    }
+    public Utente getUtente() {
+        return utente;
+    }
 
     public void setUtente(Utente utente) {
-//        this.utente = utente;
+        this.utente = utente;
     }
 
     public LocalDate getDataEmissione() {
@@ -54,7 +54,7 @@ public class Tessera {
     @Override
     public String toString() {
         return "Tessera{" +
-//                ", utente=" + utente +
+                ", utente=" + utente +
                 ", dataEmissione=" + dataEmissione +
                 ", dataScadenza=" + dataScadenza +
                 '}';
