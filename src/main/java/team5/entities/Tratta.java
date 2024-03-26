@@ -3,17 +3,17 @@ package team5.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="tratta")
+@Table(name = "tratta")
 public class Tratta {
     @Id
     @GeneratedValue
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
-    @Column(name="partenza")
+    @Column(name = "partenza")
     private String partenza;
-    @Column(name="capolinea")
+    @Column(name = "capolinea")
     private String capolinea;
-    @Column(name="tempo_medio")
+    @Column(name = "tempo_medio")
     private int tempo_medio;
     @ManyToOne
     @JoinColumn(name = "inServizio_id")

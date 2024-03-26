@@ -11,7 +11,7 @@ public class Abbonamento {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-   @ManyToOne
+    @ManyToOne
     private Utente utente;
     @JoinColumn(name = "data_emissione")
     private LocalDate dataEmissione;
@@ -22,7 +22,7 @@ public class Abbonamento {
     @ManyToOne
     private Emittente emittente;
 
-    public Abbonamento( Utente utente, LocalDate dataEmissione, LocalDate dataScadenza, TipoAbbonamento tipo, Emittente emittente) {
+    public Abbonamento(Utente utente, LocalDate dataEmissione, LocalDate dataScadenza, TipoAbbonamento tipo, Emittente emittente) {
 
         this.utente = utente;
         this.dataEmissione = dataEmissione;
@@ -34,10 +34,12 @@ public class Abbonamento {
     public Abbonamento() {
     }
 
+
+    // Getter e Setter
+
     public long getId() {
         return id;
     }
-
 
 
     public Utente getUtente() {
