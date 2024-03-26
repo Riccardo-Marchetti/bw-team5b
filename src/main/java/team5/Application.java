@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import team5.dao.MezzoDAO;
 import team5.dao.TesseraDAO;
 import team5.dao.TrattaDAO;
 import team5.dao.UtenteDAO;
@@ -24,19 +25,19 @@ public class Application {
         UtenteDAO utenteDAO = new UtenteDAO(em);
         TesseraDAO tesseraDAO = new TesseraDAO(em);
         TrattaDAO trattaDAO = new TrattaDAO(em);
+        MezzoDAO mezzoDAO = new MezzoDAO(em);
 
-
-    /*    Supplier<Utente> utenteSupplier = ()->{
-            Faker faker = new Faker(Locale.ITALY);
-            return new Utente(faker.rickAndMorty().character(), )
-
-        };
-*/
+        /*
+         * Supplier<Utente> utenteSupplier = ()->{
+         * Faker faker = new Faker(Locale.ITALY);
+         * return new Utente(faker.rickAndMorty().character(), )
+         * 
+         * };
+         */
 
         // Create a new tratta
-//        Supplier<Tratta> trattaSupplier = () -> {
-//        };
-
+        // Supplier<Tratta> trattaSupplier = () -> {
+        // };
 
     }
 }

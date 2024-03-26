@@ -16,12 +16,17 @@ public class Mezzo {
     private StatoDeiMezzi stato;
     private int capienza;
 
+    @ManyToOne
+    @JoinColumn(name = "tratta_id")
+    private Tratta tratta;
+
     public Mezzo() {}
 
-    public Mezzo(TipoMezzo tipo, StatoDeiMezzi stato, int capienza) {
+    public Mezzo(TipoMezzo tipo, StatoDeiMezzi stato, int capienza, Tratta tratta) {
         this.tipo = tipo;
         this.stato = stato;
         this.capienza = capienza;
+        this.tratta = tratta;
     }
 
     public Long getId() {
@@ -51,6 +56,14 @@ public class Mezzo {
 
     public void setCapienza(int capienza) {
         this.capienza = capienza;
+    }
+
+    public Tratta getTratta() {
+        return tratta;
+    }
+
+    public void setTratta(Tratta tratta) {
+        this.tratta = tratta;
     }
 
     @Override
