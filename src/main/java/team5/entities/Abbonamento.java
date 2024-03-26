@@ -2,7 +2,6 @@ package team5.entities;
 
 import jakarta.persistence.*;
 import team5.enums.TipoAbbonamento;
-
 import java.time.LocalDate;
 
 @Entity

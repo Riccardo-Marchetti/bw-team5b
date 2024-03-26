@@ -14,6 +14,11 @@ public class StatoMezzo {
     @ManyToOne
     @JoinColumn(name = "id_mezzo")
     private Mezzo mezzo;
+    @OneToOne(mappedBy = "statomezzo")
+    private InServizio inServizio;
+    @OneToOne(mappedBy = "statomezzo")
+    private Manutenzione Manutenzione;
+
 
     public StatoMezzo() {}
 
