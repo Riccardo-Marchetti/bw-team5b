@@ -22,11 +22,12 @@ public class Application {
         TesseraDAO tesseraDAO = new TesseraDAO(em);
 
 
-        Supplier<Utente> utenteSupplier = ()->{
+    /*    Supplier<Utente> utenteSupplier = ()->{
             Faker faker = new Faker(Locale.ITALY);
-            return new Utente(faker.rickAndMorty().character())
-        }
+            return new Utente(faker.rickAndMorty().character(), )
 
+        };
+*/
 
 
     }
