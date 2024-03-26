@@ -1,17 +1,15 @@
 package team5.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Emittente {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String indirizzo;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long id;
+    protected String indirizzo;
 
     public Emittente( String indirizzo) {
 

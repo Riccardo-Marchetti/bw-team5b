@@ -10,23 +10,34 @@ public class Biglietto {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
     private LocalDate dataEmissione;
-    private String puntoEmissione;
+//    private String puntoEmissione;
     private boolean vidimato;
     private LocalDate dataVidimazione;
 
-    // MANY TO ONE RIVENDITORE
+    // MANY TO ONE EMITTENTE
+//    @ManyToOne
+//    @JoinColumn (name = "Rivenditore_id")
+//    private Rivenditore rivenditore;
     @ManyToOne
-    @JoinColumn (name = "Rivenditore_id")
-    private Rivenditore rivenditore;
-
+    @JoinColumn (name = "emittente_id")
+    private Emittente emittente;
     // COSTRUTTORE
-    public Biglietto(LocalDate dataEmissione, String puntoEmissione, boolean vidimato, LocalDate dataVidimazione, Rivenditore rivenditore) {
+//    public Biglietto(LocalDate dataEmissione,  boolean vidimato, LocalDate dataVidimazione, Rivenditore rivenditore) {
+//        this.dataEmissione = dataEmissione;
+////        this.puntoEmissione = puntoEmissione;
+//        this.vidimato = vidimato;
+//        this.dataVidimazione = dataVidimazione;
+//        this.rivenditore = rivenditore;
+//    }
+
+
+    public Biglietto(LocalDate dataEmissione, boolean vidimato, LocalDate dataVidimazione, Emittente emittente) {
         this.dataEmissione = dataEmissione;
-        this.puntoEmissione = puntoEmissione;
         this.vidimato = vidimato;
         this.dataVidimazione = dataVidimazione;
-        this.rivenditore = rivenditore;
+        this.emittente = emittente;
     }
+
     public Biglietto(){
 
     }
@@ -44,13 +55,13 @@ public class Biglietto {
         this.dataEmissione = dataEmissione;
     }
 
-    public String getPuntoEmissione() {
-        return puntoEmissione;
-    }
+//    public String getPuntoEmissione() {
+//        return puntoEmissione;
+//    }
 
-    public void setPuntoEmissione(String puntoEmissione) {
-        this.puntoEmissione = puntoEmissione;
-    }
+//    public void setPuntoEmissione(String puntoEmissione) {
+//        this.puntoEmissione = puntoEmissione;
+//    }
 
     public boolean isVidimato() {
         return vidimato;
@@ -68,24 +79,31 @@ public class Biglietto {
         this.dataVidimazione = dataVidimazione;
     }
 
-    public Rivenditore getRivenditore() {
-        return rivenditore;
+//    public Rivenditore getRivenditore() {
+//        return rivenditore;
+//    }
+
+//    public void setRivenditore(Rivenditore rivenditore) {
+//        this.rivenditore = rivenditore;
+//    }
+
+    public Emittente getEmittente() {
+        return emittente;
     }
 
-    public void setRivenditore(Rivenditore rivenditore) {
-        this.rivenditore = rivenditore;
+    public void setEmittente(Emittente emittente) {
+        this.emittente = emittente;
     }
+
     // TO STRING
-
     @Override
     public String toString() {
         return "Biglietto{" +
                 "id=" + id +
                 ", dataEmissione=" + dataEmissione +
-                ", puntoEmissione='" + puntoEmissione + '\'' +
                 ", vidimato=" + vidimato +
                 ", dataVidimazione=" + dataVidimazione +
-                ", rivenditore=" + rivenditore +
+                ", emittente=" + emittente +
                 '}';
     }
 }
