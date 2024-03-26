@@ -59,7 +59,7 @@ public class Utente {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
-                ", tessera=" + tessera +
+//                ", tessera=" + tessera +
                 '}';
     }
 }

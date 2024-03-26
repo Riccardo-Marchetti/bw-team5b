@@ -35,11 +35,15 @@ public class AbbonamentoDAO {
         return query.getSingleResult();
     }
 
-    public Abbonamento verificaAbbonamento(long numeroTessera){
-      LocalDate today =  LocalDate.now();
-        TypedQuery<Abbonamento> query = em.createQuery("SELECT a FROM Abbonamento a WHERE a.utente.numeroTessera = :numeroTessera AND :today BETWEEN a.dataEmissione AND a.dataScadenza ", Abbonamento.class);
-    query.setParameter("today", today);
-    query.setParameter("numeroTessera", numeroTessera);
-        return query.getSingleResult();
+    public List<Abbonamento> verificaAbbonamento(long tesseraId) {
+        LocalDate today = LocalDate.now();
+        TypedQuery<Abbonamento> query = em.createQuery(
+                "SELECT a FROM Abbonamento a WHERE a.utente.tessera.id = :tesseraId AND :today BETWEEN a.dataEmissione AND a.dataScadenza",
+              Abbonamento.class
+        );
+
+        query.setParameter("tesseraId", tesseraId);
+        query.setParameter("today", today);
+        return query.getResultList();
     }
 }
