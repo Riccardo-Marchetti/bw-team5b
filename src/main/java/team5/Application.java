@@ -4,6 +4,8 @@ import com.github.javafaker.Faker;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import team5.dao.*;
+
 import team5.dao.BigliettoDAO;
 import team5.dao.RivenditoreDAO;
 import team5.entities.Biglietto;
@@ -32,6 +34,9 @@ public class Application {
         Faker faker = new Faker(Locale.ITALY);
         UtenteDAO utenteDAO = new UtenteDAO(em);
         TesseraDAO tesseraDAO = new TesseraDAO(em);
+        TrattaDAO trattaDAO = new TrattaDAO(em);
+        InServizioDAO inServizioDAO = new InServizioDAO(em);
+        MezzoDAO mezzoDAO = new MezzoDAO(em);
 
         Supplier<Utente> utenteSupplier = ()-> new Utente(faker.rickAndMorty().character(), faker.name().lastName());
         List<Utente> utenteList = new ArrayList<>();
