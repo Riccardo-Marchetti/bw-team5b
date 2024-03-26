@@ -7,9 +7,6 @@ import java.util.List;
 
 @Entity
 public class Rivenditore extends Emittente{
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long id;
     private String nome;
     private long numeroTelefono;
 
@@ -42,10 +39,6 @@ public class Rivenditore extends Emittente{
 
 
     // GETTER E SETTER
-    public long getId() {
-        return id;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -74,7 +67,6 @@ public class Rivenditore extends Emittente{
     @Override
     public String toString() {
         return "Rivenditore{" +
-                "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", numeroTelefono=" + numeroTelefono +
 //                ", biglietto=" + biglietto +

@@ -37,11 +37,11 @@ public class BigliettoDAO {
 //    query.setParameter("emittenteId", rivenditoreId);
 //    return query.getSingleResult().intValue();
 //}
-//public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long rivenditoreId){
-//    TypedQuery<Long> query = em.createQuery("SELECT COUNT(b) FROM Biglietto b WHERE b.dataEmissione BETWEEN :dataInizio AND :dataFine AND b.rivenditore.id = :rivenditoreId", Long.class);
-//    query.setParameter("dataInizio", dataInizio);
-//    query.setParameter("dataFine", dataFine);
-//    query.setParameter("rivenditoreId", rivenditoreId);
-//    return query.getSingleResult();
-//}
+public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long emittenteId){
+    TypedQuery<Long> query = em.createQuery("SELECT COUNT(b) FROM Biglietto b WHERE b.dataEmissione BETWEEN :dataInizio AND :dataFine AND b.emittente.id = :emittenteId", Long.class);
+    query.setParameter("dataInizio", dataInizio);
+    query.setParameter("dataFine", dataFine);
+    query.setParameter("emittenteId", emittenteId);
+    return query.getSingleResult();
+}
 }

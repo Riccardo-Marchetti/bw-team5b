@@ -10,30 +10,27 @@ public class Abbonamento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
     @ManyToOne
     private Utente utente;
     @JoinColumn(name = "data_emissione")
     private LocalDate dataEmissione;
     @JoinColumn(name = "data_scadenza")
     private LocalDate dataScadenza;
+    @Enumerated(EnumType.STRING)
     private TipoAbbonamento tipo;
-
     @ManyToOne
     private Emittente emittente;
 
-    public Abbonamento(Utente utente, LocalDate dataEmissione, LocalDate dataScadenza, TipoAbbonamento tipo, Emittente emittente) {
-
+    public Abbonamento(Utente utente, LocalDate dataEmissione,  TipoAbbonamento tipo, Emittente emittente) {
         this.utente = utente;
         this.dataEmissione = dataEmissione;
-        this.dataScadenza = dataScadenza;
         this.tipo = tipo;
+        this.dataScadenza = calcolaScadenza();
         this.emittente = emittente;
     }
 
     public Abbonamento() {
     }
-
 
     // Getter e Setter
 
@@ -93,5 +90,14 @@ public class Abbonamento {
                 ", tipo=" + tipo +
                 ", emittente=" + emittente +
                 '}';
+    }
+    // METODI
+    private LocalDate calcolaScadenza(){
+        if (tipo == TipoAbbonamento.SETTIMANALE){
+           this.dataScadenza = dataEmissione.plusDays(7);
+        } else if (tipo == TipoAbbonamento.MENSILE){
+            this.dataScadenza = dataEmissione.plusMonths(1);
+        }
+        return dataScadenza;
     }
 }

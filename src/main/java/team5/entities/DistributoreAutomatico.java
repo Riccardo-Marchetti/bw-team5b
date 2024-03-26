@@ -1,12 +1,12 @@
 package team5.entities;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-public class DistributoreAutomatico extends Emittente{
-    @Id
-    @GeneratedValue
-    private long id;
+@Entity
+public class DistributoreAutomatico extends Emittente {
     private boolean inServizio;
 
     // COSTRUTTORE
@@ -19,9 +19,6 @@ public class DistributoreAutomatico extends Emittente{
 
     }
     // GETTER E SETTER
-    public long getId() {
-        return id;
-    }
 
     public boolean isInServizio() {
         return inServizio;
@@ -32,10 +29,10 @@ public class DistributoreAutomatico extends Emittente{
     }
 
     // TO STRING
+
     @Override
     public String toString() {
         return "DistributoreAutomatico{" +
-                "id=" + id +
                 ", inServizio=" + inServizio +
                 '}';
     }
