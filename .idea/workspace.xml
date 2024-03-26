@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5ab70e7-e711-4d93-9105-c796a25ded26" name="Changes" comment="mod class statomezzo, manutenzione, inservizio" />
-    <list default="true" id="36a965ec-9865-4384-a38e-9bc4827987d8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Tessera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Tessera.java" afterDir="false" />
-    <list default="true" id="aeec3f17-4f67-4ce8-862b-a6725678abee" name="Changes" comment="creazione classi">
-      <change afterPath="$PROJECT_DIR$/src/main/java/team5/dao/BigliettoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/team5/dao/RivenditoreDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="3fbffd46-36bd-42a9-b3fd-fe90c68ef916" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/team5/dao/TrattaDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Biglietto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Biglietto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Rivenditore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Rivenditore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Abbonamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Abbonamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/team5/entities/Tessera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/team5/entities/Tessera.java" afterDir="false" />
     </list>
-    <list default="true" id="851fba1a-9753-4b1c-94d7-dc7779919383" name="Changes" comment="classi Mezzo e StatoMezzo modifica" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,115 +22,45 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
-  <component name="ProjectId" id="2eB6qFyrd1RFEdGxHOsMIHcmD0S" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2eBpBtvwDubIG5LXXgwgBPAovQZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Application.executor": "Run",
-    "RunOnceActivity.CodyConvertUrlToCodebaseName": "true",
-    "RunOnceActivity.CodyHistoryLlmMigration": "true",
-    "RunOnceActivity.CodyProjectSettingsMigration": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "liborio",
-    "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.CodyConvertUrlToCodebaseName&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.CodyHistoryLlmMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.CodyProjectSettingsMigration&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;liborio&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="team5.Application" />
-      <module name="bw-team5b" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="team5.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Application" />
-      </list>
-    </recent_temporary>
-  </component>
-    "git-widget-placeholder": "marco.branch"
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Riccardo-branch",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Riccardo/Desktop/EPICODE/U4-W3-D5"
-  }
-}]]></component>
-    "git-widget-placeholder": "matteobranch",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
-  }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="aeec3f17-4f67-4ce8-862b-a6725678abee" name="Changes" comment="" />
-      <created>1711365817900</created>
+      <changelist id="3fbffd46-36bd-42a9-b3fd-fe90c68ef916" name="Changes" comment="" />
+      <created>1711387694474</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1711365817900</updated>
+      <updated>1711387694474</updated>
     </task>
-    <task id="LOCAL-00001" summary="classi Mezzo e StatoMezzo">
-      <option name="closed" value="true" />
-      <created>1711380429407</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1711380429407</updated>
-    </task>
-    <task id="LOCAL-00002" summary="mod class statomezzo, manutenzione, inservizio">
-      <option name="closed" value="true" />
-      <created>1711385867230</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1711385867230</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="classi Mezzo e StatoMezzo" />
-    <MESSAGE value="mod class statomezzo, manutenzione, inservizio" />
-    <option name="LAST_COMMIT_MESSAGE" value="mod class statomezzo, manutenzione, inservizio" />
-    <task id="LOCAL-00001" summary="creazione classi">
-      <option name="closed" value="true" />
-      <created>1711374024097</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1711374024097</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
-    <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
-    <MESSAGE value="creazione classi" />
-    <option name="LAST_COMMIT_MESSAGE" value="creazione classi" />
   </component>
 </project>
