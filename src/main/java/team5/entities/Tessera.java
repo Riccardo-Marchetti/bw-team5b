@@ -14,10 +14,10 @@ public class Tessera {
     private LocalDate dataEmissione;
     @Column(name = "data_scadenza")
     private LocalDate dataScadenza;
+
     @OneToOne
     @JoinColumn(name = "utente_id")
     private Utente utente;
-
 
 // CONSTRUCTORS
 

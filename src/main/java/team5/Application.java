@@ -75,10 +75,10 @@ public class Application {
         tesseraDAO.salvaTessera(tessera9);
 
         // CREAZIONE RIVENDITORI
-        Rivenditore rivenditore1 = new Rivenditore("via Milano", "Matteo", 434242425);
+        Rivenditore rivenditore1 = new Rivenditore("via Milano", "Antonio", 434242425);
         Rivenditore rivenditore2 = new Rivenditore("via Piave", "Riccardo", 234525231);
         Rivenditore rivenditore3 = new Rivenditore("via Po", "Marco", 523515646);
-        Rivenditore rivenditore4 = new Rivenditore("via Roma", "Antonio", 246675369);
+        Rivenditore rivenditore4 = new Rivenditore("via Roma", "Matteo", 246675369);
 
         // SALVATAGGIO RIVENDITORI
         rd.salvaRivenditore(rivenditore1);
@@ -137,6 +137,6 @@ public class Application {
 
         // NUMERO ABBONAMENTI X ID E DATA
         System.out.println(ad.numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 3, 26), LocalDate.of(2024,3, 28), 356));
-
+        System.out.println(ad.verificaAbbonamento(1));
     }
     }
