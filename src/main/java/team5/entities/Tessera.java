@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 @Entity
+@NamedQuery(name = "findTesseraById", query = "SELECT t FROM Tessera t WHERE t.id = :tesseraId")
+
 public class Tessera {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
