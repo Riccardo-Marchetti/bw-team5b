@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 @Entity
+@NamedQuery(name = "findTesseraById", query = "SELECT t FROM Tessera t WHERE t.id = :tesseraId")
+
 public class Tessera {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +24,7 @@ public class Tessera {
     public Tessera() {
     }
 
-    public Tessera(Utente utente, LocalDate dataEmissione, LocalDate dataScadenza) {
+    public Tessera(Utente utente, LocalDate dataEmissione) {
         this.utente = utente;
         this.dataEmissione = dataEmissione;
         this.dataScadenza = dataEmissione.plusYears(1);
