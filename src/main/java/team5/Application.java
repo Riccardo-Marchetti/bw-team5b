@@ -30,6 +30,7 @@ public class Application {
         EntityManager em = emf.createEntityManager();
         System.out.println("CIAO");
         Faker faker = new Faker(Locale.ITALY);
+        Random rndm = new Random();
         UtenteDAO utenteDAO = new UtenteDAO(em);
         TesseraDAO tesseraDAO = new TesseraDAO(em);
         TrattaDAO trattaDAO = new TrattaDAO(em);
