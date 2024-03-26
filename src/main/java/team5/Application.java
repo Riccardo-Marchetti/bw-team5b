@@ -16,7 +16,11 @@ import team5.entities.Tessera;
 import team5.entities.Tratta;
 import team5.entities.Utente;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 public class Application {
@@ -28,20 +32,14 @@ public class Application {
         Faker faker = new Faker(Locale.ITALY);
         UtenteDAO utenteDAO = new UtenteDAO(em);
         TesseraDAO tesseraDAO = new TesseraDAO(em);
-        TrattaDAO trattaDAO = new TrattaDAO(em);
-        MezzoDAO mezzoDAO = new MezzoDAO(em);
 
-        /*
-         * Supplier<Utente> utenteSupplier = ()->{
-         * Faker faker = new Faker(Locale.ITALY);
-         * return new Utente(faker.rickAndMorty().character(), )
-         * 
-         * };
-         */
+        Supplier<Utente> utenteSupplier = ()-> new Utente(faker.rickAndMorty().character(), faker.name().lastName());
+        List<Utente> utenteList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            utenteList.add(utenteSupplier.get());
+        }
+        utenteList.forEach(utenteDAO::salvaUtente);
 
-        // Create a new tratta
-        // Supplier<Tratta> trattaSupplier = () -> {
-        // };
 
     }
-}
+    }
