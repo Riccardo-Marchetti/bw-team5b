@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import team5.dao.MezzoDAO;
 import team5.dao.TesseraDAO;
 import team5.dao.UtenteDAO;
 import team5.entities.Tessera;
@@ -16,10 +17,14 @@ import java.util.function.Supplier;
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestionetrasporti");
     public static void main(String[] args) {
-
         EntityManager em = emf.createEntityManager();
+        System.out.println("CIAO");
+
+
         UtenteDAO utenteDAO = new UtenteDAO(em);
         TesseraDAO tesseraDAO = new TesseraDAO(em);
+        MezzoDAO mezzoDAO = new MezzoDAO(em);
+
 
 
     /*    Supplier<Utente> utenteSupplier = ()->{
