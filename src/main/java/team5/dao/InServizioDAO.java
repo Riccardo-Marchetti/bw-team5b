@@ -1,8 +1,9 @@
+/*
 package team5.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import team5.entities.InServizio;
+
 import team5.exception.NotFoundException;
 
 import java.util.List;
@@ -38,4 +39,5 @@ public class InServizioDAO {
         System.out.println("InServizio eliminato con successo");
     }
 }
+*/
 

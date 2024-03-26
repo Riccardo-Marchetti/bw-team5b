@@ -14,8 +14,8 @@ public abstract class Mezzo {
         this.numeroMatricola=numeroMatricola;
     }
     public Mezzo() {}
-    public Long getId() {
-        return id;
+    public int getId() {
+        return Math.toIntExact(id);
     }
     public int getNumeroMatricola() {
         return numeroMatricola;

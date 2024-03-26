@@ -19,14 +19,11 @@ public class Tratta {
     private  int numeroPercorsi;
     @Column(name = "tempo_effettivo_percorsi")
     private int tempoEffettivoPercorso;
-    @ManyToOne
-    @JoinColumn(name = "inServizio_id")
-    private InServizio inServizio;
-    public Tratta(String partenza, String capolinea, int tempo_medio, InServizio inServizio) {
+
+    public Tratta(String partenza, String capolinea, int tempo_medio) {
         this.partenza = partenza;
         this.capolinea = capolinea;
         this.tempo_medio = tempo_medio;
-        this.inServizio = inServizio;
     }
 
 
@@ -63,10 +60,5 @@ public class Tratta {
     public void setTempoEffettivoPercorso(int tempoEffettivoPercorso) {
         this.tempoEffettivoPercorso = tempoEffettivoPercorso;
     }
-    public InServizio getInServizio() {
-        return inServizio;
-    }
-    public void setInServizio(InServizio inServizio) {
-        this.inServizio = inServizio;
-    }
+
 }
