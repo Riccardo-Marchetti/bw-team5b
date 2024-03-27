@@ -233,12 +233,12 @@ public class Application {
 //        System.out.println(" ");
 //
 //        System.out.println("Trova Tessera Scaduta ed Elimina");
-//     // tesseraDAO.eliminaTesseraScadutaById(24);
+//      tesseraDAO.eliminaTesseraScadutaById(24);
 //
 //        System.out.println(" ");
 //        System.out.println("Trova Utente ed elimina");
 //        utenteDAO.findUtenteById(1);
-     // utenteDAO.eliminaUtenteById(1);
+//      utenteDAO.eliminaUtenteById(1);
     
     }
     }
