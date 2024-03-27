@@ -366,7 +366,7 @@ public class Application {
         }
         System.out.println("Scegli il rivenditore inserendo il numero di riferimento");
         int input = scanner.nextInt();
-        Rivenditore rivenditore = listaRivenditori.get(input);
+        Rivenditore rivenditore = listaRivenditori.get(input-1);
         System.out.println("inserisci il numero tessera dell'utente");
         long numeroTessera = scanner.nextLong();
         Tessera tessera = tesseraDAO.findTesseraById(numeroTessera);
