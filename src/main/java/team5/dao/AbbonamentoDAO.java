@@ -29,7 +29,7 @@ public class AbbonamentoDAO {
     }
     public Abbonamento getById(long abbonamentoId){
         Abbonamento abbonamento = em.find(Abbonamento.class, abbonamentoId);
-        if (abbonamento == null) throw new NotFoundException(abbonamentoId);
+        if (abbonamento == null) throw new NotFoundException(String.valueOf(abbonamentoId));
         return abbonamento;
     }
 

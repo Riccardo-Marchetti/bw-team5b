@@ -151,11 +151,11 @@ public class Application {
        System.out.println(" ");
       System.out.println("Verifica abbonamento");
         ad.verificaAbbonamento(1).forEach(System.out::println);
-
+*/
 
 
         //CREAZIONE MANUTENZIONI
-        Manutenzione manutenzione1 = new Manutenzione(LocalDate.now(),LocalDate.of(2024,03,27),"Guasto motore");
+    /*    Manutenzione manutenzione1 = new Manutenzione(LocalDate.now(),LocalDate.of(2024,03,27),"Guasto motore");
         Manutenzione manutenzione2 = new Manutenzione(LocalDate.now(),LocalDate.of(2024,03,30),"Cambio gomme");
 
         //SALVATAGGIO MANUTENZIONI
@@ -220,7 +220,8 @@ public class Application {
         tramDAO.save(tram1);
         tramDAO.save(tram2);
         tramDAO.save(tram3);
-        tramDAO.save(tram4);*/
+        tramDAO.save(tram4);
+*/
 
 
 
@@ -229,8 +230,7 @@ public class Application {
 
 
 
-
-      //RICERCA DEI MEZZI IN SERVIZIO SU UNA TRATTA
+     //RICERCA DEI MEZZI IN SERVIZIO SU UNA TRATTA
         Tratta tratta = null;
         try {
             tratta = trattaDAO.findById(1);
@@ -276,6 +276,7 @@ public class Application {
             System.err.println("Si è verificato un'errore durante il recupero dei percorsi: " + e.getMessage());
         }
 
+        System.out.println("-------------------");
         //CAOLCOLO TEMPO EFFETTIVO PERCORRENZA PER MEZZO
         try {
             Tratta tratta1 = trattaDAO.findById(1);
@@ -288,7 +289,7 @@ public class Application {
             System.err.println("Si è verificato un'errore durante il calcolo del tempo effettivo di percorrenza: " + e.getMessage());
         }
 
-        System.out.println("Aggiornamento della data di scadenza");
+        /*System.out.println("Aggiornamento della data di scadenza");
         tesseraDAO.aggiornaTesseraScaduta(1L);
 
         System.out.println(" ");
@@ -299,11 +300,7 @@ public class Application {
         System.out.println(" ");
         System.out.println("Trova Utente ed elimina");
         utenteDAO.findUtenteById(1);
-     // utenteDAO.eliminaUtenteById(1);
-
-
-
-
+     // utenteDAO.eliminaUtenteById(1); */
 
 
 

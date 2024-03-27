@@ -27,7 +27,7 @@ public class BigliettoDAO {
     }
     public Biglietto getById(long bigliettoId){
         Biglietto biglietto = em.find(Biglietto.class, bigliettoId);
-        if (biglietto == null) throw new NotFoundException(bigliettoId);
+        if (biglietto == null) throw new NotFoundException(String.valueOf(bigliettoId));
         return biglietto;
     }
 public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long emittenteId){
@@ -38,12 +38,4 @@ public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio,
     return query.getSingleResult();
 }
 
-    public void annullaBigliettoVidimato(Biglietto biglietto) {
-        biglietto.setAnnullato(true);
-        EntityTransaction transaction = em.getTransaction();
-        transaction.begin();
-        em.merge(biglietto);
-        transaction.commit();
-        System.out.println("Biglietto: " + biglietto + " annullato correttamente");
-    }
 }
