@@ -257,7 +257,9 @@ public class Application {
                 case 2:
                     emissioneAbbonamento(scanner,rd,tesseraDAO,ad,dd);
                   break;
-                case 3:
+                default:
+                    System.out.println("Scelta non valida");
+                    break;
 
 
 
