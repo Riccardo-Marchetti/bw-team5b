@@ -24,12 +24,12 @@ public class AbbonamentoDAO {
         em.persist(abbonamento);
 
         transaction.commit();
-        System.out.println("abbonamento " + abbonamento.getId() + " di " + abbonamento.getUtente().getCognome() + " inserito ");
+        System.out.println("abbonamento " + abbonamento.getId() + " di " + abbonamento.getUtente().getCognome() + " " + abbonamento.getUtente().getNome() + " inserito ");
 
     }
     public Abbonamento getById(long abbonamentoId){
         Abbonamento abbonamento = em.find(Abbonamento.class, abbonamentoId);
-        if (abbonamento == null) throw new NotFoundException(abbonamentoId);
+        if (abbonamento == null) throw new NotFoundException("abbonamento non trovato");
         return abbonamento;
     }
 
@@ -61,4 +61,7 @@ public class AbbonamentoDAO {
         query.setParameter("today", today);
         return query.getResultList();
     }
+
+
+
 }

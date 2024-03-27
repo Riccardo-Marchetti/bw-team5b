@@ -16,13 +16,12 @@ import team5.dao.UtenteDAO;
 import team5.enums.TipoAbbonamento;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Supplier;
+
 
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestionetrasporti");
+
 
     public static void main(String[] args) {
         EntityManager em = emf.createEntityManager();
@@ -39,7 +38,8 @@ public class Application {
         ManutenzioneDAO md = new ManutenzioneDAO(em);
         AutobusDAO busDAO = new AutobusDAO(em);
         TramDAO tramDAO = new TramDAO(em);
-        
+
+
 //   // CREAZIONE UTENTI E SALVATAGGIO
 //
 //        Supplier<Utente> utenteSupplier = ()-> new Utente(faker.rickAndMorty().character(), faker.name().lastName());
@@ -209,39 +209,212 @@ public class Application {
 //        tramDAO.save(tram4);
 
         // NUMERO BIGLIETTI X ID E DATA
-        System.out.println("Numero biglietti emessi entro tot");
-        System.out.println(bd.numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2027, 2, 19), LocalDate.of(2024,2, 21), 1));
+//        System.out.println("Numero biglietti emessi entro tot");
+//        System.out.println(bd.numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2027, 2, 19), LocalDate.of(2024,2, 21), 1));
+//
+//         NUMERO ABBONAMENTI X ID E DATA
+//        System.out.println("Numero di abbonamenti emessi entro tot periodo:");
+//        System.out.println(ad.numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 3, 26), LocalDate.of(2024,3, 28), 53));
 
-        // NUMERO ABBONAMENTI X ID E DATA
-        System.out.println("Numero di abbonamenti emessi entro tot periodo:");
-        System.out.println(ad.numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 3, 26), LocalDate.of(2024,3, 28), 53));
+//       Mezzo mezzi = mezzoDAO.findById(5);
+//
+//        System.out.println(mezzi);
+//
+//        Tratta tratta = trattaDAO.findById(102);
+//        List<Mezzo> mezziInServizio = mezzoDAO.findMezziInServizioByTratta(tratta);
+//
+//        System.out.println("Mezzi in servizio sulla tratta " + tratta.getPartenza() + " - " + tratta.getCapolinea() + ":");
+//
+//        for (Mezzo m : mezziInServizio) {
+//            System.out.println(m.toString());
+//            System.out.println("----------------------------------");
+//        }
+//
+//        System.out.println("Aggiornamento della data di scadenza");
+//        tesseraDAO.aggiornaTesseraScaduta(1L);
+//
+//        System.out.println(" ");
+//
+//        System.out.println("Trova Tessera Scaduta ed Elimina");
+//     // tesseraDAO.eliminaTesseraScadutaById(24);
+//
+//        System.out.println(" ");
+//        System.out.println("Trova Utente ed elimina");
+//        utenteDAO.findUtenteById(1);
+        // utenteDAO.eliminaUtenteById(1);
 
-       Mezzo mezzi = mezzoDAO.findById(5);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Benvenuto nella giostione dei trasporti");
+        while (true) {
+            System.out.println("Scegli cosa vuoi fare:");
+            System.out.println("1 Emetti un biglietto, 2 Emetti un abbonamento");
+            int scelta = scanner.nextInt();
+            switch (scelta) {
 
-        System.out.println(mezzi);
+                case 1:
+                    emissioneBiglietto(scanner, rd, bd, dd);
+                    break;
+                case 2:
+                    emissioneAbbonamento(scanner,rd,tesseraDAO,ad,dd);
+                  break;
+                case 3:
 
-        Tratta tratta = trattaDAO.findById(102);
-        List<Mezzo> mezziInServizio = mezzoDAO.findMezziInServizioByTratta(tratta);
 
-        System.out.println("Mezzi in servizio sulla tratta " + tratta.getPartenza() + " - " + tratta.getCapolinea() + ":");
 
-        for (Mezzo m : mezziInServizio) {
-            System.out.println(m.toString());
-            System.out.println("----------------------------------");
+
+
+//                    } else if (scelta3 == 2) {
+//                        List<DistributoreAutomatico> listaDistributori = dd.getAllDistributori();
+//                        for (int i = 0; i < listaDistributori.toArray().length; i++) {
+//                            System.out.println(i + 1 + " " + listaDistributori.get(i));
+//                        }
+//                        System.out.println("Scegli il distributore inserendo il numero di riferimento");
+//                        int input = scanner.nextInt();
+//                        DistributoreAutomatico distributore = listaDistributori.get(input);
+//                        Abbonamento abbonamento = new Abbonamento();
+//                        ad.save(abbonamento);
+//                    } else {
+//                        throw new IllegalArgumentException("Inserisci un numero corretto tra 1 e 2");
+//
+//
+//                    }
+
+
+            }
+        }
+    }
+
+    private static void emissioneBiglietto(Scanner scanner, RivenditoreDAO rd, BigliettoDAO bd, DistributoreAutomaticoDAO dd) {
+        System.out.println("1-Rivenditore o 2-Distributore?");
+        int scelta2 = scanner.nextInt();
+
+        if (scelta2 == 1) {
+            emissioneBigliettoRivenditore(rd, bd, scanner);
+        } else if (scelta2 == 2) {
+            emissioneBigliettoDistributore(dd, bd, scanner);
+        } else {
+            throw new IllegalArgumentException("Inserisci un numero corretto tra 1 e 2");
+
+        }
+    }
+
+    private static void emissioneBigliettoRivenditore(RivenditoreDAO rd, BigliettoDAO bd, Scanner scanner) {
+        List<Rivenditore> listaRivenditori = rd.getAllRivenditori();
+        for (int i = 0; i < listaRivenditori.toArray().length; i++) {
+            System.out.println(i + 1 + " " + listaRivenditori.get(i));
+
+        }
+        System.out.println("Scegli il rivenditore inserendo il numero di riferimento");
+        int input = scanner.nextInt();
+        Rivenditore rivenditore = listaRivenditori.get(input - 1);
+        Biglietto biglietto = new Biglietto(LocalDate.now(), false, null, rivenditore);
+        bd.salvaBiglietto(biglietto);
+    }
+
+    private static void emissioneBigliettoDistributore(DistributoreAutomaticoDAO dd, BigliettoDAO bd, Scanner scanner) {
+        List<DistributoreAutomatico> listaDistributori = dd.getAllDistributori();
+        for (int i = 0; i < listaDistributori.toArray().length; i++) {
+            System.out.println(i + 1 + " " + listaDistributori.get(i));
+        }
+        System.out.println("Scegli il distributore inserendo il numero di riferimento");
+        int input = scanner.nextInt();
+        DistributoreAutomatico distributore = listaDistributori.get(input - 1);
+        Biglietto biglietto = new Biglietto(LocalDate.now(), false, null, distributore);
+        bd.salvaBiglietto(biglietto);
+    }
+
+    private static void emissioneAbbonamento(Scanner scanner, RivenditoreDAO rd, TesseraDAO tesseraDAO, AbbonamentoDAO ad, DistributoreAutomaticoDAO dd) {
+        System.out.println("1-Rivenditore o 2-Distributore?");
+        int scelta3 = scanner.nextInt();
+
+        if (scelta3 == 1) {
+
+    emissioneAbbonamentoRivenditore(scanner,rd,tesseraDAO,ad);
+        }
+        else if(scelta3 == 2){
+            emissioneAbbonamentoDistributore(scanner,dd,tesseraDAO,ad);
+        }
+        else{
+            throw new IllegalArgumentException("Inserisci un numero corretto tra 1 e 2");
+        }
+//
+//        } else if (scelta3 == 2) {
+//            List<DistributoreAutomatico> listaDistributori = dd.getAllDistributori();
+//            for (int i = 0; i < listaDistributori.toArray().length; i++) {
+//                System.out.println(i + 1 + " " + listaDistributori.get(i));
+//            }
+//            System.out.println("Scegli il distributore inserendo il numero di riferimento");
+//            int input = scanner.nextInt();
+//            DistributoreAutomatico distributore = listaDistributori.get(input);
+//            Abbonamento abbonamento = new Abbonamento();
+//            ad.save(abbonamento);
+//        } else {
+//            throw new IllegalArgumentException("Inserisci un numero corretto tra 1 e 2");
+
+//
+//        }
+//
+   }
+
+    private static void emissioneAbbonamentoRivenditore(Scanner scanner, RivenditoreDAO rd, TesseraDAO tesseraDAO, AbbonamentoDAO ad) {
+        List<Rivenditore> listaRivenditori = rd.getAllRivenditori();
+        for (int i = 0; i < listaRivenditori.toArray().length; i++) {
+            System.out.println(i + 1 + " " + listaRivenditori.get(i));
+
+        }
+        System.out.println("Scegli il rivenditore inserendo il numero di riferimento");
+        int input = scanner.nextInt();
+        Rivenditore rivenditore = listaRivenditori.get(input);
+        System.out.println("inserisci il numero tessera dell'utente");
+        long numeroTessera = scanner.nextLong();
+        Tessera tessera = tesseraDAO.findTesseraById(numeroTessera);
+        if (tessera != null && tessera.getUtente() != null) {
+//                if (tesseraDAO.)
+            System.out.println("Inserisci il tipo di abbonamento: 1-Settimanale o 2-Mensile");
+            int inputTipoAbbonamento = scanner.nextInt();
+            if (inputTipoAbbonamento == 1) {
+                Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(), TipoAbbonamento.SETTIMANALE, rivenditore);
+                ad.save(abbonamento);
+
+            } else if (inputTipoAbbonamento == 2) {
+                Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(), TipoAbbonamento.MENSILE, rivenditore);
+                ad.save(abbonamento);
+
+            } else {
+                throw new IllegalArgumentException("Numero inserito non valido");
+            }
         }
 
-        System.out.println("Aggiornamento della data di scadenza");
-        tesseraDAO.aggiornaTesseraScaduta(1L);
+    }
 
-        System.out.println(" ");
+    private static void  emissioneAbbonamentoDistributore(Scanner scanner, DistributoreAutomaticoDAO dd,TesseraDAO tesseraDAO,AbbonamentoDAO ad){
+        List<DistributoreAutomatico> listaDistributori = dd.getAllDistributori();
+        for (int i = 0; i < listaDistributori.toArray().length; i++) {
+            System.out.println(i + 1 + " " + listaDistributori.get(i));
 
-        System.out.println("Trova Tessera Scaduta ed Elimina");
-     // tesseraDAO.eliminaTesseraScadutaById(24);
+        }
+        System.out.println("Scegli il distributore automatico inserendo il numero di riferimento");
+        int input = scanner.nextInt();
+        DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input);
+        System.out.println("inserisci il numero tessera dell'utente");
+        long numeroTessera = scanner.nextLong();
+        Tessera tessera = tesseraDAO.findTesseraById(numeroTessera);
+        if (tessera != null) {
 
-        System.out.println(" ");
-        System.out.println("Trova Utente ed elimina");
-        utenteDAO.findUtenteById(1);
-     // utenteDAO.eliminaUtenteById(1);
+            System.out.println("Inserisci il tipo di abbonamento: 1-Settimanale o 2-Mensile");
+            int inputTipoAbbonamento = scanner.nextInt();
+            if (inputTipoAbbonamento == 1) {
+                Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(), TipoAbbonamento.SETTIMANALE, distributoreAutomatico);
+                ad.save(abbonamento);
+
+            } else if (inputTipoAbbonamento == 2) {
+                Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(), TipoAbbonamento.MENSILE, distributoreAutomatico);
+                ad.save(abbonamento);
+
+            } else {
+                throw new IllegalArgumentException("Numero inserito non valido");
+            }
+        }
 
     }
-    }
+}

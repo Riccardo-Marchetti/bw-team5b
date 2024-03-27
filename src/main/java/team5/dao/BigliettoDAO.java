@@ -27,7 +27,7 @@ public class BigliettoDAO {
     }
     public Biglietto getById(long bigliettoId){
         Biglietto biglietto = em.find(Biglietto.class, bigliettoId);
-        if (biglietto == null) throw new NotFoundException(bigliettoId);
+        if (biglietto == null) throw new NotFoundException("biglietto non trovato");
         return biglietto;
     }
 public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long emittenteId){
@@ -37,4 +37,7 @@ public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio,
     query.setParameter("emittenteId", emittenteId);
     return query.getSingleResult();
 }
+
+
+
 }
