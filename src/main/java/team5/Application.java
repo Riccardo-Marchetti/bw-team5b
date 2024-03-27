@@ -17,10 +17,7 @@ import team5.enums.TipoAbbonamento;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
@@ -29,7 +26,6 @@ public class Application {
 
     public static void main(String[] args) {
         EntityManager em = emf.createEntityManager();
-        System.out.println("CIAO");
         Faker faker = new Faker(Locale.ITALY);
         Random rndm = new Random();
         UtenteDAO utenteDAO = new UtenteDAO(em);
@@ -212,33 +208,40 @@ public class Application {
 //        tramDAO.save(tram3);
 //        tramDAO.save(tram4);
 
-//
-//       Mezzo mezzi = mezzoDAO.findById(5);
-//
-//        System.out.println(mezzi);
-//
-//        Tratta tratta = trattaDAO.findById(102);
-//        List<Mezzo> mezziInServizio = mezzoDAO.findMezziInServizioByTratta(tratta);
-//
-//        System.out.println("Mezzi in servizio sulla tratta " + tratta.getPartenza() + " - " + tratta.getCapolinea() + ":");
-//
-//        for (Mezzo m : mezziInServizio) {
-//            System.out.println(m.toString());
-//            System.out.println("----------------------------------");
-//        }
-//
-//        System.out.println("Aggiornamento della data di scadenza");
-//        tesseraDAO.aggiornaTesseraScaduta(1L);
-//
-//        System.out.println(" ");
-//
-//        System.out.println("Trova Tessera Scaduta ed Elimina");
-//      tesseraDAO.eliminaTesseraScadutaById(24);
-//
-//        System.out.println(" ");
-//        System.out.println("Trova Utente ed elimina");
-//        utenteDAO.findUtenteById(1);
-//      utenteDAO.eliminaUtenteById(1);
-    
+        // NUMERO BIGLIETTI X ID E DATA
+        System.out.println("Numero biglietti emessi entro tot");
+        System.out.println(bd.numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2027, 2, 19), LocalDate.of(2024,2, 21), 1));
+
+        // NUMERO ABBONAMENTI X ID E DATA
+        System.out.println("Numero di abbonamenti emessi entro tot periodo:");
+        System.out.println(ad.numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 3, 26), LocalDate.of(2024,3, 28), 53));
+
+       Mezzo mezzi = mezzoDAO.findById(5);
+
+        System.out.println(mezzi);
+
+        Tratta tratta = trattaDAO.findById(102);
+        List<Mezzo> mezziInServizio = mezzoDAO.findMezziInServizioByTratta(tratta);
+
+        System.out.println("Mezzi in servizio sulla tratta " + tratta.getPartenza() + " - " + tratta.getCapolinea() + ":");
+
+        for (Mezzo m : mezziInServizio) {
+            System.out.println(m.toString());
+            System.out.println("----------------------------------");
+        }
+
+        System.out.println("Aggiornamento della data di scadenza");
+        tesseraDAO.aggiornaTesseraScaduta(1L);
+
+        System.out.println(" ");
+
+        System.out.println("Trova Tessera Scaduta ed Elimina");
+     // tesseraDAO.eliminaTesseraScadutaById(24);
+
+        System.out.println(" ");
+        System.out.println("Trova Utente ed elimina");
+        utenteDAO.findUtenteById(1);
+     // utenteDAO.eliminaUtenteById(1);
+
     }
     }

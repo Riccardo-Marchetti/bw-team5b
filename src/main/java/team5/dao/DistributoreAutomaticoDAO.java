@@ -20,4 +20,5 @@ public class DistributoreAutomaticoDAO {
         transaction.commit();
         System.out.println("DistributoreAutomatico: " + distributoreAutomatico + " salvato correttamente");
     }
+
 }
