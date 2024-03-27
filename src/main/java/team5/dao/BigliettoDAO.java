@@ -44,4 +44,13 @@ public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio,
     query.setParameter("emittenteId", emittenteId);
     return query.getSingleResult();
 }
+
+    public void annullaBigliettoVidimato(Biglietto biglietto) {
+        biglietto.setAnnullato(true);
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        em.merge(biglietto);
+        transaction.commit();
+        System.out.println("Biglietto: " + biglietto + " annullato correttamente");
+    }
 }

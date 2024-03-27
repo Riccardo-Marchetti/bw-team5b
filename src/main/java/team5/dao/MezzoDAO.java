@@ -53,15 +53,14 @@ public class MezzoDAO {
         return query.getResultList();
     }
 
-    public long countPercorsiByMezzoAndTratta(Mezzo mezzo, Tratta tratta) {
-        TypedQuery<Long> query = em.createQuery("SELECT COUNT(p) FROM Percorso p WHERE p.mezzo = :mezzo AND p.tratta = :tratta", Long.class);
+    public int countPercorsiByMezzoAndTratta(Mezzo mezzo, Tratta tratta) {
+        TypedQuery<Long> query = em.createQuery(
+                "SELECT COUNT(p) FROM Percorso p WHERE p.mezzo = :mezzo AND p.tratta = :tratta", Long.class);
         query.setParameter("mezzo", mezzo);
         query.setParameter("tratta", tratta);
-        return query.getSingleResult();
+        Long result = query.getSingleResult();
+        return result.intValue(); // Converti il risultato da Long a int
     }
-
-
-
 
     public Long calculateTempoEffettivoPercorrenza(Mezzo mezzo, Tratta tratta) {
         TypedQuery<Long> query = em.createQuery("SELECT SUM(p.tempoEffettivo) FROM Percorso p WHERE p.mezzo = :mezzo AND p.tratta = :tratta", Long.class);
@@ -69,4 +68,6 @@ public class MezzoDAO {
         query.setParameter("tratta", tratta);
         return query.getSingleResult();
     }
+
+
 }

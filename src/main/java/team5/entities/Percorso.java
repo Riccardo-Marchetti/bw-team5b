@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Percorso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "mezzo_id")
@@ -23,14 +23,18 @@ public class Percorso {
     // Costruttore
     public Percorso() {}
 
+    public Percorso(Mezzo mezzo, Tratta tratta, int tempoEffettivo) {
+        this.mezzo = mezzo;
+        this.tratta = tratta;
+        this.tempoEffettivo = tempoEffettivo;
+    }
+
     // Getter e setter
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
 
     public Mezzo getMezzo() {
         return mezzo;

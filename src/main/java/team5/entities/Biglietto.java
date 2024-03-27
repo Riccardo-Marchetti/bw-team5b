@@ -14,6 +14,8 @@ public class Biglietto {
     private boolean vidimato;
     private LocalDate dataVidimazione;
 
+    private boolean annullato;
+
     // MANY TO ONE EMITTENTE
 //    @ManyToOne
 //    @JoinColumn (name = "Rivenditore_id")
@@ -79,7 +81,15 @@ public class Biglietto {
         this.dataVidimazione = dataVidimazione;
     }
 
-//    public Rivenditore getRivenditore() {
+    public boolean isAnnullato() {
+        return annullato;
+    }
+
+    public void setAnnullato(boolean annullato) {
+        this.annullato = annullato;
+    }
+
+    //    public Rivenditore getRivenditore() {
 //        return rivenditore;
 //    }
 
@@ -106,4 +116,6 @@ public class Biglietto {
                 ", emittente=" + emittente +
                 '}';
     }
+
+
 }
