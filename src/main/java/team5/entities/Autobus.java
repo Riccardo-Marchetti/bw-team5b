@@ -44,11 +44,6 @@ public class Autobus extends Mezzo{
     public void setCapienza(int capienza) {
         this.capienza = capienza;
     }
-    @Override
-    public String toString() {
-        return "Autobus{" +
-                "id=" + id +
-                ", capienza=" + capienza +
-                '}';
-    }
+
+
 }
