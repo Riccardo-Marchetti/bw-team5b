@@ -27,8 +27,10 @@ public class MezzoDAO {
 
     public Mezzo findById(int id) {
         Mezzo mezzo = em.find(Mezzo.class, id);
-        /*if (mezzo == null) throw new NotFoundException(id);*/
+        if (mezzo == null) throw new NotFoundException(id);
+        System.out.println("Mezzo trovato con successo!");
         return mezzo;
+
     }
 
     public void findByIdAndDelete(Mezzo mezzo){

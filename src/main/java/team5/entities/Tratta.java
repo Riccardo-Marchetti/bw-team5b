@@ -75,4 +75,9 @@ public class Tratta {
     public void setMezzi(List<Mezzo> mezzi) {
         this.mezzi = mezzi;
     }
+
+    @Override
+    public String toString() {
+        return " "+ id +" ";
+    }
 }
