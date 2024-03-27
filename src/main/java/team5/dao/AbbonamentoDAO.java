@@ -27,13 +27,14 @@ public class AbbonamentoDAO {
         System.out.println("abbonamento " + abbonamento.getId() + " di " + abbonamento.getUtente().getCognome() + " " + abbonamento.getUtente().getNome() + " inserito ");
 
     }
-    public Abbonamento getById(long abbonamentoId){
+
+    public Abbonamento getById(long abbonamentoId) {
         Abbonamento abbonamento = em.find(Abbonamento.class, abbonamentoId);
         if (abbonamento == null) throw new NotFoundException("abbonamento non trovato");
         return abbonamento;
     }
 
-    public long numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long emittenteId){
+    public long numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long emittenteId) {
         Emittente emittente = em.find(Emittente.class, emittenteId);
         if (emittente == null) {
             throw new NotFoundException("Emittente con id: " + emittenteId + " non trovato");
@@ -54,7 +55,7 @@ public class AbbonamentoDAO {
         LocalDate today = LocalDate.now();
         TypedQuery<Abbonamento> query = em.createQuery(
                 "SELECT a FROM Abbonamento a WHERE a.utente.tessera.id = :tesseraId AND :today BETWEEN a.dataEmissione AND a.dataScadenza",
-              Abbonamento.class
+                Abbonamento.class
         );
 
         query.setParameter("tesseraId", tesseraId);
@@ -62,6 +63,13 @@ public class AbbonamentoDAO {
         return query.getResultList();
     }
 
+    public void annullaAbbonamento(long abbonamentoId) {
+        em.getTransaction().begin();
+        Abbonamento abbonamento = em.find(Abbonamento.class, abbonamentoId);
+        em.remove(abbonamento);
+        em.getTransaction().commit();
+        System.out.println("Abbonamento annullato");
+    }
 
 
 }

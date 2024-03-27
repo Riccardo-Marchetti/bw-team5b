@@ -266,17 +266,20 @@ public class Application {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Benvenuto nella gestione dei trasporti");
-        while (true) {
+        int scelta;
+        do {
             System.out.println("Scegli cosa vuoi fare:");
             System.out.println("1 - Gestione clienti");
             System.out.println("2 - Gestione interna");
-            System.out.println("3 - Esci");
-            int scelta = scanner.nextInt();
+            System.out.println("3 - Gestione mezzi");
+            System.out.println("4 - Esci");
+            scelta = scanner.nextInt();
             switch (scelta) {
                 case 1:
+                    System.out.println("Gestione cliente:");
                     System.out.println("1 - Emetti un biglietto");
                     System.out.println("2 - Emetti un abbonamento");
-                    System.out.println("3 - Esci");
+                    System.out.println("3 - Ritorna al menù precedente");
                     try {
                         int scelta1 = scanner.nextInt();
                         switch (scelta1) {
@@ -286,19 +289,107 @@ public class Application {
                             case 2:
                                 emissioneAbbonamento(scanner, rd, tesseraDAO, ad, dd);
                                 break;
+                            case 3:
+                                break;
                             default:
-                                throw new IllegalArgumentException("Inserisci un numero compreso tra 1 e 2");
+                                throw new IllegalArgumentException("Inserisci un numero compreso tra 1 e 3");
                         }
                     } catch (InputMismatchException e) {
                         System.out.println("Input non valido, inserisci un numero");
                         scanner.next();
-
                     }
                     break;
                 case 2:
-                    System.out.println("1 - Gestione interna");
+                    System.out.println("Gestione interna");
+                    System.out.println("1 - Verifica abbonamento");
+                    System.out.println("2 - Annulla abbonamento");
+                    System.out.println("3 - Controlla biglietto");
+                    System.out.println("4 - Ritorna al menù precedente");
+                    try {
+                        int scelta2 = scanner.nextInt();
+                        switch (scelta2) {
+                            case 1:
+                                System.out.println("Verifica abbonamento:");
+                                System.out.println("Inserisci numero tessera");
+                                long tessera = scanner.nextLong();
+                                ad.verificaAbbonamento(tessera).forEach(System.out::println);
+                                break;
+                            case 2:
+                                System.out.println("Annulla abbonamento");
+                                System.out.println("Inserisci numero abbonamento");
+                                long abbonamento = scanner.nextLong();
+                                ad.annullaAbbonamento(abbonamento);
+                                break;
+                            case 3:
+                                System.out.println("Work in progress");
+                                break;
+                            case 4:
+                                break;
+                            default:
+                                throw new IllegalArgumentException("Inserisci un numero compreso tra 1 e 4");
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Input non valido, inserisci un numero");
+                        scanner.next();
+                    }
                     break;
                 case 3:
+                    System.out.println("Gestione mezzi");
+                    System.out.println("1 - Mezzi in servizio");
+                    System.out.println("2 - Controlla quante volte un mezzo ha percorso una tratta");
+                    System.out.println("3 - Controlla quante volte un mezzo ha percorso una tratta");
+                    System.out.println("4 - Controlla il tempo effettivo delle tratte percorse da un mezzo"); // da controllare se la query fa affidamento alla traccia
+                    System.out.println("5 - Ritorna al menù precedente");
+                    try {
+                        int scelta2 = scanner.nextInt();
+                        switch (scelta2) {
+                            case 1:
+                                System.out.println("Mezzi in servizio");
+                                for (Mezzo m : mezzoDAO.findMezziInServizio()) {
+                                    System.out.println(m);
+                                    System.out.println("-------------------------");
+                                }
+                                break;
+                            case 2:
+//                                System.out.println("Controlla quante volte un mezzo ha percorso una tratta");
+//                                System.out.println("Inserisci numero matricola");
+//                                int matricola = scanner.nextInt();
+//                                scanner.nextLine();
+//                                System.out.println("Inserisci Partenza");
+//                                String partenza = scanner.nextLine();
+//                                System.out.println("Inserisci Capolinea");
+//                                String capolinea = scanner.nextLine();
+//                                System.out.println("La tratta " + partenza + " - " + capolinea + " è stato percorsa dal mezzo " + matricola + " " + mezzoDAO.countPercorsiByMezzoAndTratta(matricola, partenza, capolinea) + " volte");
+//                                System.out.println("-------------------------");
+                                // da sistemare e rivedere domani
+                                System.out.println("Controlla quante volte un mezzo ha percorso una tratta");
+                                System.out.println("Inserisci numero matricola");
+                                Mezzo mezzo = mezzoDAO.findById(scanner.nextInt());
+                                scanner.nextLine();
+                                System.out.println("Inserisci Partenza");
+                                Tratta tratta = trattaDAO.findById(scanner.nextInt());
+                                long prova = mezzoDAO.countPercorsiByMezzoAndTratta(mezzo, tratta);
+                                System.out.println("prova" + prova);
+
+                                break;
+                            case 3:
+                                System.out.println("Work in progress");
+                                break;
+                            case 4:
+                                System.out.println("Work in progress");
+                                break;
+                            case 5:
+                                System.out.println("Work in progress");
+                                break;
+                            default:
+                                throw new IllegalArgumentException("Inserisci un numero compreso tra 1 e 5");
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Input non valido, inserisci un numero");
+                        scanner.next();
+                    }
+                    break;
+                case 4:
                     System.out.println("Grazie e arrivederci!");
                     System.exit(0);
                     break;
@@ -308,11 +399,13 @@ public class Application {
 
             }
 
-        }
+        } while (scelta != 4);
+
+
     }
 
     private static void emissioneBiglietto(Scanner scanner, RivenditoreDAO rd, BigliettoDAO bd,
-            DistributoreAutomaticoDAO dd) {
+                                           DistributoreAutomaticoDAO dd) {
         System.out.println("1 - Rivenditore");
         System.out.println("2 - Distributore");
         ;
@@ -366,7 +459,7 @@ public class Application {
     }
 
     private static void emissioneAbbonamento(Scanner scanner, RivenditoreDAO rd, TesseraDAO tesseraDAO,
-            AbbonamentoDAO ad, DistributoreAutomaticoDAO dd) {
+                                             AbbonamentoDAO ad, DistributoreAutomaticoDAO dd) {
         System.out.println("1 - Rivenditore");
         System.out.println("2 - Distributore");
         try {
@@ -387,7 +480,7 @@ public class Application {
     }
 
     private static void emissioneAbbonamentoRivenditore(Scanner scanner, RivenditoreDAO rd, TesseraDAO tesseraDAO,
-            AbbonamentoDAO ad) {
+                                                        AbbonamentoDAO ad) {
         List<Rivenditore> listaRivenditori = rd.getAllRivenditori();
         for (int i = 0; i < listaRivenditori.toArray().length; i++) {
             System.out.println(i + 1 + " " + listaRivenditori.get(i));
@@ -423,7 +516,7 @@ public class Application {
     }
 
     private static void emissioneAbbonamentoDistributore(Scanner scanner, DistributoreAutomaticoDAO dd,
-            TesseraDAO tesseraDAO, AbbonamentoDAO ad) {
+                                                         TesseraDAO tesseraDAO, AbbonamentoDAO ad) {
 
         List<DistributoreAutomatico> listaDistributori = dd.getAllDistributori();
         for (int i = 0; i < listaDistributori.toArray().length; i++) {
@@ -467,8 +560,7 @@ public class Application {
                 }
 
             }
-        } else
-        {
+        } else {
             throw new IllegalArgumentException("Inserisci un numero valido");
         }
 
