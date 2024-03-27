@@ -244,10 +244,13 @@ public class Application {
         // utenteDAO.eliminaUtenteById(1);
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Benvenuto nella giostione dei trasporti");
+        System.out.println("Benvenuto nella gestione dei trasporti");
         while (true) {
             System.out.println("Scegli cosa vuoi fare:");
-            System.out.println("1 Emetti un biglietto, 2 Emetti un abbonamento");
+            System.out.println("1 - Emetti un biglietto");
+            System.out.println("2 - Emetti un abbonamento");
+
+
             int scelta = scanner.nextInt();
             switch (scelta) {
 
@@ -287,7 +290,8 @@ public class Application {
     }
 
     private static void emissioneBiglietto(Scanner scanner, RivenditoreDAO rd, BigliettoDAO bd, DistributoreAutomaticoDAO dd) {
-        System.out.println("1-Rivenditore o 2-Distributore?");
+        System.out.println("1 - Rivenditore");
+        System.out.println("2 - Distributore");
         int scelta2 = scanner.nextInt();
 
         if (scelta2 == 1) {
@@ -303,7 +307,7 @@ public class Application {
     private static void emissioneBigliettoRivenditore(RivenditoreDAO rd, BigliettoDAO bd, Scanner scanner) {
         List<Rivenditore> listaRivenditori = rd.getAllRivenditori();
         for (int i = 0; i < listaRivenditori.toArray().length; i++) {
-            System.out.println(i + 1 + " " + listaRivenditori.get(i));
+            System.out.println(i + 1 + " - " + listaRivenditori.get(i));
 
         }
         System.out.println("Scegli il rivenditore inserendo il numero di riferimento");
@@ -316,7 +320,7 @@ public class Application {
     private static void emissioneBigliettoDistributore(DistributoreAutomaticoDAO dd, BigliettoDAO bd, Scanner scanner) {
         List<DistributoreAutomatico> listaDistributori = dd.getAllDistributori();
         for (int i = 0; i < listaDistributori.toArray().length; i++) {
-            System.out.println(i + 1 + " " + listaDistributori.get(i));
+            System.out.println(i + 1 + " - " + listaDistributori.get(i));
         }
         System.out.println("Scegli il distributore inserendo il numero di riferimento");
         int input = scanner.nextInt();
@@ -326,7 +330,8 @@ public class Application {
     }
 
     private static void emissioneAbbonamento(Scanner scanner, RivenditoreDAO rd, TesseraDAO tesseraDAO, AbbonamentoDAO ad, DistributoreAutomaticoDAO dd) {
-        System.out.println("1-Rivenditore o 2-Distributore?");
+        System.out.println("1 - Rivenditore");
+        System.out.println("2 - Distributore");
         int scelta3 = scanner.nextInt();
 
         if (scelta3 == 1) {
@@ -344,13 +349,13 @@ public class Application {
     private static void emissioneAbbonamentoRivenditore(Scanner scanner, RivenditoreDAO rd, TesseraDAO tesseraDAO, AbbonamentoDAO ad) {
         List<Rivenditore> listaRivenditori = rd.getAllRivenditori();
         for (int i = 0; i < listaRivenditori.toArray().length; i++) {
-            System.out.println(i + 1 + " " + listaRivenditori.get(i));
+            System.out.println(i + 1 + " - " + listaRivenditori.get(i));
 
         }
         System.out.println("Scegli il rivenditore inserendo il numero di riferimento");
         int input = scanner.nextInt();
         Rivenditore rivenditore = listaRivenditori.get(input-1);
-        System.out.println("inserisci il numero tessera dell'utente");
+        System.out.println("Inserisci il numero tessera dell'utente");
         long numeroTessera = scanner.nextLong();
         Tessera tessera = tesseraDAO.findTesseraById(numeroTessera);
         if (tessera != null && tessera.getUtente() != null) {
@@ -375,13 +380,13 @@ public class Application {
     private static void  emissioneAbbonamentoDistributore(Scanner scanner, DistributoreAutomaticoDAO dd,TesseraDAO tesseraDAO,AbbonamentoDAO ad){
         List<DistributoreAutomatico> listaDistributori = dd.getAllDistributori();
         for (int i = 0; i < listaDistributori.toArray().length; i++) {
-            System.out.println(i + 1 + " " + listaDistributori.get(i));
+            System.out.println(i + 1 + " - " + listaDistributori.get(i));
 
         }
         System.out.println("Scegli il distributore automatico inserendo il numero di riferimento");
         int input = scanner.nextInt();
         DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input);
-        System.out.println("inserisci il numero tessera dell'utente");
+        System.out.println("Inserisci il numero tessera dell'utente");
         long numeroTessera = scanner.nextLong();
         scanner.nextLine();
         Tessera tessera = tesseraDAO.findTesseraById(numeroTessera);
