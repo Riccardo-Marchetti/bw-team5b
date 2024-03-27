@@ -136,94 +136,96 @@ public class Application {
 //        ad.save(abbonamento4);
 //        ad.save(abbonamento5);
 //        ad.save(abbonamento6);
+//
+//        // NUMERO BIGLIETTI X ID E DATA
+//        System.out.println("Numero biglietti emessi entro tot");
+//        System.out.println(bd.numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 2, 19), LocalDate.of(2024,2, 21), 3));
+//
+//        // NUMERO ABBONAMENTI X ID E DATA
+//        System.out.println("Numero di abbonamenti emessi entro tot periodo:");
+//        System.out.println(ad.numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 3, 26), LocalDate.of(2024,3, 28), 4));
+//        System.out.println(" ");
+//        System.out.println("Verifica abbonamento");
+//        ad.verificaAbbonamento(1).forEach(System.out::println);
+//
+//
+//
+//        //CREAZIONE MANUTENZIONI
+//        Manutenzione manutenzione1 = new Manutenzione(LocalDate.now(),LocalDate.of(2024,03,27),"Guasto motore");
+//        Manutenzione manutenzione2 = new Manutenzione(LocalDate.now(),LocalDate.of(2024,03,30),"Cambio gomme");
+//
+//        //SALVATAGGIO MANUTENZIONI
+//        md.save(manutenzione1);
+//        md.save(manutenzione2);
+//
+//        //CREAZIONE TRATTA
+//        Tratta tratta1 = new Tratta("Roma","Firenze",120);
+//        Tratta tratta2 = new Tratta("Torino","Napoli",120);
+//        Tratta tratta3 = new Tratta("Genoa","Bologna",240);
+//        Tratta tratta4 = new Tratta("Palermo","Catania",240);
+//        Tratta tratta5 = new Tratta("Empoli","Udine",180);
+//
+//
+//        //SALVATAGGIO TRATTA
+//        trattaDAO.save(tratta1);
+//        trattaDAO.save(tratta2);
+//        trattaDAO.save(tratta3);
+//        trattaDAO.save(tratta4);
+//        trattaDAO.save(tratta5);
+//
+//
+//
+//        //CREAZIONE AUTOBUS
+//        List<Autobus> autobusList = new ArrayList<>();
+//        Autobus bus1 = new Autobus(534189,100,true,null,tratta1);
+//        Autobus bus2 = new Autobus(134986,100,true,null,tratta2);
+//        Autobus bus3 = new Autobus(234568,100,false,manutenzione1,null);
+//        Autobus bus4 = new Autobus(964521,100,true,null,tratta3);
+//
+//        autobusList.add(bus1);
+//        autobusList.add(bus2);
+//        autobusList.add(bus3);
+//        autobusList.add(bus4);
+//
+//        //SALVATAGGIO AUTOBUS
+//        busDAO.save(bus1);
+//        busDAO.save(bus2);
+//        busDAO.save(bus3);
+//        busDAO.save(bus4);
+//
+//        //CREAZIONE TRAM
+//        List<Tram> tramList = new ArrayList<>();
+//        Tram tram1 = new Tram(200,257963,false,manutenzione2,null);
+//        Tram tram2 = new Tram(200,112498,true,null,tratta1);
+//        Tram tram3 = new Tram(200,531794,true,null,tratta4);
+//        Tram tram4 = new Tram(200,484946,true,null,tratta5);
+//
+//        tramList.add(tram1);
+//        tramList.add(tram2);
+//        tramList.add(tram3);
+//        tramList.add(tram4);
+//
+//
+//        //SALVATAGGIO TRAM
+//        tramDAO.save(tram1);
+//        tramDAO.save(tram2);
+//        tramDAO.save(tram3);
+//        tramDAO.save(tram4);
 
-        // NUMERO BIGLIETTI X ID E DATA
-        System.out.println("Numero biglietti emessi entro tot");
-        System.out.println(bd.numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 2, 19), LocalDate.of(2024,2, 21), 3));
 
-        // NUMERO ABBONAMENTI X ID E DATA
-        System.out.println("Numero di abbonamenti emessi entro tot periodo:");
-        System.out.println(ad.numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 3, 26), LocalDate.of(2024,3, 28), 4));
-        System.out.println(" ");
-        System.out.println("Verifica abbonamento");
-        ad.verificaAbbonamento(1).forEach(System.out::println);
+       Mezzo mezzi = mezzoDAO.findById(5);
 
+        System.out.println(mezzi);
 
-
-        //CREAZIONE MANUTENZIONI
-        Manutenzione manutenzione1 = new Manutenzione(LocalDate.now(),LocalDate.of(2024,03,27),"Guasto motore");
-        Manutenzione manutenzione2 = new Manutenzione(LocalDate.now(),LocalDate.of(2024,03,30),"Cambio gomme");
-
-        //SALVATAGGIO MANUTENZIONI
-        md.save(manutenzione1);
-        md.save(manutenzione2);
-
-        //CREAZIONE TRATTA
-        Tratta tratta1 = new Tratta("Roma","Firenze",120);
-        Tratta tratta2 = new Tratta("Torino","Napoli",120);
-        Tratta tratta3 = new Tratta("Genoa","Bologna",240);
-        Tratta tratta4 = new Tratta("Palermo","Catania",240);
-        Tratta tratta5 = new Tratta("Empoli","Udine",180);
-
-
-        //SALVATAGGIO TRATTA
-        trattaDAO.save(tratta1);
-        trattaDAO.save(tratta2);
-        trattaDAO.save(tratta3);
-        trattaDAO.save(tratta4);
-        trattaDAO.save(tratta5);
-
-
-
-        //CREAZIONE AUTOBUS
-        List<Autobus> autobusList = new ArrayList<>();
-        Autobus bus1 = new Autobus(1,100,true,null,tratta1);
-        Autobus bus2 = new Autobus(2,100,true,null,tratta2);
-        Autobus bus3 = new Autobus(3,100,false,manutenzione1,null);
-        Autobus bus4 = new Autobus(4,100,true,null,tratta3);
-
-        autobusList.add(bus1);
-        autobusList.add(bus2);
-        autobusList.add(bus3);
-        autobusList.add(bus4);
-
-        //SALVATAGGIO AUTOBUS
-        busDAO.save(bus1);
-        busDAO.save(bus2);
-        busDAO.save(bus3);
-        busDAO.save(bus4);
-
-        //CREAZIONE TRAM
-        List<Tram> tramList = new ArrayList<>();
-        Tram tram1 = new Tram(200,5,false,manutenzione2,null);
-        Tram tram2 = new Tram(200,6,true,null,tratta1);
-        Tram tram3 = new Tram(200,7,true,null,tratta4);
-        Tram tram4 = new Tram(200,8,true,null,tratta5);
-
-        tramList.add(tram1);
-        tramList.add(tram2);
-        tramList.add(tram3);
-        tramList.add(tram4);
-
-
-        //SALVATAGGIO TRAM
-        tramDAO.save(tram1);
-        tramDAO.save(tram2);
-        tramDAO.save(tram3);
-        tramDAO.save(tram4);
-
-       Tratta tratta = trattaDAO.findById(452);
-
-       Mezzo mezzi = mezzoDAO.findById(4);
-        System.out.println(mezzi.toString());
-/*
+        Tratta tratta = trattaDAO.findById(102);
         List<Mezzo> mezziInServizio = mezzoDAO.findMezziInServizioByTratta(tratta);
 
         System.out.println("Mezzi in servizio sulla tratta " + tratta.getPartenza() + " - " + tratta.getCapolinea() + ":");
 
         for (Mezzo m : mezziInServizio) {
-            System.out.println(m.getId());
-        }*/
+            System.out.println(m.toString());
+            System.out.println("----------------------------------");
+        }
 
 
     }

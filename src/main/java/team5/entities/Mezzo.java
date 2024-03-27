@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public abstract class Mezzo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    protected int id;
     private int numeroMatricola;
 
     @ManyToOne
@@ -22,6 +22,10 @@ public abstract class Mezzo {
     public int getId() {
         return id;
     }
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getNumeroMatricola() {
         return numeroMatricola;
     }
@@ -37,12 +41,4 @@ public abstract class Mezzo {
         this.tratta = tratta;
     }
 
-    @Override
-    public String toString() {
-        return "Mezzo{" +
-                "id=" + id +
-                ", numeroMatricola=" + numeroMatricola +
-                ", tratta=" + tratta +
-                '}';
-    }
 }

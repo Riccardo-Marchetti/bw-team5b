@@ -53,4 +53,9 @@ public class Manutenzione {
     public void setTipo_manutenzione(String tipo_manutenzione) {
         this.tipo_manutenzione = tipo_manutenzione;
     }
+
+    @Override
+    public String toString() {
+        return " " + id + " ";
+    }
 }

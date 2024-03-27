@@ -5,9 +5,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "tram")
 public class Tram extends Mezzo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
    private int capienza;
    private boolean inServizio;
     @ManyToOne
@@ -25,10 +22,6 @@ public class Tram extends Mezzo {
        this.manutenzione=manutenzione;
 
    }
-    @Override
-    public int getId() {
-        return id;
-    }
     public int getCapienza() {
         return capienza;
     }
@@ -44,14 +37,19 @@ public class Tram extends Mezzo {
         this.inServizio = inServizio;
     }
 
+    public Manutenzione getManutenzione() {
+        return manutenzione;
+    }
+
     @Override
     public String toString() {
-        return "Tram{" +
-                "id=" + id +
-                ", capienza=" + capienza +
-                ", inServizio=" + inServizio +
-                ", manutenzione=" + manutenzione +
-                ", tratta=" + tratta +
-                '}';
+        return "Tram: " +
+                "\nID: " + getId() +
+                "\nMatricola: " + getNumeroMatricola() +
+                "\nCapienza: " + capienza +
+                "\nIn Servizio: " + inServizio +
+                "\nManutenzione: " + getManutenzione() +
+                "\nTratta: " + getTratta();
+
     }
 }
