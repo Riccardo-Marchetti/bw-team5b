@@ -341,12 +341,6 @@ public class Application {
             System.out.println("Input non valido, inserisci un numero");
             scanner.next();
         }
-        else if(scelta3 == 2){
-            emissioneAbbonamentoDistributore(scanner,dd,tesseraDAO,ad);
-        }
-        else{
-            throw new IllegalArgumentException("Inserisci un numero corretto tra 1 e 2");
-        }
    }
 
     private static void emissioneAbbonamentoRivenditore(Scanner scanner, RivenditoreDAO rd, TesseraDAO tesseraDAO, AbbonamentoDAO ad) {
