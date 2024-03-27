@@ -341,21 +341,12 @@ public class Application {
             System.out.println("Input non valido, inserisci un numero");
             scanner.next();
         }
-
-//        } else if (scelta3 == 2) {
-//            List<DistributoreAutomatico> listaDistributori = dd.getAllDistributori();
-//            for (int i = 0; i < listaDistributori.toArray().length; i++) {
-//                System.out.println(i + 1 + " " + listaDistributori.get(i));
-//            }
-//            System.out.println("Scegli il distributore inserendo il numero di riferimento");
-//            int input = scanner.nextInt();
-//            DistributoreAutomatico distributore = listaDistributori.get(input);
-//            Abbonamento abbonamento = new Abbonamento();
-//            ad.save(abbonamento);
-//        } else {
-//            throw new IllegalArgumentException("Inserisci un numero corretto tra 1 e 2");
-//        }
-//
+        else if(scelta3 == 2){
+            emissioneAbbonamentoDistributore(scanner,dd,tesseraDAO,ad);
+        }
+        else{
+            throw new IllegalArgumentException("Inserisci un numero corretto tra 1 e 2");
+        }
    }
 
     private static void emissioneAbbonamentoRivenditore(Scanner scanner, RivenditoreDAO rd, TesseraDAO tesseraDAO, AbbonamentoDAO ad) {
@@ -399,12 +390,23 @@ public class Application {
         System.out.println("Scegli il distributore automatico inserendo il numero di riferimento");
         int input = scanner.nextInt();
         if (input >= 1 && input <= listaDistributori.size()){
-            DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input);
-            System.out.println("inserisci il numero tessera dell'utente");
-            long numeroTessera = scanner.nextLong();
-            Tessera tessera = tesseraDAO.findTesseraById(numeroTessera);
-            if (tessera != null) {
-
+        DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input);
+        System.out.println("inserisci il numero tessera dell'utente");
+        long numeroTessera = scanner.nextLong();
+        scanner.nextLine();
+        Tessera tessera = tesseraDAO.findTesseraById(numeroTessera);
+        if (tessera != null) {
+            if (tessera.getDataScadenza().isBefore(LocalDate.now())) {
+                System.out.println("Tessera scaduta! Si prega di aggiornare la data di scadenza!");
+                System.out.println("Vuoi aggiornare la tua tessera? y/n");
+                String inputYesOrNo = scanner.nextLine();
+                if (Objects.equals(inputYesOrNo, "y")){
+                    tesseraDAO.aggiornaTesseraScaduta(numeroTessera);
+                }else {
+                    tesseraDAO.eliminaTesseraScadutaById(numeroTessera);
+                }
+            }
+            }else {
                 System.out.println("Inserisci il tipo di abbonamento: 1-Settimanale o 2-Mensile");
                 int inputTipoAbbonamento = scanner.nextInt();
                 if (inputTipoAbbonamento == 1) {
@@ -419,8 +421,10 @@ public class Application {
                     throw new IllegalArgumentException("Inserisci un numero valido");
                 }
             }
-        } else {
-            throw new IllegalArgumentException("Inserisci un numero valido");
+                } else {
+                    throw new IllegalArgumentException("Inserisci un numero valido");
+            }
+
         }
     }
-}
+
