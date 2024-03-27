@@ -19,11 +19,11 @@ public class Tram extends Mezzo {
     private Tratta tratta;
    public Tram() {}
     public Tram(int capienza, int numeroMatricola, boolean inServizio, Manutenzione manutenzione, Tratta tratta) {
-       super(numeroMatricola);
+       super(numeroMatricola, tratta);
        this.capienza=capienza;
        this.inServizio=inServizio;
        this.manutenzione=manutenzione;
-       this.tratta=tratta;
+
    }
     @Override
     public int getId() {
@@ -50,6 +50,8 @@ public class Tram extends Mezzo {
                 "id=" + id +
                 ", capienza=" + capienza +
                 ", inServizio=" + inServizio +
+                ", manutenzione=" + manutenzione +
+                ", tratta=" + tratta +
                 '}';
     }
 }

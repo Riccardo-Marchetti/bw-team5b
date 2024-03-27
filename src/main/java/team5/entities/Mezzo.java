@@ -8,19 +8,41 @@ import jakarta.persistence.*;
 public abstract class Mezzo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private int numeroMatricola;
-    public Mezzo( int numeroMatricola){
+
+    @ManyToOne
+    @JoinColumn(name = "tratta_id")
+    private Tratta tratta;
+    public Mezzo( int numeroMatricola, Tratta tratta){
         this.numeroMatricola=numeroMatricola;
+        this.tratta=tratta;
     }
     public Mezzo() {}
     public int getId() {
-        return Math.toIntExact(id);
+        return id;
     }
     public int getNumeroMatricola() {
         return numeroMatricola;
     }
     public void setNumeroMatricola(int numeroMatricola) {
         this.numeroMatricola = numeroMatricola;
+    }
+
+    public Tratta getTratta() {
+        return tratta;
+    }
+
+    public void setTratta(Tratta tratta) {
+        this.tratta = tratta;
+    }
+
+    @Override
+    public String toString() {
+        return "Mezzo{" +
+                "id=" + id +
+                ", numeroMatricola=" + numeroMatricola +
+                ", tratta=" + tratta +
+                '}';
     }
 }
