@@ -106,6 +106,15 @@ public class Application {
         dd.salvaDistributore(distributore2);
         dd.salvaDistributore(distributore3);
         dd.salvaDistributore(distributore4);
+                case 1:
+                    emissioneBiglietto(scanner, rd, bd, dd);
+                    break;
+                case 2:
+                    emissioneAbbonamento(scanner,rd,tesseraDAO,ad,dd);
+                  break;
+                default:
+                    System.out.println("Scelta non valida");
+                    break;
 
         // CREAZIONE BIGLIETTI
         Biglietto biglietto = new Biglietto(LocalDate.of(2024, 3, 27),  false, null, distributore1);
