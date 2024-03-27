@@ -212,33 +212,33 @@ public class Application {
 //        tramDAO.save(tram3);
 //        tramDAO.save(tram4);
 
-
-       Mezzo mezzi = mezzoDAO.findById(5);
-
-        System.out.println(mezzi);
-
-        Tratta tratta = trattaDAO.findById(102);
-        List<Mezzo> mezziInServizio = mezzoDAO.findMezziInServizioByTratta(tratta);
-
-        System.out.println("Mezzi in servizio sulla tratta " + tratta.getPartenza() + " - " + tratta.getCapolinea() + ":");
-
-        for (Mezzo m : mezziInServizio) {
-            System.out.println(m.toString());
-            System.out.println("----------------------------------");
-        }
-
-        System.out.println("Aggiornamento della data di scadenza");
-        tesseraDAO.aggiornaTesseraScaduta(1L);
-
-        System.out.println(" ");
-
-        System.out.println("Trova Tessera Scaduta ed Elimina");
-     // tesseraDAO.eliminaTesseraScadutaById(24);
-
-        System.out.println(" ");
-        System.out.println("Trova Utente ed elimina");
-        utenteDAO.findUtenteById(1);
+//
+//       Mezzo mezzi = mezzoDAO.findById(5);
+//
+//        System.out.println(mezzi);
+//
+//        Tratta tratta = trattaDAO.findById(102);
+//        List<Mezzo> mezziInServizio = mezzoDAO.findMezziInServizioByTratta(tratta);
+//
+//        System.out.println("Mezzi in servizio sulla tratta " + tratta.getPartenza() + " - " + tratta.getCapolinea() + ":");
+//
+//        for (Mezzo m : mezziInServizio) {
+//            System.out.println(m.toString());
+//            System.out.println("----------------------------------");
+//        }
+//
+//        System.out.println("Aggiornamento della data di scadenza");
+//        tesseraDAO.aggiornaTesseraScaduta(1L);
+//
+//        System.out.println(" ");
+//
+//        System.out.println("Trova Tessera Scaduta ed Elimina");
+//     // tesseraDAO.eliminaTesseraScadutaById(24);
+//
+//        System.out.println(" ");
+//        System.out.println("Trova Utente ed elimina");
+//        utenteDAO.findUtenteById(1);
      // utenteDAO.eliminaUtenteById(1);
-
+    
     }
     }
