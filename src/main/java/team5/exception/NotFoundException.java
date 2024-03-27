@@ -1,7 +1,7 @@
 package team5.exception;
 
 public class NotFoundException extends RuntimeException {
-    public NotFoundException(Long id) {
+    public NotFoundException(int id) {
 
         super("Il record con id " + id + " non è stato trovato!");
     }

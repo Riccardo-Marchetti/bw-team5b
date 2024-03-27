@@ -22,7 +22,7 @@ public class AutobusDAO {
         System.out.println("Autobus salvato con successo");
     }
 
-    public Autobus findById(long id) {
+    public Autobus findById(int id) {
         return em.find(Autobus.class, id);
     }
 
