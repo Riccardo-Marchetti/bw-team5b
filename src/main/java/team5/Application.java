@@ -14,6 +14,7 @@ import team5.dao.TesseraDAO;
 import team5.dao.TrattaDAO;
 import team5.dao.UtenteDAO;
 import team5.enums.TipoAbbonamento;
+import team5.exception.NotFoundException;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -46,7 +47,7 @@ public class Application {
         
     // CREAZIONE UTENTI E SALVATAGGIO
 
-     /* Supplier<Utente> utenteSupplier = ()-> new Utente(faker.rickAndMorty().character(), faker.name().lastName());
+    /*  Supplier<Utente> utenteSupplier = ()-> new Utente(faker.rickAndMorty().character(), faker.name().lastName());
         List<Utente> utenteList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             utenteList.add(utenteSupplier.get());
@@ -204,18 +205,44 @@ public class Application {
         tramDAO.save(tram3);
         tramDAO.save(tram4);*/
 
-       Tratta tratta = trattaDAO.findById(452);
 
-       Mezzo mezzi = mezzoDAO.findById(4);
-        System.out.println(mezzi.toString());
-/*
-        List<Mezzo> mezziInServizio = mezzoDAO.findMezziInServizioByTratta(tratta);
+        //RICERCA DEI MEZZI IN SERVIZIO SU UNA TRATTA
+        Tratta tratta = null;
+        try {
+            tratta = trattaDAO.findById(1);
+        } catch (NotFoundException e) {
+            System.out.println("Tratta non trovata");
+            e.printStackTrace();
+        }
 
-        System.out.println("Mezzi in servizio sulla tratta " + tratta.getPartenza() + " - " + tratta.getCapolinea() + ":");
+        if (tratta != null) {
+            try {
+                List<Mezzo> mezziInServizio = mezzoDAO.findMezziInServizioByTratta(tratta);
 
-        for (Mezzo m : mezziInServizio) {
-            System.out.println(m.getId());
-        }*/
+                System.out.println("Mezzi in servizio sulla tratta " + tratta.getPartenza() + " - " + tratta.getCapolinea() + ":");
+
+                for (Mezzo m : mezziInServizio) {
+                    System.out.println(m.toString());
+                }
+            } catch (Exception e) {
+                System.out.println("Si è verificato un errore durante il recupero dei mezzi in servizio.");
+                e.printStackTrace();
+            }
+        }
+
+        Tratta tratta1 = trattaDAO.findById(2); // Recupera la tratta Roma - Firenze
+        Autobus bus1 = busDAO.findById(2); // Recupera l'autobus con id = 1
+
+// Utilizza il metodo per contare i percorsi per questo specifico autobus e tratta
+        long numeroPercorsi = mezzoDAO.countPercorsiByMezzoAndTratta(bus1, tratta1);
+
+        System.out.println("Numero di percorsi per l'autobus bus1 sulla tratta tratta1: " + numeroPercorsi);
+
+
+
+
+
+
 
 
     }
