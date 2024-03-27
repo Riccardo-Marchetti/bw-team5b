@@ -25,7 +25,7 @@ public class DistributoreAutomaticoDAO {
     }
 
     public List<DistributoreAutomatico> getAllDistributori (){
-        TypedQuery<DistributoreAutomatico> query = em.createQuery("SELECT d FROM DistributoreAutomatico d",DistributoreAutomatico.class );
+        TypedQuery<DistributoreAutomatico> query = em.createQuery("SELECT d FROM DistributoreAutomatico d WHERE d.inServizio = true",DistributoreAutomatico.class );
         return query.getResultList();
 
     }
