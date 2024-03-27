@@ -3,7 +3,8 @@ package team5.entities;
 import jakarta.persistence.*;
 
 @Entity
-
+@NamedQuery(name = "findUtenteById", query = "SELECT u FROM Utente u WHERE u.id = :utenteId")
+@NamedQuery(name = "deleteUtente", query = "DELETE FROM Utente u WHERE u.id = :utenteId")
 public class Utente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

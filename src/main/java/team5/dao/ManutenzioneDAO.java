@@ -25,7 +25,7 @@ public class ManutenzioneDAO {
 
     public Manutenzione findById(int id) {
         Manutenzione manutenzione = entityManager.find(Manutenzione.class, id);
-        if (manutenzione == null) throw new NotFoundException(Long.valueOf(id));
+        if (manutenzione == null) throw new NotFoundException(id);
         return manutenzione;
     }
 
