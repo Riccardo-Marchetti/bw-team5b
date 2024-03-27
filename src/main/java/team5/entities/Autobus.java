@@ -18,11 +18,11 @@ public class Autobus extends Mezzo{
     private Tratta tratta;
     public Autobus(){}
     public Autobus(int numeroMatricola, int capienza, boolean inServizio , Manutenzione manutenzione, Tratta tratta) {
-        super(numeroMatricola);
+        super(numeroMatricola, tratta);
         this.capienza=capienza;
         this.inServizio = inServizio;
         this.manutenzione = manutenzione;
-        this.tratta = tratta;
+
 
     }
     @Override
@@ -45,5 +45,14 @@ public class Autobus extends Mezzo{
         this.capienza = capienza;
     }
 
-
+    @Override
+    public String toString() {
+        return "Autobus{" +
+                "id=" + id +
+                ", capienza=" + capienza +
+                ", inServizio=" + inServizio +
+                ", manutenzione=" + manutenzione +
+                ", tratta=" + tratta +
+                '}';
+    }
 }

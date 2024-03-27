@@ -23,7 +23,7 @@ public class TramDAO {
         System.out.println("Tram salvato con successo");
     }
 
-    public Tram findById(long id) {
+    public Tram findById(int id) {
         return em.find(Tram.class, id);
     }
 

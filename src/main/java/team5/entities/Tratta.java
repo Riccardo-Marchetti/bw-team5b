@@ -2,6 +2,8 @@ package team5.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tratta")
 public class Tratta {
@@ -20,11 +22,16 @@ public class Tratta {
     @Column(name = "tempo_effettivo_percorsi")
     private int tempoEffettivoPercorso;
 
+    @OneToMany(mappedBy = "tratta")
+    private List<Mezzo> mezzi;
+
     public Tratta(String partenza, String capolinea, int tempo_medio) {
         this.partenza = partenza;
         this.capolinea = capolinea;
         this.tempo_medio = tempo_medio;
     }
+
+    public Tratta() {}
 
 
     public int getId() {
@@ -61,4 +68,11 @@ public class Tratta {
         this.tempoEffettivoPercorso = tempoEffettivoPercorso;
     }
 
+    public List<Mezzo> getMezzi() {
+        return mezzi;
+    }
+
+    public void setMezzi(List<Mezzo> mezzi) {
+        this.mezzi = mezzi;
+    }
 }
