@@ -149,6 +149,11 @@ public class Application {
         System.out.println("Aggiornamento della data di scadenza");
         tesseraDAO.aggiornaTesseraScaduta(1L);
 
-        
+        System.out.println(" ");
+
+        System.out.println("Trova Tessera Scaduta ed Elimina");
+        tesseraDAO.eliminaTesseraScadutaById(24);
+
+
     }
     }

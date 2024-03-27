@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 @Entity
 @NamedQuery(name = "findTesseraById", query = "SELECT t FROM Tessera t WHERE t.id = :tesseraId")
+@NamedQuery(name = "deleteTesseraScaduta", query = "DELETE FROM Tessera t WHERE t.id = :tesseraId AND t.dataScadenza < :currentDate")
 
 public class Tessera {
     @Id
