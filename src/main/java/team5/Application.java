@@ -223,17 +223,10 @@ public class Application {
         tramDAO.save(tram4);
 */
 
-
-
-
-
-
-
-
      //RICERCA DEI MEZZI IN SERVIZIO SU UNA TRATTA
         Tratta tratta = null;
         try {
-            tratta = trattaDAO.findById(1);
+            tratta = trattaDAO.findById(102);
         } catch (NotFoundException e) {
             System.out.println("Tratta non trovata");
             e.printStackTrace();
@@ -257,7 +250,7 @@ public class Application {
         System.out.println("-------------------");
        //CALCOLO NUMERO PERCORSI PER MEZZO
         try {
-            Tratta tratta1 = trattaDAO.findById(1);
+            Tratta tratta1 = trattaDAO.findById(102);
             Mezzo mezzo = mezzoDAO.findById(1);
 
             int numeroPercorsi = mezzoDAO.countPercorsiByMezzoAndTratta(mezzo, tratta1);
@@ -279,7 +272,7 @@ public class Application {
         System.out.println("-------------------");
         //CAOLCOLO TEMPO EFFETTIVO PERCORRENZA PER MEZZO
         try {
-            Tratta tratta1 = trattaDAO.findById(1);
+            Tratta tratta1 = trattaDAO.findById(103);
             Autobus bus = busDAO.findById(1);
 
             Long tempoEffettivo = mezzoDAO.calculateTempoEffettivoPercorrenza(bus, tratta1);
