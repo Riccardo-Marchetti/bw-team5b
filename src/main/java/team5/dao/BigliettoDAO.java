@@ -3,7 +3,9 @@ package team5.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
+import team5.entities.Abbonamento;
 import team5.entities.Biglietto;
+import team5.exception.NotFoundException;
 
 import java.time.LocalDate;
 
@@ -23,20 +25,11 @@ public class BigliettoDAO {
         transaction.commit();
         System.out.println("Biglietto: " + biglietto + " salvato correttamente");
     }
-//public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long emittenteId){
-//    TypedQuery<Long> query = em.createQuery("SELECT COUNT(b) FROM Biglietto b WHERE b.dataEmissione BETWEEN :dataInizio AND :dataFine AND b.rivenditore.id = :emittenteId", Long.class);
-//    query.setParameter("dataInizio", dataInizio);
-//    query.setParameter("dataFine", dataFine);
-//    query.setParameter("rivenditoreId", emittenteId);
-//    return query.getSingleResult();
-//}
-//public int numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long rivenditoreId){
-//    TypedQuery<Long> query = em.createQuery("SELECT COUNT(b) FROM Biglietto b WHERE b.dataEmissione BETWEEN :dataInizio AND :dataFine AND b.rivenditore.id = :rivenditore.id", Long.class);
-//    query.setParameter("dataInizio", dataInizio);
-//    query.setParameter("dataFine", dataFine);
-//    query.setParameter("emittenteId", rivenditoreId);
-//    return query.getSingleResult().intValue();
-//}
+    public Biglietto getById(long bigliettoId){
+        Biglietto biglietto = em.find(Biglietto.class, bigliettoId);
+        if (biglietto == null) throw new NotFoundException(bigliettoId);
+        return biglietto;
+    }
 public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long emittenteId){
     TypedQuery<Long> query = em.createQuery("SELECT COUNT(b) FROM Biglietto b WHERE b.dataEmissione BETWEEN :dataInizio AND :dataFine AND b.emittente.id = :emittenteId", Long.class);
     query.setParameter("dataInizio", dataInizio);

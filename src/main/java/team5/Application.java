@@ -17,10 +17,7 @@ import team5.enums.TipoAbbonamento;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
@@ -29,7 +26,6 @@ public class Application {
 
     public static void main(String[] args) {
         EntityManager em = emf.createEntityManager();
-        System.out.println("CIAO");
         Faker faker = new Faker(Locale.ITALY);
         Random rndm = new Random();
         UtenteDAO utenteDAO = new UtenteDAO(em);
@@ -43,7 +39,7 @@ public class Application {
         AbbonamentoDAO ad = new AbbonamentoDAO(em);
         
 //    // CREAZIONE UTENTI E SALVATAGGIO
-//
+
 //        Supplier<Utente> utenteSupplier = ()-> new Utente(faker.rickAndMorty().character(), faker.name().lastName());
 //        List<Utente> utenteList = new ArrayList<>();
 //        for (int i = 0; i < 10; i++) {
@@ -110,7 +106,7 @@ public class Application {
 //        Biglietto biglietto6 = new Biglietto(LocalDate.of(2024, 6, 4),  false, null, rivenditore4);
 //        Biglietto biglietto7 = new Biglietto(LocalDate.of(2024, 7, 6),  false, null, rivenditore4);
 
-        // SALVATAGGIO BIGLIETTI
+//         SALVATAGGIO BIGLIETTI
 //        bd.salvaBiglietto(biglietto);
 //        bd.salvaBiglietto(biglietto1);
 //        bd.salvaBiglietto(biglietto2);
@@ -126,7 +122,7 @@ public class Application {
 //        Abbonamento abbonamento3 = new Abbonamento(utenteList.get(2), LocalDate.of(2024, 3, 27),  TipoAbbonamento.MENSILE, rivenditore1);
 //        Abbonamento abbonamento4 = new Abbonamento(utenteList.get(3), LocalDate.of(2024, 3, 27),  TipoAbbonamento.SETTIMANALE, distributore2);
 //        Abbonamento abbonamento5 = new Abbonamento(utenteList.get(4), LocalDate.of(2024, 3, 27),  TipoAbbonamento.SETTIMANALE, rivenditore4);
-//            Abbonamento abbonamento6 = new Abbonamento(utenteList.get(0),LocalDate.of(2024,3,25), TipoAbbonamento.MENSILE, rivenditore1);
+//        Abbonamento abbonamento6 = new Abbonamento(utenteList.get(0),LocalDate.of(2024,3,25), TipoAbbonamento.MENSILE, rivenditore1);
 //         SALVATAGGIO ABBONAMENTI
 //        ad.save(abbonamento1);
 //        ad.save(abbonamento2);
@@ -137,11 +133,11 @@ public class Application {
 
         // NUMERO BIGLIETTI X ID E DATA
         System.out.println("Numero biglietti emessi entro tot");
-        System.out.println(bd.numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 2, 19), LocalDate.of(2024,2, 21), 3));
+        System.out.println(bd.numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2027, 2, 19), LocalDate.of(2024,2, 21), 1));
 
         // NUMERO ABBONAMENTI X ID E DATA
         System.out.println("Numero di abbonamenti emessi entro tot periodo:");
-        System.out.println(ad.numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 3, 26), LocalDate.of(2024,3, 28), 4));
+        System.out.println(ad.numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024, 3, 26), LocalDate.of(2024,3, 28), 53));
         System.out.println(" ");
         System.out.println("Verifica abbonamento");
         ad.verificaAbbonamento(1).forEach(System.out::println);
