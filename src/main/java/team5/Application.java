@@ -8,6 +8,7 @@ import jakarta.persistence.Persistence;
 import team5.dao.*;
 import team5.entities.*;
 import team5.enums.TipoAbbonamento;
+import team5.exception.NotFoundException;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -265,6 +266,7 @@ public class Application {
         // utenteDAO.findUtenteById(1);
         // utenteDAO.eliminaUtenteById(1);
 
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Benvenuto nella gestione dei trasporti");
         int scelta;
@@ -415,7 +417,6 @@ public class Application {
                                            DistributoreAutomaticoDAO dd) {
         System.out.println("1 - Rivenditore");
         System.out.println("2 - Distributore");
-        ;
         try {
             int scelta2 = scanner.nextInt();
             if (scelta2 == 1) {
@@ -436,16 +437,19 @@ public class Application {
         List<Rivenditore> listaRivenditori = rd.getAllRivenditori();
         for (int i = 0; i < listaRivenditori.toArray().length; i++) {
             System.out.println(i + 1 + " - " + listaRivenditori.get(i));
-
         }
-        System.out.println("Scegli il rivenditore inserendo il numero di riferimento");
-        int input = scanner.nextInt();
-        if (input >= 1 && input <= listaRivenditori.size()) {
-            Rivenditore rivenditore = listaRivenditori.get(input - 1);
-            Biglietto biglietto = new Biglietto(LocalDate.now(), false, null, rivenditore);
-            bd.salvaBiglietto(biglietto);
+        if (listaRivenditori.isEmpty()){
+            throw new NotFoundException("Non è stato trovato nessun rivenditore");
         } else {
-            throw new IllegalArgumentException("Inserisci un numero valido");
+            System.out.println("Scegli il rivenditore inserendo il numero di riferimento");
+            int input = scanner.nextInt();
+            if (input >= 1 && input <= listaRivenditori.size()) {
+                Rivenditore rivenditore = listaRivenditori.get(input - 1);
+                Biglietto biglietto = new Biglietto(LocalDate.now(), false, null, rivenditore);
+                bd.salvaBiglietto(biglietto);
+            } else {
+                throw new IllegalArgumentException("Inserisci un numero valido");
+            }
         }
     }
 
@@ -454,14 +458,18 @@ public class Application {
         for (int i = 0; i < listaDistributori.toArray().length; i++) {
             System.out.println(i + 1 + " - " + listaDistributori.get(i));
         }
-        System.out.println("Scegli il distributore inserendo il numero di riferimento");
-        int input = scanner.nextInt();
-        if (input >= 1 && input <= listaDistributori.size()) {
-            DistributoreAutomatico distributore = listaDistributori.get(input - 1);
-            Biglietto biglietto = new Biglietto(LocalDate.now(), false, null, distributore);
-            bd.salvaBiglietto(biglietto);
+        if (listaDistributori.isEmpty()) {
+            throw new NotFoundException("Non è stato trovato nessun distributore automatico");
         } else {
-            throw new IllegalArgumentException("Inserisci un numero valido");
+            System.out.println("Scegli il distributore inserendo il numero di riferimento");
+            int input = scanner.nextInt();
+            if (input >= 1 && input <= listaDistributori.size()) {
+                DistributoreAutomatico distributore = listaDistributori.get(input - 1);
+                Biglietto biglietto = new Biglietto(LocalDate.now(), false, null, distributore);
+                bd.salvaBiglietto(biglietto);
+            } else {
+                throw new IllegalArgumentException("Inserisci un numero valido");
+            }
         }
     }
 
@@ -492,51 +500,55 @@ public class Application {
         for (int i = 0; i < listaRivenditori.toArray().length; i++) {
             System.out.println(i + 1 + " " + listaRivenditori.get(i));
         }
-        System.out.println("Scegli il rivenditore inserendo il numero di riferimento");
-        int input = scanner.nextInt();
-        if (input >= 1 && input <= listaRivenditori.size()) {
-            Rivenditore rivenditore = listaRivenditori.get(input);
-            long numeroTessera;
-            System.out.println("inserisci il numero tessera dell'utente");
-            do {
-             numeroTessera = scanner.nextLong();
-             try {
-                 scanner.nextLine();
-                 Tessera tessera = tesseraDAO.findTesseraById(numeroTessera);
-                 if (tessera != null ) {
-                     if (tessera.getDataScadenza().isBefore(LocalDate.now())) {
-                         System.out.println("Tessera scaduta! Si prega di aggiornare la data di scadenza!");
-                         System.out.println("Vuoi aggiornare la tua tessera? y/n");
-                         String inputYesOrNo = scanner.nextLine();
-                         if (Objects.equals(inputYesOrNo, "y")) {
-                             tesseraDAO.aggiornaTesseraScaduta(numeroTessera);
-                         } else {
-                             tesseraDAO.eliminaTesseraScadutaById(numeroTessera);
-                         }
-                     } else {
-                         System.out.println("Inserisci il tipo di abbonamento: 1-Settimanale o 2-Mensile");
-                         int inputTipoAbbonamento = scanner.nextInt();
-                         if (inputTipoAbbonamento == 1) {
-                             Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(),
-                                     TipoAbbonamento.SETTIMANALE, rivenditore);
-                             ad.save(abbonamento);
-
-                         } else if (inputTipoAbbonamento == 2) {
-                             Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(),
-                                     TipoAbbonamento.MENSILE, rivenditore);
-                             ad.save(abbonamento);
-
-                         } else {
-                             throw new IllegalArgumentException("Inserisci un numero valido");
-                         }
-                     }
-                 }
-                 } catch (NoResultException e){
-                    System.out.println("Inserisci un numero di tessera esistente");
-                 }
-             }  while (numeroTessera >= 1 && numeroTessera <= listaRivenditori.size());
+        if (listaRivenditori.isEmpty()){
+            throw new NotFoundException("Non è stato trovato nessun rivenditore");
         } else {
-            throw new IllegalArgumentException("Inserisci un numero valido");
+            System.out.println("Scegli il rivenditore inserendo il numero di riferimento");
+            int input = scanner.nextInt();
+            if (input >= 1 && input <= listaRivenditori.size()) {
+                Rivenditore rivenditore = listaRivenditori.get(input);
+                long numeroTessera;
+                System.out.println("inserisci il numero tessera dell'utente");
+                do {
+                    numeroTessera = scanner.nextLong();
+                    try {
+                        scanner.nextLine();
+                        Tessera tessera = tesseraDAO.findTesseraById(numeroTessera);
+                        if (tessera != null ) {
+                            if (tessera.getDataScadenza().isBefore(LocalDate.now())) {
+                                System.out.println("Tessera scaduta! Si prega di aggiornare la data di scadenza!");
+                                System.out.println("Vuoi aggiornare la tua tessera? y/n");
+                                String inputYesOrNo = scanner.nextLine();
+                                if (Objects.equals(inputYesOrNo, "y")) {
+                                    tesseraDAO.aggiornaTesseraScaduta(numeroTessera);
+                                } else {
+                                    tesseraDAO.eliminaTesseraScadutaById(numeroTessera);
+                                }
+                            } else {
+                                System.out.println("Inserisci il tipo di abbonamento: 1-Settimanale o 2-Mensile");
+                                int inputTipoAbbonamento = scanner.nextInt();
+                                if (inputTipoAbbonamento == 1) {
+                                    Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(),
+                                            TipoAbbonamento.SETTIMANALE, rivenditore);
+                                    ad.save(abbonamento);
+
+                                } else if (inputTipoAbbonamento == 2) {
+                                    Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(),
+                                            TipoAbbonamento.MENSILE, rivenditore);
+                                    ad.save(abbonamento);
+
+                                } else {
+                                    throw new IllegalArgumentException("Inserisci un numero valido");
+                                }
+                            }
+                        }
+                    } catch (NoResultException e){
+                        System.out.println("Inserisci un numero di tessera esistente");
+                    }
+                }  while (numeroTessera >= 1 && numeroTessera <= listaRivenditori.size());
+            } else {
+                throw new IllegalArgumentException("Inserisci un numero valido");
+            }
         }
     }
 
@@ -546,53 +558,56 @@ public class Application {
         List<DistributoreAutomatico> listaDistributori = dd.getAllDistributori();
         for (int i = 0; i < listaDistributori.toArray().length; i++) {
             System.out.println(i + 1 + " - " + listaDistributori.get(i));
-
         }
-        System.out.println("Scegli il distributore automatico inserendo il numero di riferimento");
-        int input = scanner.nextInt();
-        if (input >= 1 && input <= listaDistributori.size()) {
-            DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input);
-            long numeroTessera;
-            System.out.println("Inserisci il numero tessera dell'utente");
-            do {
-             numeroTessera = scanner.nextLong();
-            try {
-            scanner.nextLine();
-            Tessera tessera = tesseraDAO.findTesseraById(numeroTessera);
-            if (tessera != null) {
-                if (tessera.getDataScadenza().isBefore(LocalDate.now())) {
-                    System.out.println("Tessera scaduta! Si prega di aggiornare la data di scadenza!");
-                    System.out.println("Vuoi aggiornare la tua tessera? y/n");
-                    String inputYesOrNo = scanner.nextLine();
-                    if (Objects.equals(inputYesOrNo, "y")) {
-                        tesseraDAO.aggiornaTesseraScaduta(numeroTessera);
-                    } else {
-                        tesseraDAO.eliminaTesseraScadutaById(numeroTessera);
-                    }
-                } else {
-                    System.out.println("Inserisci il tipo di abbonamento: 1-Settimanale o 2-Mensile");
-                    int inputTipoAbbonamento = scanner.nextInt();
-                    if (inputTipoAbbonamento == 1) {
-                        Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(),
-                                TipoAbbonamento.SETTIMANALE, distributoreAutomatico);
-                        ad.save(abbonamento);
-
-                    } else if (inputTipoAbbonamento == 2) {
-                        Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(),
-                                TipoAbbonamento.MENSILE, distributoreAutomatico);
-                        ad.save(abbonamento);
-
-                    } else {
-                        throw new IllegalArgumentException("Numero inserito non valido");
-                    }
-                }
-            }
-            } catch (NoResultException e){
-                System.out.println("Inserisci un numero di tessera esistente");
-            }
-            } while (numeroTessera >= 1 && numeroTessera <= listaDistributori.size());
+        if (listaDistributori.isEmpty()){
+            throw new NotFoundException("Non è stato trovato nessun distributore automatico");
         } else {
-            throw new IllegalArgumentException("Inserisci un numero valido");
+            System.out.println("Scegli il distributore automatico inserendo il numero di riferimento");
+            int input = scanner.nextInt();
+            if (input >= 1 && input <= listaDistributori.size()) {
+                DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input);
+                long numeroTessera;
+                System.out.println("Inserisci il numero tessera dell'utente");
+                do {
+                    numeroTessera = scanner.nextLong();
+                    try {
+                        scanner.nextLine();
+                        Tessera tessera = tesseraDAO.findTesseraById(numeroTessera);
+                        if (tessera != null) {
+                            if (tessera.getDataScadenza().isBefore(LocalDate.now())) {
+                                System.out.println("Tessera scaduta! Si prega di aggiornare la data di scadenza!");
+                                System.out.println("Vuoi aggiornare la tua tessera? y/n");
+                                String inputYesOrNo = scanner.nextLine();
+                                if (Objects.equals(inputYesOrNo, "y")) {
+                                    tesseraDAO.aggiornaTesseraScaduta(numeroTessera);
+                                } else {
+                                    tesseraDAO.eliminaTesseraScadutaById(numeroTessera);
+                                }
+                            } else {
+                                System.out.println("Inserisci il tipo di abbonamento: 1-Settimanale o 2-Mensile");
+                                int inputTipoAbbonamento = scanner.nextInt();
+                                if (inputTipoAbbonamento == 1) {
+                                    Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(),
+                                            TipoAbbonamento.SETTIMANALE, distributoreAutomatico);
+                                    ad.save(abbonamento);
+
+                                } else if (inputTipoAbbonamento == 2) {
+                                    Abbonamento abbonamento = new Abbonamento(tessera.getUtente(), LocalDate.now(),
+                                            TipoAbbonamento.MENSILE, distributoreAutomatico);
+                                    ad.save(abbonamento);
+
+                                } else {
+                                    throw new IllegalArgumentException("Numero inserito non valido");
+                                }
+                            }
+                        }
+                    } catch (NoResultException e){
+                        System.out.println("Inserisci un numero di tessera esistente");
+                    }
+                } while (numeroTessera >= 1 && numeroTessera <= listaDistributori.size());
+            } else {
+                throw new IllegalArgumentException("Inserisci un numero valido");
+            }
         }
     }
 }
