@@ -23,6 +23,12 @@ public class Percorso {
     // Costruttore
     public Percorso() {}
 
+    public Percorso(Mezzo mezzo, Tratta tratta, int tempoEffettivo) {
+        this.mezzo = mezzo;
+        this.tratta = tratta;
+        this.tempoEffettivo = tempoEffettivo;
+    }
+
     // Getter e setter
     public Long getId() {
         return id;
@@ -54,6 +60,16 @@ public class Percorso {
 
     public void setTempoEffettivo(int tempoEffettivo) {
         this.tempoEffettivo = tempoEffettivo;
+    }
+
+    @Override
+    public String toString() {
+        return "Percorso{" +
+                "id=" + id +
+                ", mezzo=" + mezzo +
+                ", tratta=" + tratta +
+                ", tempoEffettivo=" + tempoEffettivo +
+                '}';
     }
 }
 
