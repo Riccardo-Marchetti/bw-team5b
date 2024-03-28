@@ -63,7 +63,7 @@ public class Biglietto {
 //        this.puntoEmissione = puntoEmissione;
 //    }
 
-    public boolean isVidimato() {
+    public boolean getVidimato() {
         return vidimato;
     }
 
