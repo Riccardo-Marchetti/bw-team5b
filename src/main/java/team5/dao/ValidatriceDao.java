@@ -2,10 +2,9 @@ package team5.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import team5.entities.Abbonamento;
 import team5.entities.Biglietto;
-import team5.entities.Tessera;
 import team5.entities.Validatrice;
+import team5.exception.NotFoundException;
 
 import java.time.LocalDate;
 
@@ -27,23 +26,29 @@ public class ValidatriceDao {
 
     }
 
-    public void vidimazioneBiglietto(Biglietto biglietto){
+
+    public Validatrice findById(long validatriceId) {
+        Validatrice validatrice = em.find(Validatrice.class, validatriceId);
+        if (validatrice == null) throw new NotFoundException("Vidimatrice non trovata");
+        return validatrice;
+    }
+
+    public void vidimazioneBiglietto(Biglietto biglietto) {
 
         try {
             EntityTransaction transaction = em.getTransaction();
             transaction.begin();
-            if (!biglietto.getVidimato()){
+            if (!biglietto.getVidimato()) {
                 biglietto.setDataVidimazione(LocalDate.now());
                 biglietto.setVidimato(true);
                 em.merge(biglietto);
                 transaction.commit();
-                System.out.println("Biglietto" + biglietto.getId() + "vidimato" );
-            }
-            else {
-                System.out.println("biglietto già vidimato");
+                System.out.println("Biglietto " + biglietto.getId() + " vidimato");
+            } else {
+                System.out.println("Biglietto già vidimato");
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 

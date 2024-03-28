@@ -3,7 +3,6 @@ package team5.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
-import team5.entities.Abbonamento;
 import team5.entities.Biglietto;
 import team5.entities.Emittente;
 import team5.exception.NotFoundException;
@@ -17,7 +16,7 @@ public class BigliettoDAO {
         this.em = em;
     }
 
-    public void salvaBiglietto(Biglietto biglietto){
+    public void salvaBiglietto(Biglietto biglietto) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
 
@@ -26,14 +25,16 @@ public class BigliettoDAO {
         transaction.commit();
         System.out.println("Biglietto: " + biglietto + " salvato correttamente");
     }
-    public Biglietto getById(long bigliettoId){
+
+    public Biglietto findById(long bigliettoId) {
         Biglietto biglietto = em.find(Biglietto.class, bigliettoId);
         if (biglietto == null) throw new NotFoundException("biglietto non trovato");
         return biglietto;
     }
-public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long emittenteId){
+
+    public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long emittenteId) {
         Emittente emittente = em.find(Emittente.class, emittenteId);
-        if(emittente == null){
+        if (emittente == null) {
             throw new NotFoundException("Emittente con id: " + emittenteId + " non trovato");
         }
         try {
@@ -45,10 +46,9 @@ public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio,
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
-    return 0;
+        return 0;
 
-}
-
+    }
 
 
 }
