@@ -17,7 +17,7 @@ public class MezzoDAO {
         this.em = em;
     }
 
-    public  void save (Mezzo mezzo) {
+    public void save(Mezzo mezzo) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         em.persist(mezzo);
@@ -33,7 +33,7 @@ public class MezzoDAO {
 
     }
 
-    public void findByIdAndDelete(Mezzo mezzo){
+    public void findByIdAndDelete(Mezzo mezzo) {
         Mezzo found = this.findById(mezzo.getId());
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
@@ -69,5 +69,11 @@ public class MezzoDAO {
         return query.getSingleResult();
     }
 
-
+//    public Long countPercorsiByMezzoAndTratta(int numeroMatricola, String partenza, String capolinea) {
+//        TypedQuery<Long> query = em.createQuery("SELECT COUNT(p) FROM Tratta p WHERE p.numeroMatricola = :numeroMatricola AND (p.partenza = :partenza AND p.capolinea = :capolinea)", Long.class);
+//        query.setParameter("numeroMatricola", numeroMatricola);
+//        query.setParameter("partenza", partenza);
+//        query.setParameter("capolinea", capolinea);
+//        return query.getSingleResult();
+//    }
 }
