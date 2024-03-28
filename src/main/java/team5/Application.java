@@ -31,6 +31,7 @@ public class Application {
         ManutenzioneDAO md = new ManutenzioneDAO(em);
         AutobusDAO busDAO = new AutobusDAO(em);
         TramDAO tramDAO = new TramDAO(em);
+        ValidatriceDao validatriceDao = new ValidatriceDao(em);
 
         // // CREAZIONE UTENTI E SALVATAGGIO
         //
@@ -293,10 +294,20 @@ public class Application {
                             switch (scelta1) {
                                 case 1:
                                     emissioneBiglietto(scanner, rd, bd, dd);
-                                    break;
+                                    if (confermaContinuo(scanner)) {
+                                        uscire = true;
+                                        break mainLoop;
+                                    } else {
+                                        continue mainLoop;
+                                    }
                                 case 2:
                                     emissioneAbbonamento(scanner, rd, tesseraDAO, ad, dd);
-                                    break;
+                                    if (confermaContinuo(scanner)) {
+                                        uscire = true;
+                                        break mainLoop;
+                                    } else {
+                                        continue mainLoop;
+                                    }
                                 case 3:
                                     caricamento();
                                     break;
@@ -314,7 +325,7 @@ public class Application {
                         System.out.println("Gestione interna");
                         System.out.println("1 - Verifica abbonamento");
                         System.out.println("2 - Annulla abbonamento");
-                        System.out.println("3 - Controlla biglietto");
+                        System.out.println("3 - Valida Biglietto");
                         System.out.println("4 - Ritorna al menù precedente");
                         try {
                             int scelta2 = scanner.nextInt();
@@ -324,16 +335,35 @@ public class Application {
                                     System.out.println("Inserisci numero tessera");
                                     long tessera = scanner.nextLong();
                                     ad.verificaAbbonamento(tessera).forEach(System.out::println);
-                                    break;
+                                    if (confermaContinuo(scanner)) {
+                                        uscire = true;
+                                        break mainLoop;
+                                    } else {
+                                        continue mainLoop;
+                                    }
                                 case 2:
                                     System.out.println("Annulla abbonamento");
                                     System.out.println("Inserisci numero abbonamento");
                                     long abbonamento = scanner.nextLong();
                                     ad.annullaAbbonamento(abbonamento);
-                                    break;
+                                    if (confermaContinuo(scanner)) {
+                                        uscire = true;
+                                        break mainLoop;
+                                    } else {
+                                        continue mainLoop;
+                                    }
                                 case 3:
-                                    System.out.println("Work in progress");
-                                    break;
+                                    System.out.println("Valida biglietto");
+                                    System.out.println("Inserisci codice biglietto");
+                                    Biglietto valido = bd.findById(scanner.nextLong());
+                                    scanner.nextLine();
+                                    validatriceDao.vidimazioneBiglietto(valido);
+                                    if (confermaContinuo(scanner)) {
+                                        uscire = true;
+                                        break mainLoop;
+                                    } else {
+                                        continue mainLoop;
+                                    }
                                 case 4:
                                     caricamento();
                                     break;
@@ -361,7 +391,12 @@ public class Application {
                                         System.out.println(m);
                                         System.out.println("-------------------------");
                                     }
-                                    break;
+                                    if (confermaContinuo(scanner)) {
+                                        uscire = true;
+                                        break mainLoop;
+                                    } else {
+                                        continue mainLoop;
+                                    }
                                 case 2:
                                     // System.out.println("Controlla quante volte un mezzo ha percorso una tratta");
                                     // System.out.println("Inserisci numero matricola");
@@ -385,10 +420,20 @@ public class Application {
                                     Tratta tratta = trattaDAO.findById(scanner.nextInt());
                                     long prova = mezzoDAO.countPercorsiByMezzoAndTratta(mezzo, tratta);
                                     System.out.println("prova" + prova);
-                                    break;
+                                    if (confermaContinuo(scanner)) {
+                                        uscire = true;
+                                        break mainLoop;
+                                    } else {
+                                        continue mainLoop;
+                                    }
                                 case 3:
                                     System.out.println("Work in progress");
-                                    break;
+                                    if (confermaContinuo(scanner)) {
+                                        uscire = true;
+                                        break mainLoop;
+                                    } else {
+                                        continue mainLoop;
+                                    }
                                 case 4:
                                     caricamento();
                                     break;
@@ -428,6 +473,25 @@ public class Application {
             scanner.next();
         }
 
+    }
+
+    private static boolean confermaContinuo(Scanner scanner) {
+        System.out.println("-----------");
+        System.out.println("Vuoi fare altro? (s/n)");
+        String scelta = scanner.next().toLowerCase();
+        switch (scelta) {
+            case "s":
+                caricamento();
+                return false;
+            case "n":
+                System.out.println("Chiusura del programma in corso");
+                caricamentoMain();
+                System.out.println("Grazie e arrivederci!");
+                return true;
+            default:
+                System.out.println("Input non valido, si prega di inserire 's' per confermare l'uscita o 'n' per tornare al menù principale.");
+                return confermaContinuo(scanner);
+        }
     }
 
     private static void caricamento() {
