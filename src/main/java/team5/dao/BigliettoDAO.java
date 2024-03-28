@@ -5,6 +5,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 import team5.entities.Abbonamento;
 import team5.entities.Biglietto;
+import team5.entities.Emittente;
 import team5.exception.NotFoundException;
 
 import java.time.LocalDate;
@@ -31,11 +32,21 @@ public class BigliettoDAO {
         return biglietto;
     }
 public long numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate dataInizio, LocalDate dataFine, long emittenteId){
-    TypedQuery<Long> query = em.createQuery("SELECT COUNT(b) FROM Biglietto b WHERE b.dataEmissione BETWEEN :dataInizio AND :dataFine AND b.emittente.id = :emittenteId", Long.class);
-    query.setParameter("dataInizio", dataInizio);
-    query.setParameter("dataFine", dataFine);
-    query.setParameter("emittenteId", emittenteId);
-    return query.getSingleResult();
+        Emittente emittente = em.find(Emittente.class, emittenteId);
+        if(emittente == null){
+            throw new NotFoundException("Emittente con id: " + emittenteId + " non trovato");
+        }
+        try {
+            TypedQuery<Long> query = em.createQuery("SELECT COUNT(b) FROM Biglietto b WHERE b.dataEmissione BETWEEN :dataInizio AND :dataFine AND b.emittente.id = :emittenteId", Long.class);
+            query.setParameter("dataInizio", dataInizio);
+            query.setParameter("dataFine", dataFine);
+            query.setParameter("emittenteId", emittenteId);
+            return query.getSingleResult();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    return 0;
+
 }
 
 
