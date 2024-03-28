@@ -271,9 +271,9 @@ public class Application {
         caricamentoMain();
         boolean uscire = false;
         int scelta;
-        mainLoop:
         // prova
         try {
+            mainLoop:
             do {
                 System.out.println("Seleziona gestione:");
                 System.out.println("1 - Gestione clienti");
@@ -350,15 +350,7 @@ public class Application {
                         System.out.println("Gestione mezzi");
                         System.out.println("1 - Mezzi in servizio");
                         System.out.println("2 - Controlla quante volte un mezzo ha percorso una tratta");
-                        System.out.println("3 - Controlla il tempo effettivo delle tratte percorse da un mezzo"); // da
-                                                                                                                  // controllare
-                                                                                                                  // se
-                                                                                                                  // la
-                                                                                                                  // query
-                                                                                                                  // fa
-                                                                                                                  // affidamento
-                                                                                                                  // alla
-                                                                                                                  // traccia
+                        System.out.println("3 - Controlla il tempo effettivo delle tratte percorse da un mezzo");
                         System.out.println("4 - Ritorna al menù precedente");
                         try {
                             int scelta2 = scanner.nextInt();
@@ -467,7 +459,7 @@ public class Application {
     }
 
     private static void emissioneBiglietto(Scanner scanner, RivenditoreDAO rd, BigliettoDAO bd,
-            DistributoreAutomaticoDAO dd) {
+                                           DistributoreAutomaticoDAO dd) {
         System.out.println("1 - Rivenditore");
         System.out.println("2 - Distributore");
         try {
@@ -526,7 +518,7 @@ public class Application {
     }
 
     private static void emissioneAbbonamento(Scanner scanner, RivenditoreDAO rd, TesseraDAO tesseraDAO,
-            AbbonamentoDAO ad, DistributoreAutomaticoDAO dd) {
+                                             AbbonamentoDAO ad, DistributoreAutomaticoDAO dd) {
         System.out.println("1 - Rivenditore");
         System.out.println("2 - Distributore");
         try {
@@ -545,7 +537,7 @@ public class Application {
     }
 
     private static void emissioneAbbonamentoRivenditore(Scanner scanner, RivenditoreDAO rd, TesseraDAO tesseraDAO,
-            AbbonamentoDAO ad) {
+                                                        AbbonamentoDAO ad) {
         List<Rivenditore> listaRivenditori = rd.getAllRivenditori();
         for (int i = 0; i < listaRivenditori.toArray().length; i++) {
             System.out.println(i + 1 + " " + listaRivenditori.get(i));
@@ -604,7 +596,7 @@ public class Application {
     }
 
     private static void emissioneAbbonamentoDistributore(Scanner scanner, DistributoreAutomaticoDAO dd,
-            TesseraDAO tesseraDAO, AbbonamentoDAO ad) {
+                                                         TesseraDAO tesseraDAO, AbbonamentoDAO ad) {
         List<DistributoreAutomatico> listaDistributori = dd.getAllDistributori();
         for (int i = 0; i < listaDistributori.toArray().length; i++) {
             System.out.println(i + 1 + " - " + listaDistributori.get(i));
