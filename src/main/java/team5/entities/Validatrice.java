@@ -21,6 +21,9 @@ public class Validatrice {
 
     public Validatrice() {}
 
+    public Validatrice(Mezzo mezzo) {
+        this.mezzo = mezzo;
+    }
 
     public Long getId() {
         return id;

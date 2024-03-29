@@ -45,7 +45,7 @@ public class MezzoDAO {
     }
 
     public List<Mezzo> findMezziInServizio() {  // query da cambiare  "SELECT DISTINCT i.mezzo FROM InServizio i"
-        TypedQuery<Mezzo> query = em.createQuery("SELECT m FROM Mezzo m WHERE m.inServizio = true", Mezzo.class);
+        TypedQuery<Mezzo> query = em.createQuery("SELECT DISTINCT i.mezzo FROM InServizio i", Mezzo.class);
         return query.getResultList();
     }
 
@@ -82,6 +82,11 @@ public class MezzoDAO {
         query.setParameter("dataInizioPeriodo",dataInizioPeriodo);
         query.setParameter("dataFinePeriodo",dataFinePeriodo);
         query.setParameter("mezzoId",mezzoId);
+        return query.getResultList();
+    }
+
+    public List<Mezzo> getAllMezziManutenzione (){
+        TypedQuery<Mezzo> query = em.createQuery("SELECT DISTINCT i.mezzo FROM Manutenzione i", Mezzo.class);
         return query.getResultList();
     }
 }

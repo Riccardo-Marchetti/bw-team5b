@@ -25,6 +25,9 @@ public class Tratta {
         this.tempo_medio = tempo_medio;
     }
 
+    public Tratta() {
+    }
+
     public int getId() {
         return id;
     }
