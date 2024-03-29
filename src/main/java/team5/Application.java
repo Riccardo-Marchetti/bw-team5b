@@ -12,6 +12,7 @@ import team5.exception.NotFoundException;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.function.Supplier;
 
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestionetrasporti");
@@ -387,20 +388,7 @@ public class Application {
                                         continue mainLoop;
                                     }
                                 case 4:
-                                    // System.out.println("Controlla quante volte un mezzo ha percorso una tratta");
-                                    // System.out.println("Inserisci numero matricola");
-                                    // int matricola = scanner.nextInt();
-                                    // scanner.nextLine();
-                                    // System.out.println("Inserisci Partenza");
-                                    // String partenza = scanner.nextLine();
-                                    // System.out.println("Inserisci Capolinea");
-                                    // String capolinea = scanner.nextLine();
-                                    // System.out.println("La tratta " + partenza + " - " + capolinea + " è stato
-                                    // percorsa dal mezzo " + matricola + " " +
-                                    // mezzoDAO.countPercorsiByMezzoAndTratta(matricola, partenza, capolinea) + "
-                                    // volte");
-                                    // System.out.println("-------------------------");
-                                    // da sistemare e rivedere domani
+
                                     caricamento();
                                     System.out.println("Inserisci numero Id mezzo");
                                     int mezzoIdManutenzione = scanner.nextInt();
@@ -412,9 +400,6 @@ public class Application {
                                     String capolinea = scanner.nextLine();
                                     System.out.println("Tratta percorsa dal mezzo: (n° di volte)");
                                     System.out.println(percorsoDAO.countPercorsiByMezzoAndTratta(mezzoIdManutenzione, partenza, capolinea));
-//                                    Tratta partenza = trattaDAO.findById(scanner.nextInt()); //modificare metodo da usare
-//                                    long prova = mezzoDAO.countPercorsiByMezzoAndTratta(mezzo, partenza);
-//                                    System.out.println("prova" + prova);
                                     if (confermaContinuo(scanner)) {
                                         uscire = true;
                                         break mainLoop;
