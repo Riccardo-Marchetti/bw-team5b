@@ -1,58 +1,79 @@
-/*package team5.entities;
+package team5.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "inServizio")
+@Table(name = "inservizio")
 public class InServizio {
     @Id
     @GeneratedValue
-    @Column(name = "id")
     private int id;
-    @Column(name = "data_inizio")
-    private Date data_inizio;
-    @Column(name = "data_fine")
-    private Date data_fine;
-    @Column(name="tempo_effettivo")
-    private int tempo_effettivo;
-    @OneToMany(mappedBy = "inServizio")
-    private List<Autobus> autobus;
-    @OneToMany(mappedBy = "inServizio")
-    private List<Tram> tram;
-   *//* @OneToMany(mappedBy = "inServizio")
-    private List<Tratta> tratta;*//*
-    public InServizio(Date data_inizio, Date data_fine, int tempo_effettivo, List<Autobus> autobus, List<Tram> tram) {
+
+    private LocalDate data_inizio;
+
+    private LocalDate data_fine;
+
+
+    @ManyToOne
+    @JoinColumn(name = "mezzo_id")
+    private Mezzo mezzo;
+
+//    @OneToMany
+//    private Tratta tratta;
+
+    public InServizio(LocalDate data_inizio, LocalDate data_fine, Mezzo mezzo) {
         this.data_inizio = data_inizio;
         this.data_fine = data_fine;
-        this.tempo_effettivo = tempo_effettivo;
-        this.autobus = autobus;
-        this.tram = tram;
+        this.mezzo = mezzo;
+//        this.tratta = tratta;
     }
+
     public InServizio() {
     }
     public int getId() {
         return id;
     }
-    public Date getData_inizio() {
+    public LocalDate getData_inizio() {
         return data_inizio;
     }
-    public void setData_inizio(Date data_inizio) {
+    public void setData_inizio(LocalDate data_inizio) {
         this.data_inizio = data_inizio;
     }
-    public Date getData_fine() {
+    public LocalDate getData_fine() {
         return data_fine;
     }
-    public void setData_fine(Date data_fine) {
+    public void setData_fine(LocalDate data_fine) {
         this.data_fine = data_fine;
     }
-    public int getTempo_effettivo() {
-        return tempo_effettivo;
-    }
-    public void setTempo_effettivo(int tempo_effettivo) {
-        this.tempo_effettivo = tempo_effettivo;
+
+    public Mezzo getMezzo() {
+        return mezzo;
     }
 
-}*/
+    public void setMezzo(Mezzo mezzo) {
+        this.mezzo = mezzo;
+    }
+
+//    public Tratta getTratta() {
+//        return tratta;
+//    }
+
+//    public void setTratta(Tratta tratta) {
+//        this.tratta = tratta;
+//    }
+
+    @Override
+    public String toString() {
+        return "InServizio{" +
+                "id=" + id +
+                ", data_inizio=" + data_inizio +
+                ", data_fine=" + data_fine +
+                ", mezzo=" + mezzo +
+//                ", tratta=" + tratta +
+                '}';
+    }
+}
