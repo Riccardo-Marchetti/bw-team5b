@@ -18,4 +18,12 @@ public abstract class Emittente {
 
     public Emittente() {
     }
+
+    @Override
+    public String toString() {
+        return "Emittente{" +
+                "id=" + id +
+                ", indirizzo='" + indirizzo + '\'' +
+                '}';
+    }
 }

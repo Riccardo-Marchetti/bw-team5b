@@ -47,4 +47,14 @@ public abstract class Mezzo {
         this.tratta = tratta;
     }
 
+    @Override
+    public String toString() {
+        return "Mezzo{" +
+                "id=" + id +
+                ", numeroMatricola=" + numeroMatricola +
+                ", inServizi=" + inServizi +
+                ", manutenzioni=" + manutenzioni +
+                ", tratta=" + tratta +
+                '}';
+    }
 }

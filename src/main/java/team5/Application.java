@@ -33,273 +33,196 @@ public class Application {
         TramDAO tramDAO = new TramDAO(em);
         ValidatriceDao validatriceDao = new ValidatriceDao(em);
         PercorsoDAO percorsoDAO = new PercorsoDAO(em);
+        InServizioDAO inservizioDAO = new InServizioDAO(em);
 
         // CREAZIONE UTENTI E SALVATAGGIO
-
-//        Supplier<Utente> utenteSupplier = () -> new
-//                Utente(faker.rickAndMorty().character(), faker.name().lastName());
-//        List<Utente> utenteList = new ArrayList<>();
-//        for (int i = 0; i < 10; i++) {
-//            utenteList.add(utenteSupplier.get());
-//        }
-//        utenteList.forEach(utenteDAO::salvaUtente);
+        Supplier<Utente> utenteSupplier = () -> new
+                Utente(faker.rickAndMorty().character(), faker.name().lastName());
+        List<Utente> utenteList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            utenteList.add(utenteSupplier.get());
+        }
+        utenteList.forEach(utenteDAO::salvaUtente);
 
         // CREAZIONE TESSERE E SALVATAGGIO
-//        Tessera tessera0 = new Tessera(utenteList.get(0), LocalDate.of(2024, 2, 4));
-//        Tessera tessera1 = new Tessera(utenteList.get(1), LocalDate.of(2024, 2, 3));
-//        Tessera tessera2 = new Tessera(utenteList.get(2), LocalDate.of(2023, 5, 25));
-//        Tessera tessera3 = new Tessera(utenteList.get(3), LocalDate.of(2023, 8, 7));
-//        Tessera tessera4 = new Tessera(utenteList.get(4), LocalDate.of(2020, 9, 19));
-//        Tessera tessera5 = new Tessera(utenteList.get(5), LocalDate.of(2020, 11,
-//                15));
-//        Tessera tessera6 = new Tessera(utenteList.get(6), LocalDate.of(2023, 12,
-//                16));
-//        Tessera tessera7 = new Tessera(utenteList.get(7), LocalDate.of(2024, 2, 18));
-//        Tessera tessera8 = new Tessera(utenteList.get(8), LocalDate.of(2021, 3, 1));
-//        Tessera tessera9 = new Tessera(utenteList.get(9), LocalDate.of(2021, 3, 5));
+        Tessera tessera0 = new Tessera(utenteList.get(0), LocalDate.of(2024, 2, 4));
+        Tessera tessera1 = new Tessera(utenteList.get(1), LocalDate.of(2024, 2, 3));
+        Tessera tessera2 = new Tessera(utenteList.get(2), LocalDate.of(2023, 5, 25));
+        Tessera tessera3 = new Tessera(utenteList.get(3), LocalDate.of(2023, 8, 7));
+        Tessera tessera4 = new Tessera(utenteList.get(4), LocalDate.of(2020, 9, 19));
+        Tessera tessera5 = new Tessera(utenteList.get(5), LocalDate.of(2020, 11,
+                15));
+        Tessera tessera6 = new Tessera(utenteList.get(6), LocalDate.of(2023, 12,
+                16));
+        Tessera tessera7 = new Tessera(utenteList.get(7), LocalDate.of(2024, 2, 18));
+        Tessera tessera8 = new Tessera(utenteList.get(8), LocalDate.of(2021, 3, 1));
+        Tessera tessera9 = new Tessera(utenteList.get(9), LocalDate.of(2021, 3, 5));
 
         // SALVATAGGIO TESSERE
-//        tesseraDAO.salvaTessera(tessera0);
-//        tesseraDAO.salvaTessera(tessera1);
-//        tesseraDAO.salvaTessera(tessera2);
-//        tesseraDAO.salvaTessera(tessera3);
-//        tesseraDAO.salvaTessera(tessera4);
-//        tesseraDAO.salvaTessera(tessera5);
-//        tesseraDAO.salvaTessera(tessera6);
-//        tesseraDAO.salvaTessera(tessera7);
-//        tesseraDAO.salvaTessera(tessera8);
-//        tesseraDAO.salvaTessera(tessera9);
+        tesseraDAO.salvaTessera(tessera0);
+        tesseraDAO.salvaTessera(tessera1);
+        tesseraDAO.salvaTessera(tessera2);
+        tesseraDAO.salvaTessera(tessera3);
+        tesseraDAO.salvaTessera(tessera4);
+        tesseraDAO.salvaTessera(tessera5);
+        tesseraDAO.salvaTessera(tessera6);
+        tesseraDAO.salvaTessera(tessera7);
+        tesseraDAO.salvaTessera(tessera8);
+        tesseraDAO.salvaTessera(tessera9);
 
         // // CREAZIONE RIVENDITORI
-//        Rivenditore rivenditore1 = new Rivenditore("via Milano", "Antonio",
-//                434242425);
-//        Rivenditore rivenditore2 = new Rivenditore("via Piave", "Riccardo",
-//                234525231);
-//        Rivenditore rivenditore3 = new Rivenditore("via Po", "Marco", 523515646);
-//        Rivenditore rivenditore4 = new Rivenditore("via Roma", "Matteo", 246675369);
+        Rivenditore rivenditore1 = new Rivenditore("via Milano", "Antonio",
+                434242425);
+        Rivenditore rivenditore2 = new Rivenditore("via Piave", "Riccardo",
+                234525231);
+        Rivenditore rivenditore3 = new Rivenditore("via Po", "Marco", 523515646);
+        Rivenditore rivenditore4 = new Rivenditore("via Roma", "Matteo", 246675369);
 
         // SALVATAGGIO RIVENDITORI
-//        rd.salvaRivenditore(rivenditore1);
-//        rd.salvaRivenditore(rivenditore2);
-//        rd.salvaRivenditore(rivenditore3);
-//        rd.salvaRivenditore(rivenditore4);
+        rd.salvaRivenditore(rivenditore1);
+        rd.salvaRivenditore(rivenditore2);
+        rd.salvaRivenditore(rivenditore3);
+        rd.salvaRivenditore(rivenditore4);
 
 
         // CREAZIONE DISTRIBUTORI
-//        DistributoreAutomatico distributore1 = new DistributoreAutomatico("via Milano", true);
-//        DistributoreAutomatico distributore2 = new DistributoreAutomatico("via Po", true);
-//        DistributoreAutomatico distributore3 = new DistributoreAutomatico("via Piave", true);
-//        DistributoreAutomatico distributore4 = new DistributoreAutomatico("via Roma", true);
+        DistributoreAutomatico distributore1 = new DistributoreAutomatico("via Milano", true);
+        DistributoreAutomatico distributore2 = new DistributoreAutomatico("via Po", true);
+        DistributoreAutomatico distributore3 = new DistributoreAutomatico("via Piave", true);
+        DistributoreAutomatico distributore4 = new DistributoreAutomatico("via Roma", true);
 
         // SALVATAGGIO DISTRIBUTORI
-//        dd.salvaDistributore(distributore1);
-//        dd.salvaDistributore(distributore2);
-//        dd.salvaDistributore(distributore3);
-//        dd.salvaDistributore(distributore4);
+        dd.salvaDistributore(distributore1);
+        dd.salvaDistributore(distributore2);
+        dd.salvaDistributore(distributore3);
+        dd.salvaDistributore(distributore4);
 
         // CREAZIONE BIGLIETTI
-//        Biglietto biglietto = new Biglietto(LocalDate.of(2024, 3, 27), false, null,
-//                distributore1);
-//        Biglietto biglietto1 = new Biglietto(LocalDate.of(2024, 2, 20), false, null,
-//                rivenditore1);
-//        Biglietto biglietto2 = new Biglietto(LocalDate.of(2024, 2, 14), false, null,
-//                rivenditore2);
-//        Biglietto biglietto3 = new Biglietto(LocalDate.of(2024, 1, 24), false, null,
-//                rivenditore2);
-//        Biglietto biglietto4 = new Biglietto(LocalDate.of(2024, 4, 30), false, null,
-//                rivenditore3);
-//        Biglietto biglietto5 = new Biglietto(LocalDate.of(2024, 5, 1), false, null,
-//                rivenditore3);
-//        Biglietto biglietto6 = new Biglietto(LocalDate.of(2024, 6, 4), false, null,
-//                rivenditore4);
-//        Biglietto biglietto7 = new Biglietto(LocalDate.of(2024, 7, 6), false, null,
-//                rivenditore4);
+        Biglietto biglietto = new Biglietto(LocalDate.of(2024, 3, 27), false, null,
+                distributore1);
+        Biglietto biglietto1 = new Biglietto(LocalDate.of(2024, 2, 20), false, null,
+                rivenditore1);
+        Biglietto biglietto2 = new Biglietto(LocalDate.of(2024, 2, 14), false, null,
+                rivenditore2);
+        Biglietto biglietto3 = new Biglietto(LocalDate.of(2024, 1, 24), false, null,
+                rivenditore2);
+        Biglietto biglietto4 = new Biglietto(LocalDate.of(2024, 4, 30), false, null,
+                rivenditore3);
+        Biglietto biglietto5 = new Biglietto(LocalDate.of(2024, 5, 1), false, null,
+                rivenditore3);
+        Biglietto biglietto6 = new Biglietto(LocalDate.of(2024, 6, 4), false, null,
+                rivenditore4);
+        Biglietto biglietto7 = new Biglietto(LocalDate.of(2024, 7, 6), false, null,
+                rivenditore4);
 
         // SALVATAGGIO BIGLIETTI
-//        bd.salvaBiglietto(biglietto);
-//        bd.salvaBiglietto(biglietto1);
-//        bd.salvaBiglietto(biglietto2);
-//        bd.salvaBiglietto(biglietto3);
-//        bd.salvaBiglietto(biglietto4);
-//        bd.salvaBiglietto(biglietto5);
-//        bd.salvaBiglietto(biglietto6);
-//        bd.salvaBiglietto(biglietto7);
+        bd.salvaBiglietto(biglietto);
+        bd.salvaBiglietto(biglietto1);
+        bd.salvaBiglietto(biglietto2);
+        bd.salvaBiglietto(biglietto3);
+        bd.salvaBiglietto(biglietto4);
+        bd.salvaBiglietto(biglietto5);
+        bd.salvaBiglietto(biglietto6);
+        bd.salvaBiglietto(biglietto7);
 
         // CREAZIONE ABBONAMENTI
-//        Abbonamento abbonamento1 = new Abbonamento(utenteList.get(0),
-//                LocalDate.of(2024, 3, 27), TipoAbbonamento.SETTIMANALE, distributore1);
-//        Abbonamento abbonamento2 = new Abbonamento(utenteList.get(1),
-//                LocalDate.of(2024, 3, 27), TipoAbbonamento.MENSILE, rivenditore2);
-//        Abbonamento abbonamento3 = new Abbonamento(utenteList.get(2),
-//                LocalDate.of(2024, 3, 27), TipoAbbonamento.MENSILE, rivenditore1);
-//        Abbonamento abbonamento4 = new Abbonamento(utenteList.get(3),
-//                LocalDate.of(2024, 3, 27), TipoAbbonamento.SETTIMANALE, distributore2);
-//        Abbonamento abbonamento5 = new Abbonamento(utenteList.get(4),
-//                LocalDate.of(2024, 3, 27), TipoAbbonamento.SETTIMANALE, rivenditore4);
-//        Abbonamento abbonamento6 = new
-//                Abbonamento(utenteList.get(0), LocalDate.of(2024, 3, 25),
-//                TipoAbbonamento.MENSILE, rivenditore1);
-        // SALVATAGGIO ABBONAMENTI
-//        ad.save(abbonamento1);
-//        ad.save(abbonamento2);
-//        ad.save(abbonamento3);
-//        ad.save(abbonamento4);
-//        ad.save(abbonamento5);
-//        ad.save(abbonamento6);
+        Abbonamento abbonamento1 = new Abbonamento(utenteList.get(0),
+                LocalDate.of(2024, 3, 27), TipoAbbonamento.SETTIMANALE, distributore1);
+        Abbonamento abbonamento2 = new Abbonamento(utenteList.get(1),
+                LocalDate.of(2024, 3, 27), TipoAbbonamento.MENSILE, rivenditore2);
+        Abbonamento abbonamento3 = new Abbonamento(utenteList.get(2),
+                LocalDate.of(2024, 3, 27), TipoAbbonamento.MENSILE, rivenditore1);
+        Abbonamento abbonamento4 = new Abbonamento(utenteList.get(3),
+                LocalDate.of(2024, 3, 27), TipoAbbonamento.SETTIMANALE, distributore2);
+        Abbonamento abbonamento5 = new Abbonamento(utenteList.get(4),
+                LocalDate.of(2024, 3, 27), TipoAbbonamento.SETTIMANALE, rivenditore4);
+        Abbonamento abbonamento6 = new
+                Abbonamento(utenteList.get(0), LocalDate.of(2024, 3, 25),
+                TipoAbbonamento.MENSILE, rivenditore1);
 
-        // NUMERO BIGLIETTI X ID E DATA
-//        System.out.println("Numero biglietti emessi entro tot");
-//        System.out.println(bd.numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024,
-//                2, 19), LocalDate.of(2024, 2, 21), 3));
-//
-//        // NUMERO ABBONAMENTI X ID E DATA
-//        System.out.println("Numero di abbonamenti emessi entro tot periodo:");
-//        System.out.println(ad.numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024,
-//                3, 26), LocalDate.of(2024, 3, 28), 4));
-//        System.out.println(" ");
-//        System.out.println("Verifica abbonamento");
-//        ad.verificaAbbonamento(1).forEach(System.out::println);
+        // SALVATAGGIO ABBONAMENTI
+        ad.save(abbonamento1);
+        ad.save(abbonamento2);
+        ad.save(abbonamento3);
+        ad.save(abbonamento4);
+        ad.save(abbonamento5);
+        ad.save(abbonamento6);
 
         //Creazione tratte
-//        Tratta tratta1 = new Tratta("Gardaland","Milano",90);
-//        trattaDAO.save(tratta1);
-//        Tratta tratta2 = new Tratta("Roma","Fiumicino",120);
-//        trattaDAO.save(tratta2);
-//        Tratta tratta3 = new Tratta("Bari","Foggia",30);
-//        trattaDAO.save(tratta3);
-//        Tratta tratta4 = new Tratta("Napoli","Milano",240);
-//        trattaDAO.save(tratta4);
+        Tratta tratta1 = new Tratta("Gardaland","Milano",90);
+        trattaDAO.save(tratta1);
+        Tratta tratta2 = new Tratta("Roma","Fiumicino",120);
+        trattaDAO.save(tratta2);
+        Tratta tratta3 = new Tratta("Bari","Foggia",30);
+        trattaDAO.save(tratta3);
+        Tratta tratta4 = new Tratta("Napoli","Milano",240);
+        trattaDAO.save(tratta4);
 
         //Creazione mezzi autobus
-//        Autobus autobus1 = new Autobus(10000,tratta1,55);
-//        autobusDAO.save(autobus1);
-//        Autobus autobus2 = new Autobus(11000,tratta2,55);
-//        autobusDAO.save(autobus2);
-//        Autobus autobus3 = new Autobus (15000,tratta4,55);
-//        autobusDAO.save(autobus3);
+        Autobus autobus1 = new Autobus(10000,tratta1,55);
+        autobusDAO.save(autobus1);
+        Autobus autobus2 = new Autobus(11000,tratta2,55);
+        autobusDAO.save(autobus2);
+        Autobus autobus3 = new Autobus (15000,tratta4,55);
+        autobusDAO.save(autobus3);
 
         //Creazione mezzi tram
-//        Tram tram1 = new Tram(12000,tratta1,25);
-//        tramDAO.save(tram1);
-//        Tram tram2 = new Tram(13000,tratta2,30);
-//        tramDAO.save(tram2);
-//        Tram tram3 = new Tram (14000,tratta3,25);
-//        tramDAO.save(tram3);
+        Tram tram1 = new Tram(12000,tratta1,25);
+        tramDAO.save(tram1);
+        Tram tram2 = new Tram(13000,tratta2,30);
+        tramDAO.save(tram2);
+        Tram tram3 = new Tram (14000,tratta3,25);
+        tramDAO.save(tram3);
 
         //Validatrici
-//        Validatrice validatrice1 = new Validatrice(autobus1);
-//        Validatrice validatrice2 = new Validatrice(autobus2);
-//        Validatrice validatrice3 = new Validatrice(autobus3);
-//        Validatrice validatrice4 = new Validatrice(tram1);
-//        Validatrice validatrice5 = new Validatrice(tram2);
-//        Validatrice validatrice6 = new Validatrice(tram3);
+        Validatrice validatrice1 = new Validatrice(autobus1);
+        Validatrice validatrice2 = new Validatrice(autobus2);
+        Validatrice validatrice3 = new Validatrice(autobus3);
+        Validatrice validatrice4 = new Validatrice(tram1);
+        Validatrice validatrice5 = new Validatrice(tram2);
+        Validatrice validatrice6 = new Validatrice(tram3);
 
+//        SALVATAGGIO VALIDATRICI
+        validatriceDao.save(validatrice1);
+        validatriceDao.save(validatrice2);
+        validatriceDao.save(validatrice3);
+        validatriceDao.save(validatrice4);
+        validatriceDao.save(validatrice5);
+        validatriceDao.save(validatrice6);
 
+       //CREAZIONE MANUTENZIONI
+        Manutenzione manutenzione1 = new Manutenzione(LocalDate.now(),LocalDate.now().plusDays(10),"Cambio gomme",autobus1);
+        md.save(manutenzione1);
+        Manutenzione manutenzione2 = new Manutenzione(LocalDate.of(2024,3,20),LocalDate.now(),"Verifica componenti elettrici",tram1);
+        md.save(manutenzione2);
 
-//        //CREAZIONE MANUTENZIONI
-//            Manutenzione manutenzione1 = new Manutenzione(LocalDate.now(),LocalDate.now().plusDays(10),"Cambio gomme",autobus1);
-//            md.save(manutenzione1);
-//            Manutenzione manutenzione2 = new Manutenzione(LocalDate.of(2024,3,20),LocalDate.now(),"Verifica componenti elettrici",tram1);
-//            md.save(manutenzione2);
-//
-//        //SALVATAGGIO MANUTENZIONI
-//        md.save(manutenzione1);
-//        md.save(manutenzione2);
-//
-//        //CREAZIONE TRATTA
-//        Tratta tratta1 = new Tratta("Roma", "Firenze", 120);
-//        Tratta tratta2 = new Tratta("Torino", "Napoli", 120);
-//        Tratta tratta3 = new Tratta("Genoa", "Bologna", 240);
-//        Tratta tratta4 = new Tratta("Palermo", "Catania", 240);
-//        Tratta tratta5 = new Tratta("Empoli", "Udine", 180);
-//
-//
-//        //SALVATAGGIO TRATTA
-//        trattaDAO.save(tratta1);
-//        trattaDAO.save(tratta2);
-//        trattaDAO.save(tratta3);
-//        trattaDAO.save(tratta4);
-//        trattaDAO.save(tratta5);
-//
-//
-//        //CREAZIONE AUTOBUS
-//        List<Autobus> autobusList = new ArrayList<>();
-//        Autobus bus1 = new Autobus(534189, 100, true, null, tratta1);
-//        Autobus bus2 = new Autobus(134986, 100, true, null, tratta2);
-//        Autobus bus3 = new Autobus(234568, 100, false, manutenzione1, null);
-//        Autobus bus4 = new Autobus(964521, 100, true, null, tratta3);
-//
-//        autobusList.add(bus1);
-//        autobusList.add(bus2);
-//        autobusList.add(bus3);
-//        autobusList.add(bus4);
-//
-//        //SALVATAGGIO AUTOBUS
-//        busDAO.save(bus1);
-//        busDAO.save(bus2);
-//        busDAO.save(bus3);
-//        busDAO.save(bus4);
-//
-//        //CREAZIONE TRAM
-//        List<Tram> tramList = new ArrayList<>();
-//        Tram tram1 = new Tram(200, 257963, false, manutenzione2, null);
-//        Tram tram2 = new Tram(200, 112498, true, null, tratta1);
-//        Tram tram3 = new Tram(200, 531794, true, null, tratta4);
-//        Tram tram4 = new Tram(200, 484946, true, null, tratta5);
-//
-//        tramList.add(tram1);
-//        tramList.add(tram2);
-//        tramList.add(tram3);
-//        tramList.add(tram4);
-//
-//
-//        //SALVATAGGIO TRAM
-//        tramDAO.save(tram1);
-//        tramDAO.save(tram2);
-//        tramDAO.save(tram3);
-//        tramDAO.save(tram4);
-//
-//        // NUMERO BIGLIETTI X ID E DATA
-//        System.out.println("Numero biglietti emessi entro tot");
-//        System.out.println(bd.numeroDiBigliettiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2027,
-//                2, 19), LocalDate.of(2024, 2, 21), 1));
-//
-//        // NUMERO ABBONAMENTI X ID E DATA
-//        System.out.println("Numero di abbonamenti emessi entro tot periodo:");
-//        System.out.println(ad.numeroDiAbbonamentiEmessiDaUnEmittentePerPeriodo(LocalDate.of(2024,
-//                3, 26), LocalDate.of(2024, 3, 28), 53));
-//
-//        Mezzo mezzi = mezzoDAO.findById(5);
-//
-//        System.out.println(mezzi);
-//
-//        Tratta tratta = trattaDAO.findById(102);
-//        List<Mezzo> mezziInServizio = mezzoDAO.findMezziInServizioByTratta(tratta);
-//
-//        System.out.println("Mezzi in servizio sulla tratta " + tratta.getPartenza() +
-//                " - " + tratta.getCapolinea() + ":");
-//
-//        for (Mezzo m : mezziInServizio) {
-//            System.out.println(m.toString());
-//            System.out.println("----------------------------------");
-//        }
+//      SALVATAGGIO MANUTENZIONI
+        md.save(manutenzione1);
+        md.save(manutenzione2);
 
-//        System.out.println("Aggiornamento della data di scadenza");
-//        tesseraDAO.aggiornaTesseraScaduta(1L);
-//
-//        System.out.println(" ");
+//        CREAZIONE PERCORSI
+        Percorso percorso1 = new Percorso(autobus1, tratta1, 40);
+        Percorso percorso2 = new Percorso(tram1, tratta3,120);
+        Percorso percorso3 = new Percorso(tram3, tratta2,90);
+        Percorso percorso4 = new Percorso(autobus3, tratta4,60);
 
-//        System.out.println("Trova Tessera Scaduta ed Elimina");
-        // tesseraDAO.eliminaTesseraScadutaById(24);
+//        SALVATAGGIO PERCORSI
+        percorsoDAO.save(percorso1);
+        percorsoDAO.save(percorso2);
+        percorsoDAO.save(percorso3);
+        percorsoDAO.save(percorso4);
 
-//        System.out.println(" ");
-//        System.out.println("Trova Utente ed elimina");
-//        utenteDAO.findUtenteById(1);
-//        utenteDAO.eliminaUtenteById(1);
+//        CREAZIONE IN SERVIZIO
+        InServizio servizio1 = new InServizio(LocalDate.of(2024, 3, 30), LocalDate.of(2024, 4, 1), autobus1);
+        InServizio servizio2 = new InServizio(LocalDate.of(2024, 4, 4), LocalDate.of(2024, 4, 5), tram2);
+        InServizio servizio3 = new InServizio(LocalDate.of(2024, 3, 9), LocalDate.of(2024, 4, 10), autobus3);
 
+//        SALVATAGGIO IN SERVIZIO
+        inservizioDAO.save(servizio1);
+        inservizioDAO.save(servizio2);
+        inservizioDAO.save(servizio3);
 
-
-
+//        SCANNER
         Scanner scanner = new Scanner(System.in);
         System.out.println("Benvenuto/a su EpicTrasporti!");
         caricamentoMain();
@@ -456,7 +379,7 @@ public class Application {
                                     scanner.nextLine();
                                     System.out.println("Lista mezzi in manutenzione nel periodo selezionato trovati:");
                                     caricamento();
-                                    mezzoDAO.periodiDiManutenzioneDelMezzo(dataInizio,dataFine,mezzoId).forEach(System.out::println);
+                                    mezzoDAO.periodiDiManutenzioneDelMezzo(dataInizio, dataFine, mezzoId).forEach(System.out::println);
                                     if (confermaContinuo(scanner)) {
                                         uscire = true;
                                         break mainLoop;
@@ -464,22 +387,9 @@ public class Application {
                                         continue mainLoop;
                                     }
                                 case 4:
-                                    // System.out.println("Controlla quante volte un mezzo ha percorso una tratta");
-                                    // System.out.println("Inserisci numero matricola");
-                                    // int matricola = scanner.nextInt();
-                                    // scanner.nextLine();
-                                    // System.out.println("Inserisci Partenza");
-                                    // String partenza = scanner.nextLine();
-                                    // System.out.println("Inserisci Capolinea");
-                                    // String capolinea = scanner.nextLine();
-                                    // System.out.println("La tratta " + partenza + " - " + capolinea + " è stato
-                                    // percorsa dal mezzo " + matricola + " " +
-                                    // mezzoDAO.countPercorsiByMezzoAndTratta(matricola, partenza, capolinea) + "
-                                    // volte");
-                                    // System.out.println("-------------------------");
-                                    // da sistemare e rivedere domani
+
                                     caricamento();
-                                    System.out.println("Inserisci numero matricola");
+                                    System.out.println("Inserisci numero Id mezzo");
                                     int mezzoIdManutenzione = scanner.nextInt();
                                     Mezzo mezzo = mezzoDAO.findById(scanner.nextInt());
                                     scanner.nextLine();
@@ -488,10 +398,7 @@ public class Application {
                                     System.out.println("Inserisci Arrivo");
                                     String capolinea = scanner.nextLine();
                                     System.out.println("Tratta percorsa dal mezzo: (n° di volte)");
-                                    System.out.println(percorsoDAO.countPercorsiByMezzoAndTratta(mezzoIdManutenzione,partenza,capolinea));
-//                                    Tratta partenza = trattaDAO.findById(scanner.nextInt()); //modificare metodo da usare
-//                                    long prova = mezzoDAO.countPercorsiByMezzoAndTratta(mezzo, partenza);
-//                                    System.out.println("prova" + prova);
+                                    System.out.println(percorsoDAO.countPercorsiByMezzoAndTratta(mezzoIdManutenzione, partenza, capolinea));
                                     if (confermaContinuo(scanner)) {
                                         uscire = true;
                                         break mainLoop;
@@ -508,7 +415,7 @@ public class Application {
                                     System.out.println("Inserisci Arrivo");
                                     String capolinea2 = scanner.nextLine();
                                     System.out.println("Tempi effettivi della tratta percorsa:");
-                                    percorsoDAO.countPercorsiByMezzoAndTrattaAndGetEffectiveTime(idMezzo,partenza2,capolinea2).forEach(element-> System.out.println(element.getTempoEffettivo()+" minuti"));
+                                    percorsoDAO.countPercorsiByMezzoAndTrattaAndGetEffectiveTime(idMezzo, partenza2, capolinea2).forEach(element -> System.out.println(element.getTempoEffettivo() + " minuti"));
                                     if (confermaContinuo(scanner)) {
                                         uscire = true;
                                         break mainLoop;
@@ -694,7 +601,7 @@ public class Application {
             int input = scanner.nextInt();
             scanner.nextLine();
             if (input >= 1 && input <= listaRivenditori.size()) {
-                Rivenditore rivenditore = listaRivenditori.get(input);
+                Rivenditore rivenditore = listaRivenditori.get(input - 1);
                 long numeroTessera;
                 System.out.println("inserisci il numero tessera dell'utente");
                 do {
@@ -755,7 +662,7 @@ public class Application {
             int input = scanner.nextInt();
             scanner.nextLine();
             if (input >= 1 && input <= listaDistributori.size()) {
-                DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input);
+                DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input - 1);
                 long numeroTessera;
                 System.out.println("Inserisci il numero tessera dell'utente");
                 do {
@@ -795,7 +702,7 @@ public class Application {
                     } catch (NoResultException e) {
                         System.out.println("Inserisci un numero di tessera esistente");
                     }
-                } while (!verifica );
+                } while (!verifica);
             } else {
                 throw new IllegalArgumentException("Inserisci un numero valido");
             }

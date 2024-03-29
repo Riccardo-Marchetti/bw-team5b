@@ -10,18 +10,6 @@ public class Rivenditore extends Emittente{
     private String nome;
     private long numeroTelefono;
 
-    // ONE TO MANY BIGLIETTO
-//    @OneToMany (mappedBy = "rivenditore")
-//    private List<Biglietto> biglietto = new ArrayList<>();
-
-    // COSTRUTTORE
-//    public Rivenditore(String indirizzo, String nome, long numeroTelefono, List<Biglietto> biglietto) {
-//        super(indirizzo);
-//        this.nome = nome;
-//        this.numeroTelefono = numeroTelefono;
-//        this.biglietto = biglietto;
-//    }
-
     public Rivenditore(String indirizzo, String nome, long numeroTelefono) {
         super(indirizzo);
         this.nome = nome;
@@ -55,13 +43,6 @@ public class Rivenditore extends Emittente{
         this.numeroTelefono = numeroTelefono;
     }
 
-//    public List<Biglietto> getBiglietto() {
-//        return biglietto;
-//    }
-
-//    public void setBiglietto(List<Biglietto> biglietto) {
-//        this.biglietto = biglietto;
-//    }
 
     // TO STRING
     @Override
