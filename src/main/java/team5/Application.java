@@ -12,7 +12,6 @@ import team5.exception.NotFoundException;
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.function.Supplier;
 
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestionetrasporti");
@@ -477,7 +476,7 @@ public class Application {
                                     // System.out.println("-------------------------");
                                     // da sistemare e rivedere domani
                                     caricamento();
-                                    System.out.println("Inserisci numero matricola");
+                                    System.out.println("Inserisci numero Id mezzo");
                                     int mezzoIdManutenzione = scanner.nextInt();
                                     Mezzo mezzo = mezzoDAO.findById(scanner.nextInt());
                                     scanner.nextLine();
@@ -793,7 +792,7 @@ public class Application {
                     } catch (NoResultException e) {
                         System.out.println("Inserisci un numero di tessera esistente");
                     }
-                } while (!verifica );
+                } while (!verifica);
             } else {
                 throw new IllegalArgumentException("Inserisci un numero valido");
             }
