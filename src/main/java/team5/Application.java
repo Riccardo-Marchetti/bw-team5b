@@ -12,7 +12,6 @@ import team5.exception.NotFoundException;
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.function.Supplier;
 
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestionetrasporti");
@@ -380,7 +379,7 @@ public class Application {
                                     scanner.nextLine();
                                     System.out.println("Lista mezzi in manutenzione nel periodo selezionato trovati:");
                                     caricamento();
-                                    mezzoDAO.periodiDiManutenzioneDelMezzo(dataInizio,dataFine,mezzoId).forEach(System.out::println);
+                                    mezzoDAO.periodiDiManutenzioneDelMezzo(dataInizio, dataFine, mezzoId).forEach(System.out::println);
                                     if (confermaContinuo(scanner)) {
                                         uscire = true;
                                         break mainLoop;
@@ -403,7 +402,7 @@ public class Application {
                                     // System.out.println("-------------------------");
                                     // da sistemare e rivedere domani
                                     caricamento();
-                                    System.out.println("Inserisci numero matricola");
+                                    System.out.println("Inserisci numero Id mezzo");
                                     int mezzoIdManutenzione = scanner.nextInt();
                                     Mezzo mezzo = mezzoDAO.findById(scanner.nextInt());
                                     scanner.nextLine();
@@ -412,7 +411,7 @@ public class Application {
                                     System.out.println("Inserisci Arrivo");
                                     String capolinea = scanner.nextLine();
                                     System.out.println("Tratta percorsa dal mezzo: (n° di volte)");
-                                    System.out.println(percorsoDAO.countPercorsiByMezzoAndTratta(mezzoIdManutenzione,partenza,capolinea));
+                                    System.out.println(percorsoDAO.countPercorsiByMezzoAndTratta(mezzoIdManutenzione, partenza, capolinea));
 //                                    Tratta partenza = trattaDAO.findById(scanner.nextInt()); //modificare metodo da usare
 //                                    long prova = mezzoDAO.countPercorsiByMezzoAndTratta(mezzo, partenza);
 //                                    System.out.println("prova" + prova);
@@ -432,7 +431,7 @@ public class Application {
                                     System.out.println("Inserisci Arrivo");
                                     String capolinea2 = scanner.nextLine();
                                     System.out.println("Tempi effettivi della tratta percorsa:");
-                                    percorsoDAO.countPercorsiByMezzoAndTrattaAndGetEffectiveTime(idMezzo,partenza2,capolinea2).forEach(element-> System.out.println(element.getTempoEffettivo()+" minuti"));
+                                    percorsoDAO.countPercorsiByMezzoAndTrattaAndGetEffectiveTime(idMezzo, partenza2, capolinea2).forEach(element -> System.out.println(element.getTempoEffettivo() + " minuti"));
                                     if (confermaContinuo(scanner)) {
                                         uscire = true;
                                         break mainLoop;
@@ -618,7 +617,7 @@ public class Application {
             int input = scanner.nextInt();
             scanner.nextLine();
             if (input >= 1 && input <= listaRivenditori.size()) {
-                Rivenditore rivenditore = listaRivenditori.get(input);
+                Rivenditore rivenditore = listaRivenditori.get(input - 1);
                 long numeroTessera;
                 System.out.println("inserisci il numero tessera dell'utente");
                 do {
@@ -679,7 +678,7 @@ public class Application {
             int input = scanner.nextInt();
             scanner.nextLine();
             if (input >= 1 && input <= listaDistributori.size()) {
-                DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input);
+                DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input - 1);
                 long numeroTessera;
                 System.out.println("Inserisci il numero tessera dell'utente");
                 do {
@@ -719,7 +718,7 @@ public class Application {
                     } catch (NoResultException e) {
                         System.out.println("Inserisci un numero di tessera esistente");
                     }
-                } while (!verifica );
+                } while (!verifica);
             } else {
                 throw new IllegalArgumentException("Inserisci un numero valido");
             }
