@@ -8,8 +8,7 @@ import java.util.List;
 @Table(name = "tratta")
 public class Tratta {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue
     private int id;
     @Column(name = "partenza")
     private String partenza;
@@ -17,13 +16,8 @@ public class Tratta {
     private String capolinea;
     @Column(name = "tempo_medio")
     private int tempo_medio;
-    @Column(name = "numero_percorsi")
-    private  int numeroPercorsi;
-    @Column(name = "tempo_effettivo_percorsi")
-    private int tempoEffettivoPercorso;
-
-    @OneToMany(mappedBy = "tratta")
-    private List<Mezzo> mezzi;
+//    @OneToMany
+//    private InServizio inservizio;
 
     public Tratta(String partenza, String capolinea, int tempo_medio) {
         this.partenza = partenza;
@@ -31,53 +25,46 @@ public class Tratta {
         this.tempo_medio = tempo_medio;
     }
 
-    public Tratta() {}
-
+    public Tratta() {
+    }
 
     public int getId() {
         return id;
     }
+
+
+
     public String getPartenza() {
         return partenza;
     }
+
     public void setPartenza(String partenza) {
         this.partenza = partenza;
     }
+
     public String getCapolinea() {
         return capolinea;
     }
+
     public void setCapolinea(String capolinea) {
         this.capolinea = capolinea;
     }
+
     public int getTempo_medio() {
         return tempo_medio;
     }
+
     public void setTempo_medio(int tempo_medio) {
         this.tempo_medio = tempo_medio;
-    }
-    public int getNumeroPercorsi() {
-        return numeroPercorsi;
-    }
-    public void setNumeroPercorsi(int numeroPercorsi) {
-        this.numeroPercorsi = numeroPercorsi;
-    }
-    public int getTempoEffettivoPercorso() {
-        return tempoEffettivoPercorso;
-    }
-    public void setTempoEffettivoPercorso(int tempoEffettivoPercorso) {
-        this.tempoEffettivoPercorso = tempoEffettivoPercorso;
-    }
-
-    public List<Mezzo> getMezzi() {
-        return mezzi;
-    }
-
-    public void setMezzi(List<Mezzo> mezzi) {
-        this.mezzi = mezzi;
     }
 
     @Override
     public String toString() {
-        return " "+ id +" ";
+        return "Tratta{" +
+                "id=" + id +
+                ", partenza='" + partenza + '\'' +
+                ", capolinea='" + capolinea + '\'' +
+                ", tempo_medio=" + tempo_medio +
+                '}';
     }
 }

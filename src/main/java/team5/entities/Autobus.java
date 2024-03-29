@@ -6,34 +6,18 @@ import jakarta.persistence.*;
 @Table(name = "autobus")
 public class Autobus extends Mezzo{
     private int capienza;
-    private boolean inServizio;
-    @ManyToOne
-    @JoinColumn(name = "manutenzione_id")
-    private Manutenzione manutenzione;
-    @ManyToOne
-    @JoinColumn(name = "tratta_id")
-    private Tratta tratta;
+
+
     public Autobus(){}
-    public Autobus(int numeroMatricola, int capienza, boolean inServizio , Manutenzione manutenzione, Tratta tratta) {
+
+    public Autobus(int numeroMatricola, Tratta tratta, int capienza) {
         super(numeroMatricola, tratta);
-        this.capienza=capienza;
-        this.inServizio = inServizio;
-        this.manutenzione = manutenzione;
+        this.capienza = capienza;
+
     }
+
     public int getCapienza() {
         return capienza;
-    }
-
-    public boolean isInServizio() {
-        return inServizio;
-    }
-
-    public void setInServizio(boolean inServizio) {
-        this.inServizio = inServizio;
-    }
-
-    public Manutenzione getManutenzione() {
-        return manutenzione;
     }
 
     public void setCapienza(int capienza) {
@@ -42,13 +26,9 @@ public class Autobus extends Mezzo{
 
     @Override
     public String toString() {
-        return "Autobus: " +
-                "\nID: " + getId()+
-                "\nMatricola: " + getNumeroMatricola() +
-                "\nCapienza: " + capienza +
-                "\nIn Servizio: " + inServizio +
-                "\nManutenzione: " + getManutenzione() +
-                "\nTratta: " + getTratta();
-
+        return "Autobus{" +
+                "capienza=" + capienza +
+                ", id=" + id +
+                '}';
     }
 }

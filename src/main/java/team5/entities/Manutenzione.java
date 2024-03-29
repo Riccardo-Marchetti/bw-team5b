@@ -10,22 +10,21 @@ import java.util.List;
 public class Manutenzione {
     @Id
     @GeneratedValue
-    @Column(name = "id")
     private int id;
-    @Column(name = "data_inizio")
+
     private LocalDate data_inizio;
-    @Column(name = "data_fine")
+
     private LocalDate data_fine;
     @Column(name = "tipo_manutenzione")
     private String tipo_manutenzione;
-    @OneToMany(mappedBy = "manutenzione")
-    private List<Autobus> autobus;
-    @OneToMany(mappedBy = "manutenzione")
-    private List<Tram> tram;
-    public Manutenzione(LocalDate data_inizio, LocalDate data_fine, String tipo_manutenzione) {
+    @ManyToOne
+    @JoinColumn(name = "mezzo_id", referencedColumnName = "id")
+    private Mezzo mezzo;
+    public Manutenzione(LocalDate data_inizio, LocalDate data_fine, String tipo_manutenzione, Mezzo mezzo) {
         this.data_inizio = data_inizio;
         this.data_fine = data_fine;
         this.tipo_manutenzione = tipo_manutenzione;
+        this.mezzo = mezzo;
     }
     public Manutenzione() {
     }
@@ -56,6 +55,11 @@ public class Manutenzione {
 
     @Override
     public String toString() {
-        return " " + id + " ";
+        return "Manutenzione{" +
+                "id=" + id +
+                ", data_inizio=" + data_inizio +
+                ", data_fine=" + data_fine +
+                ", tipo_manutenzione='" + tipo_manutenzione + '\'' +
+                '}';
     }
 }

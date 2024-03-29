@@ -59,6 +59,16 @@ public class Percorso {
     public void setTempoEffettivo(int tempoEffettivo) {
         this.tempoEffettivo = tempoEffettivo;
     }
+
+    @Override
+    public String toString() {
+        return "Percorso{" +
+                "id=" + id +
+                ", mezzo=" + mezzo +
+                ", tratta=" + tratta +
+                ", tempoEffettivo=" + tempoEffettivo +
+                '}';
+    }
 }
 
 
