@@ -162,29 +162,29 @@ public class Application {
 //        ad.verificaAbbonamento(1).forEach(System.out::println);
 
         //Creazione tratte
-        Tratta tratta1 = new Tratta("Gardaland","Milano",90);
+        Tratta tratta1 = new Tratta("Gardaland", "Milano", 90);
         trattaDAO.save(tratta1);
-        Tratta tratta2 = new Tratta("Roma","Fiumicino",120);
+        Tratta tratta2 = new Tratta("Roma", "Fiumicino", 120);
         trattaDAO.save(tratta2);
-        Tratta tratta3 = new Tratta("Bari","Foggia",30);
+        Tratta tratta3 = new Tratta("Bari", "Foggia", 30);
         trattaDAO.save(tratta3);
-        Tratta tratta4 = new Tratta("Napoli","Milano",240);
+        Tratta tratta4 = new Tratta("Napoli", "Milano", 240);
         trattaDAO.save(tratta4);
 
         //Creazione mezzi autobus
-        Autobus autobus1 = new Autobus(10000,tratta1,55);
+        Autobus autobus1 = new Autobus(10000, tratta1, 55);
         autobusDAO.save(autobus1);
-        Autobus autobus2 = new Autobus(11000,tratta2,55);
+        Autobus autobus2 = new Autobus(11000, tratta2, 55);
         autobusDAO.save(autobus2);
-        Autobus autobus3 = new Autobus (15000,tratta4,55);
+        Autobus autobus3 = new Autobus(15000, tratta4, 55);
         autobusDAO.save(autobus3);
 
         //Creazione mezzi tram
-        Tram tram1 = new Tram(12000,tratta1,25);
+        Tram tram1 = new Tram(12000, tratta1, 25);
         tramDAO.save(tram1);
-        Tram tram2 = new Tram(13000,tratta2,30);
+        Tram tram2 = new Tram(13000, tratta2, 30);
         tramDAO.save(tram2);
-        Tram tram3 = new Tram (14000,tratta3,25);
+        Tram tram3 = new Tram(14000, tratta3, 25);
         tramDAO.save(tram3);
 
         //Validatrici
@@ -196,12 +196,11 @@ public class Application {
         Validatrice validatrice6 = new Validatrice(tram3);
 
 
-
 //        //CREAZIONE MANUTENZIONI
-            Manutenzione manutenzione1 = new Manutenzione(LocalDate.now(),LocalDate.now().plusDays(10),"Cambio gomme",autobus1);
-            md.save(manutenzione1);
-            Manutenzione manutenzione2 = new Manutenzione(LocalDate.of(2024,3,20),LocalDate.now(),"Verifica componenti elettrici",tram1);
-            md.save(manutenzione2);
+        Manutenzione manutenzione1 = new Manutenzione(LocalDate.now(), LocalDate.now().plusDays(10), "Cambio gomme", autobus1);
+        md.save(manutenzione1);
+        Manutenzione manutenzione2 = new Manutenzione(LocalDate.of(2024, 3, 20), LocalDate.now(), "Verifica componenti elettrici", tram1);
+        md.save(manutenzione2);
 //
 //        //SALVATAGGIO MANUTENZIONI
 //        md.save(manutenzione1);
@@ -297,8 +296,6 @@ public class Application {
 //        System.out.println("Trova Utente ed elimina");
 //        utenteDAO.findUtenteById(1);
 //        utenteDAO.eliminaUtenteById(1);
-
-
 
 
         Scanner scanner = new Scanner(System.in);
@@ -456,7 +453,7 @@ public class Application {
                                     scanner.nextLine();
                                     System.out.println("Lista mezzi in manutenzione nel periodo selezionato trovati:");
                                     caricamento();
-                                    mezzoDAO.periodiDiManutenzioneDelMezzo(dataInizio,dataFine,mezzoId).forEach(System.out::println);
+                                    mezzoDAO.periodiDiManutenzioneDelMezzo(dataInizio, dataFine, mezzoId).forEach(System.out::println);
                                     if (confermaContinuo(scanner)) {
                                         uscire = true;
                                         break mainLoop;
@@ -487,7 +484,7 @@ public class Application {
                                     System.out.println("Inserisci Arrivo");
                                     String capolinea = scanner.nextLine();
                                     System.out.println("Tratta percorsa dal mezzo: (n° di volte)");
-                                    System.out.println(percorsoDAO.countPercorsiByMezzoAndTratta(mezzoIdManutenzione,partenza,capolinea));
+                                    System.out.println(percorsoDAO.countPercorsiByMezzoAndTratta(mezzoIdManutenzione, partenza, capolinea));
 //                                    Tratta partenza = trattaDAO.findById(scanner.nextInt()); //modificare metodo da usare
 //                                    long prova = mezzoDAO.countPercorsiByMezzoAndTratta(mezzo, partenza);
 //                                    System.out.println("prova" + prova);
@@ -506,7 +503,7 @@ public class Application {
                                     System.out.println("Inserisci Arrivo");
                                     String capolinea2 = scanner.nextLine();
                                     System.out.println("Tempi effettivi della tratta percorsa:");
-                                    percorsoDAO.countPercorsiByMezzoAndTrattaAndGetEffectiveTime(idMezzo,partenza2,capolinea2).forEach(element-> System.out.println(element.getTempoEffettivo()+" minuti"));
+                                    percorsoDAO.countPercorsiByMezzoAndTrattaAndGetEffectiveTime(idMezzo, partenza2, capolinea2).forEach(element -> System.out.println(element.getTempoEffettivo() + " minuti"));
                                     if (confermaContinuo(scanner)) {
                                         uscire = true;
                                         break mainLoop;
@@ -693,7 +690,7 @@ public class Application {
             System.out.println("Scegli il rivenditore inserendo il numero di riferimento");
             int input = scanner.nextInt();
             if (input >= 1 && input <= listaRivenditori.size()) {
-                Rivenditore rivenditore = listaRivenditori.get(input);
+                Rivenditore rivenditore = listaRivenditori.get(input - 1);
                 long numeroTessera;
                 System.out.println("inserisci il numero tessera dell'utente");
                 do {
@@ -752,7 +749,7 @@ public class Application {
             System.out.println("Scegli il distributore automatico inserendo il numero di riferimento");
             int input = scanner.nextInt();
             if (input >= 1 && input <= listaDistributori.size()) {
-                DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input);
+                DistributoreAutomatico distributoreAutomatico = listaDistributori.get(input - 1);
                 long numeroTessera;
                 System.out.println("Inserisci il numero tessera dell'utente");
                 do {
