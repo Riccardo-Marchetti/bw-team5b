@@ -35,7 +35,5 @@ public class PercorsoDAO {
         transaction.commit();
         System.out.println("Percorso eliminato con successo");
     }
-
-    // Aggiungi altri metodi secondo le esigenze del tuo progetto
 }
 
