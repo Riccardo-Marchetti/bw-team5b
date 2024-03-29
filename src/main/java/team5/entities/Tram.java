@@ -23,4 +23,11 @@ public class Tram extends Mezzo {
         this.capienza = capienza;
     }
 
+    @Override
+    public String toString() {
+        return "Tram{" +
+                "capienza=" + capienza +
+                ", id=" + id +
+                '}';
+    }
 }

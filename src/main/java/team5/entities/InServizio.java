@@ -12,18 +12,11 @@ public class InServizio {
     @Id
     @GeneratedValue
     private int id;
-
     private LocalDate data_inizio;
-
     private LocalDate data_fine;
-
-
     @ManyToOne
     @JoinColumn(name = "mezzo_id")
     private Mezzo mezzo;
-
-//    @OneToMany
-//    private Tratta tratta;
 
     public InServizio(LocalDate data_inizio, LocalDate data_fine, Mezzo mezzo) {
         this.data_inizio = data_inizio;
@@ -58,14 +51,6 @@ public class InServizio {
         this.mezzo = mezzo;
     }
 
-//    public Tratta getTratta() {
-//        return tratta;
-//    }
-
-//    public void setTratta(Tratta tratta) {
-//        this.tratta = tratta;
-//    }
-
     @Override
     public String toString() {
         return "InServizio{" +
@@ -73,7 +58,6 @@ public class InServizio {
                 ", data_inizio=" + data_inizio +
                 ", data_fine=" + data_fine +
                 ", mezzo=" + mezzo +
-//                ", tratta=" + tratta +
                 '}';
     }
 }

@@ -29,8 +29,6 @@ public class Manutenzione {
     public Manutenzione() {
     }
 
-
-
     public int getId() {
         return id;
     }

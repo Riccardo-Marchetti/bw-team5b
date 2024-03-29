@@ -14,22 +14,10 @@ public class Biglietto {
     private boolean vidimato;
     private LocalDate dataVidimazione;
 
-    // MANY TO ONE EMITTENTE
-//    @ManyToOne
-//    @JoinColumn (name = "Rivenditore_id")
-//    private Rivenditore rivenditore;
     @ManyToOne
     @JoinColumn (name = "emittente_id")
     private Emittente emittente;
     // COSTRUTTORE
-//    public Biglietto(LocalDate dataEmissione,  boolean vidimato, LocalDate dataVidimazione, Rivenditore rivenditore) {
-//        this.dataEmissione = dataEmissione;
-////        this.puntoEmissione = puntoEmissione;
-//        this.vidimato = vidimato;
-//        this.dataVidimazione = dataVidimazione;
-//        this.rivenditore = rivenditore;
-//    }
-
 
     public Biglietto(LocalDate dataEmissione, boolean vidimato, LocalDate dataVidimazione, Emittente emittente) {
         this.dataEmissione = dataEmissione;
@@ -55,14 +43,6 @@ public class Biglietto {
         this.dataEmissione = dataEmissione;
     }
 
-//    public String getPuntoEmissione() {
-//        return puntoEmissione;
-//    }
-
-//    public void setPuntoEmissione(String puntoEmissione) {
-//        this.puntoEmissione = puntoEmissione;
-//    }
-
     public boolean getVidimato() {
         return vidimato;
     }
@@ -78,14 +58,6 @@ public class Biglietto {
     public void setDataVidimazione(LocalDate dataVidimazione) {
         this.dataVidimazione = dataVidimazione;
     }
-
-//    public Rivenditore getRivenditore() {
-//        return rivenditore;
-//    }
-
-//    public void setRivenditore(Rivenditore rivenditore) {
-//        this.rivenditore = rivenditore;
-//    }
 
     public Emittente getEmittente() {
         return emittente;

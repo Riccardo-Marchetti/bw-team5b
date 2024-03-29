@@ -45,5 +45,14 @@ public class Validatrice {
     public void setBiglietto(Biglietto biglietto) {
         this.biglietto = biglietto;
     }
+
+    @Override
+    public String toString() {
+        return "Validatrice{" +
+                "id=" + id +
+                ", mezzo=" + mezzo +
+                ", biglietto=" + biglietto +
+                '}';
+    }
 }
 
